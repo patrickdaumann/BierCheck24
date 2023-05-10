@@ -9,3 +9,21 @@ Unsere Bewertungsfunktion ist einfach und benutzerfreundlich gestaltet, damit Si
 Neben der Bewertungsfunktion bieten wir auch eine Suchfunktion, mit der Sie gezielt nach bestimmten Biersorten oder Brauereien suchen können. Sie können außerdem Kommentare hinterlassen und anderen Nutzern Fragen stellen oder Empfehlungen aussprechen.
 
 Unser Ziel ist es, eine lebendige Community von Bierliebhabern zu schaffen, die sich gegenseitig inspirieren und informieren. Wir freuen uns darauf, Sie auf unserer Plattform begrüßen zu dürfen und wünschen Ihnen viel Spaß beim Bewerten und Entdecken neuer Biersorten!
+
+
+## Install
+
+1. Migrationen Erstellen
+```bash
+python3 manage.py makemigrations 
+```
+
+2. Migrieren
+```bash
+python3 manage.py migrate
+```
+
+3. Server Starten
+```bash
+python3 manage.py runserver
+```
