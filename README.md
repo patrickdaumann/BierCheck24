@@ -10,4 +10,4 @@ Neben der Bewertungsfunktion bieten wir auch eine Suchfunktion, mit der Sie gezi
 
 Unser Ziel ist es, eine lebendige Community von Bierliebhabern zu schaffen, die sich gegenseitig inspirieren und informieren. Wir freuen uns darauf, Sie auf unserer Plattform begrüßen zu dürfen und wünschen Ihnen viel Spaß beim Bewerten und Entdecken neuer Biersorten!
 
-Blabla2
+Blabla1
