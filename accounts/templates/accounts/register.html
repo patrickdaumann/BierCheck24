@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Register</h2>
+  <form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit">Register</button>
+  </form>
+
+  <style>
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+    label {
+      margin-bottom: 5px;
+    }
+    input {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+
+{% endblock %}

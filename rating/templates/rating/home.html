@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user.get_username }} to the Beer Rating App!</h1>
+    <p>Rate and review your favorite beers, and see what others have to say.</p>
+    {% else %}
+    <h1>Welcome to the Beer Rating App! Please login for additional features!</h1>
+    <p>Rate and review your favorite beers, and see what others have to say.</p>
+    {% endif %}
+    
+{% endblock %}
+
+

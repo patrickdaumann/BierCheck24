@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ beer.name }}</h1>
+  <p> Beschreibung: {{ beer.description }}</p>
+  <p>IBU: {{ beer.ibu }}</p>
+  <p>Art: {{ beer.style }}</p>
+  <p>Preis: {{ beer.preis }} €</p>
+  {% if beer.brewery %}
+    <p>Brewery: <a href="{% url 'brewery_detail' pk=beer.brewery.pk %}">{{ beer.brewery.name }}</a></p>
+  {% endif %}
+  
+  <h2>Average Rating</h2>
+{% if average_rating != 'No ratings yet' %}
+  <p>Farbe: {{ average_rating.farbe__avg }}</p>
+  <p>Einstieg: {{ average_rating.einstieg__avg }}</p>
+  <p>Körper: {{ average_rating.koerper__avg }}</p>
+  <p>Abgang: {{ average_rating.abgang__avg }}</p>
+  <p>Kohlensäure: {{ average_rating.kohlensaeure__avg }}</p>
+  <p>Bitterkeit: {{ average_rating.bitterkeit__avg }}</p>
+  <p>Süffigkeit: {{ average_rating.sueffigkeit__avg }}</p>
+{% else %}
+  <p>No ratings yet</p>
+{% endif %}
+
+<a href="{% url 'rate_beer' beer.id %}">Rate this beer</a>
+{% endblock %}
