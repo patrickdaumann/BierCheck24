@@ -30,5 +30,5 @@ python3 manage.py runserver
 
 4. Superuser Erstellen
 ```bash
-python3 manage.py makesuperuser
+python3 manage.py createsuperuser
 ```
