@@ -9,3 +9,5 @@ Unsere Bewertungsfunktion ist einfach und benutzerfreundlich gestaltet, damit Si
 Neben der Bewertungsfunktion bieten wir auch eine Suchfunktion, mit der Sie gezielt nach bestimmten Biersorten oder Brauereien suchen können. Sie können außerdem Kommentare hinterlassen und anderen Nutzern Fragen stellen oder Empfehlungen aussprechen.
 
 Unser Ziel ist es, eine lebendige Community von Bierliebhabern zu schaffen, die sich gegenseitig inspirieren und informieren. Wir freuen uns darauf, Sie auf unserer Plattform begrüßen zu dürfen und wünschen Ihnen viel Spaß beim Bewerten und Entdecken neuer Biersorten!
+
+Blabla
