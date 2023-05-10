@@ -27,3 +27,8 @@ python3 manage.py migrate
 ```bash
 python3 manage.py runserver
 ```
+
+4. Superuser Erstellen
+```bash
+python3 manage.py makesuperuser
+```
