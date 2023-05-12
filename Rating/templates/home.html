@@ -1,10 +1,20 @@
-{% extends 'base.html' %}
-
-{% block content %}
-  <div class="container">
-    <h1>Willkommen bei Biercheck24.de!</h1>
-    <p>Hier kannst du Biere bewerten und sehen, was andere Benutzer über verschiedene Biere denken. </p>
-    <p>Unser Ziel ist es, eine umfassende Datenbank mit Bewertungen und Informationen über Biere aus der ganzen Welt aufzubauen.</p>
-    <p>Du kannst auch nach Biertypen oder Brauereien suchen, um Informationen über sie zu erhalten und Bewertungen zu sehen.</p>
-  </div>
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1>Biercheck24.de</h1>
+  {% if user.is_authenticated %}
+  <p>Willkommen, {{ user.username }}!</p>
+  {% endif %}
+  <p>
+    Hier kannst du Biere bewerten und sehen, was andere Benutzer über
+    verschiedene Biere denken.
+  </p>
+  <p>
+    Unser Ziel ist es, eine umfassende Datenbank mit Bewertungen und
+    Informationen über Biere aus der ganzen Welt aufzubauen.
+  </p>
+  <p>
+    Du kannst auch nach Biertypen oder Brauereien suchen, um Informationen über
+    sie zu erhalten und Bewertungen zu sehen.
+  </p>
+</div>
 {% endblock %}
