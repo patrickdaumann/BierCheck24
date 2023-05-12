@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ beer.name }}</h1>
-    <h2>{{ beer.display_name }}</h2>
+    <h1>{{ beer.display_name }}</h1>
     <p><strong>Brewery:</strong> {{ beer.brewery.name }}</p>
     <p><strong>Style:</strong> {{ beer.style.name }}</p>
     <p><strong>Alcohol content:</strong> {{ beer.alcohol_content }}%</p>
