@@ -1,0 +1,90 @@
+[
+  {
+    "model": "Rating.Brewery",
+    "pk": 1,
+    "fields": {
+      "name": "Anheuser-Busch InBev",
+      "display_name": "Anheuser-Busch InBev",
+      "location": "Belgium",
+      "founded_year": 2008,
+      "description": "Anheuser-Busch InBev is a multinational beverage and brewing company based in Leuven, Belgium. It is the world's largest brewer with nearly 500 brands and operations in over 50 countries."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": 2,
+    "fields": {
+      "name": "Heineken",
+      "display_name": "Heineken",
+      "location": "Netherlands",
+      "founded_year": 1864,
+      "description": "Heineken is a Dutch brewing company founded in 1864. It is the second largest brewer in the world and produces over 250 international, regional, local and specialty beers and ciders."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": 3,
+    "fields": {
+      "name": "Carlsberg",
+      "display_name": "Carlsberg",
+      "location": "Denmark",
+      "founded_year": 1847,
+      "description": "Carlsberg is a Danish brewing company founded in 1847. It is the fourth largest brewer in the world and produces over 500 beer brands."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": 4,
+    "fields": {
+      "name": "Bitburger Braugruppe",
+      "display_name": "Bitburger",
+      "location": "Germany",
+      "founded_year": 1817,
+      "description": "Bitburger Braugruppe is a German brewing company founded in 1817. It is one of the largest privately owned breweries in Germany and produces over 20 beer brands."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": 5,
+    "fields": {
+      "name": "Oettinger Brauerei",
+      "display_name": "Oettinger",
+      "location": "Germany",
+      "founded_year": 1731,
+      "description": "Oettinger Brauerei is a German brewing company founded in 1731. It is one of the largest privately owned breweries in Germany and produces over 30 beer brands."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": 6,
+    "fields": {
+      "name": "Radeberger Gruppe",
+      "display_name": "Radeberger",
+      "location": "Germany",
+      "founded_year": 1872,
+      "description": "Radeberger Gruppe is a German brewing company founded in 1872. It is one of the largest brewery groups in Germany and produces over 20 beer brands."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": 7,
+    "fields": {
+      "name": "Cölner Hofbräu Früh",
+      "display_name": "Früh",
+      "location": "Germany",
+      "founded_year": 1904,
+      "description": "Die Cölner Hofbräu Früh GmbH ist eine Brauerei mit Sitz in Köln und gehört zu den ältesten Brauereien Deutschlands. Sie wurde im Jahr 1904 gegründet und ist vor allem bekannt für ihr Kölsch, ein obergäriges Bier, das in der Region um Köln hergestellt wird. Die Brauerei hat eine lange Tradition und ist eng mit der Kölner Kultur und Geschichte verbunden. Sie betreibt mehrere Gaststätten in der Stadt und ist eine der bekanntesten Brauereien in der Region."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": 8,
+    "fields": {
+      "name": "Erdinger Weissbräu",
+      "display_name": "Erdinger Weissbräu",
+      "location": "Erding, Germany",
+      "founded_year": 1886,
+      "description": "Erdinger Weissbräu is a brewery located in Erding, Germany. It is best known for its Weissbier, a traditional Bavarian wheat beer that has been brewed since 1886."
+    }
+  }
+]

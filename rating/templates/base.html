@@ -2,31 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %}</title>
+    <title>{% block title %}Biercheck24.de{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                
-                {% if user.is_authenticated %}
-                    
-                    <li><a href="{% url 'beers' %}">Beers</a></li>
-                    <li><a href="{% url 'add_beer' %}">Add Beer</a></li>
-                    <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
-                {% else %}
-                    <li><a href="{% url 'beers' %}">Beers</a></li>
-                    <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
-                    <li><a href="{% url 'register' %}?next={{ request.path }}">Register</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#">Bierliste</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Brauereien</a></li>
+            <li><a href="#">News</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

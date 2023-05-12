@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ beer.name }}</h1>
+    <h2>{{ beer.display_name }}</h2>
+    <p><strong>Brewery:</strong> {{ beer.brewery.name }}</p>
+    <p><strong>Style:</strong> {{ beer.style.name }}</p>
+    <p><strong>Alcohol content:</strong> {{ beer.alcohol_content }}%</p>
+    <p><strong>Original gravity:</strong> {{ beer.original_gravity }}</p>
+    <p><strong>Recommended serving temperature:</strong> {{ beer.recommended_serving_temperature }}°C</p>
+    <p><strong>Organic:</strong> {% if beer.is_organic %}Yes{% else %}No{% endif %}</p>
+    <p><strong>Clarity:</strong> {{ beer.clarity }}</p>
+    <p><strong>Yeast:</strong> {{ beer.yeast }}</p>
+    <p><strong>Gluten-free:</strong> {% if beer.is_gluten_free %}Yes{% else %}No{% endif %}</p>
+    <p><strong>Description:</strong> {{ beer.description }}</p>
+{% endblock %}

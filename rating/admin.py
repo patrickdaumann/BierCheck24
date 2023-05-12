@@ -1,6 +1,9 @@
 from django.contrib import admin
-from .models import Beer
-from .models import Rating
+from .models import Brewery, Beer, Beertype, Rating
 
-admin.site.register(Rating)
+
+# Register your models here.
+admin.site.register(Brewery)
 admin.site.register(Beer)
+admin.site.register(Beertype)
+admin.site.register(Rating)

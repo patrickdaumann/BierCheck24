@@ -1,4 +1,31 @@
-db.sqlite3
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore Django migrations
+**/migrations/
+
+# Local development settings
+settings_local.py
+
+# Static files
+/staticfiles/
+*.css.map
+*.js.map
+*.scssc
+
+
+# Database
+*.sqlite3
+*.db
+
+# IDE configuration files
+.vscode/
+.idea/
+
+# Compiled translations
+locale/
+
+# MAC Specific
 .DS_Store
-*.pyc
-*.pyo

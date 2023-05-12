@@ -1,0 +1,59 @@
+[
+  {
+    "model": "Rating.Beer",
+    "pk": 1,
+    "fields": {
+      "brewery": 7,
+      "approvalstatus": true,
+      "name": "Kölsch",
+      "display_name": "Früh Kölsch",
+      "style": 6,
+      "alcohol_content": "4.8",
+      "original_gravity": "11.3",
+      "recommended_serving_temperature": 7,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Fermentis SafAle™ K-97",
+      "is_gluten_free": false,
+      "description": "Früh Kölsch ist ein frisches, vollmundiges und feinherbes Kölsch. Es wird nach dem deutschen Reinheitsgebot von 1516 gebraut und enthält ausschließlich natürliche Zutaten."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 2,
+    "fields": {
+      "brewery": 4,
+      "approvalstatus": true,
+      "name": "Pils",
+      "display_name": "Bitburger Premium Pils",
+      "style": 1,
+      "alcohol_content": "4.8",
+      "original_gravity": "12.8",
+      "recommended_serving_temperature": 8,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Bitburger Haushefe",
+      "is_gluten_free": false,
+      "description": "Bitburger Premium Pils ist ein klassisches deutsches Pilsener Bier, das aus natürlichen Zutaten hergestellt wird. Es hat eine feine Hopfenbittere und einen angenehm herb-frischen Geschmack."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 3,
+    "fields": {
+      "brewery": 8,
+      "approvalstatus": true,
+      "name": "Weißbier",
+      "display_name": "Erdinger Weissbier",
+      "style": 2,
+      "alcohol_content": "5.3",
+      "original_gravity": "12.5",
+      "recommended_serving_temperature": 6,
+      "is_organic": false,
+      "clarity": "Trüb",
+      "yeast": "Erdinger Hefe",
+      "is_gluten_free": false,
+      "description": "Erdinger Weissbier ist ein erfrischendes Weißbier mit einer natürlichen Trübung und einer feinen Hefenote. Es wird nach dem bayerischen Reinheitsgebot von 1516 gebraut und enthält nur Wasser, Malz, Hopfen und Hefe."
+    }
+  }
+]

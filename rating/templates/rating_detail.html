@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Beer Rating Details</h1>
+  <p><strong>Beer:</strong> {{ rating.beer.name }} ({{ rating.beer.brewery.name }})</p>
+  <p><strong>User:</strong> {{ rating.user.username }}</p>
+  <p><strong>Color:</strong> {{ rating.color }}/10</p>
+  <p><strong>Entry:</strong> {{ rating.entry }}/10</p>
+  <p><strong>Body:</strong> {{ rating.body }}/10</p>
+  <p><strong>Finish:</strong> {{ rating.finish }}/10</p>
+  <p><strong>Carbonation:</strong> {{ rating.carbonation }}/10</p>
+  <p><strong>Acidity:</strong> {{ rating.acidity }}/10</p>
+  <p><strong>Bitterness:</strong> {{ rating.bitterness }}/10</p>
+  <p><strong>Drinkability:</strong> {{ rating.drinkability }}/10</p>
+  <p><strong>Price:</strong> 
+    {% if rating.price == 1 %}
+      €
+    {% elif rating.price == 2 %}
+      €€
+    {% elif rating.price == 3 %}
+      €€€
+    {% endif %}
+  </p>
+{% endblock %}
