@@ -6,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
+from .forms import RatingForm
+
 # Hier werden die Routen für die Endpoints (URLs) eingetragen
 def home(request):
     return render(request, 'home.html')
@@ -65,3 +67,19 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+
+def rate_beer(request):
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.user = request.user
+            rating.save()
+            return redirect('rating_success') # Weiterleitung zur Erfolgsseite
+    else:
+        form = RatingForm()
+    return render(request, 'rate_beer.html', {'form': form})
+
+def rating_success(request):
+    return render(request=request, template_name='rating_success.html')
