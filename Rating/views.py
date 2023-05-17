@@ -15,6 +15,9 @@ def home(request):
 def test(request):
     return render(request=request, template_name='test.html')
 
+def about(request):
+    return render(request, template_name='about.html')
+
 def beertype_detail(request, beertype_id):
     beertype = Beertype.objects.get(id=beertype_id)
     context = {'beertype': beertype}

@@ -18,5 +18,6 @@ urlpatterns = [
     path('brewery/<int:brewery_id>/', brewery_detail,  name='brewery_detail'),
     path('rating/<int:rating_id>/', rating_detail,  name='rating_detail'),
     path('rate', rate_beer, name="rate_beer"),
-    path('rating_success', rating_success, name='rating_success')
+    path('rating_success', rating_success, name='rating_success'),
+    path('about', views.about, name="about")
 ]
