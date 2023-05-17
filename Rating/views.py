@@ -5,7 +5,7 @@ from .models import Beer, Brewery, Beertype, Rating
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
+from django.views.generic.list import ListView
 from .forms import RatingForm
 
 # Hier werden die Routen für die Endpoints (URLs) eingetragen
@@ -27,6 +27,11 @@ def beer_detail(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
     context = {'beer': beer}
     return render(request, 'beer_detail.html', context)
+
+def beer_list(request):                 #Liste mit allen Bieren
+    beers = Beer.objects.all()
+    context = {'beers': beers}
+    return render(request, 'beer_list.html', context)
 
 def brewery_detail(request, brewery_id):
     brewery = Brewery.objects.get(id=brewery_id)
