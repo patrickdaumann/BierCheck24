@@ -2,7 +2,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  <h1>Rate Beer</h1>
+  <h1>Rate Beer {{ beer.display_name }}</h1>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

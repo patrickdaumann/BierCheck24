@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-from .views import beertype_detail, beer_detail, brewery_detail, rating_detail, rate_beer, rating_success, beer_list, about, brewery_list
+from .views import beertype_detail, beer_detail, brewery_detail, rating_detail, rating_success, beer_list, about, brewery_list, rate_beer_by_id
 
 
 
@@ -17,10 +17,9 @@ urlpatterns = [
     path('beer/<int:beer_id>/', beer_detail,  name='beer_detail'),
     path('brewery/<int:brewery_id>/', brewery_detail,  name='brewery_detail'),
     path('rating/<int:rating_id>/', rating_detail,  name='rating_detail'),
-    path('rate', rate_beer, name="rate_beer"),
     path('rating_success', rating_success, name='rating_success'),
     path('about', about, name="about"),
     path('beer_list', beer_list, name='beer_list'),
-    path('brewery_list', brewery_list, name='brewery_list')
-
+    path('brewery_list', brewery_list, name='brewery_list'),
+    path('ratebeerbyid/<int:beer_id>', rate_beer_by_id, name='rate_beer_by_id'),
 ]
