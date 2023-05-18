@@ -20,10 +20,6 @@ python3 manage.py runserver
 
 ```
 
-<<<<<<< HEAD
 - Nach einem frischen Klonen ist --syncdb notwendig, da sonst notwendige Tabellen in der Datenbank fehlen!
 
 - Test
-=======
-- Nach einem frischen Klonen ist --run-syncdb notwendig, da sonst notwendige Tabellen in der Datenbank fehlen!
->>>>>>> 6a4aaaccfeee2b3044d7ff7acbf496bc537be3aa
