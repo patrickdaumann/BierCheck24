@@ -9,6 +9,6 @@
     <input type="submit" value="Rate">
   </form>
 {% else %}
-<p>You must be logged in to rate!</p>
+<p>Du musst angemeldet sein um Biere zu bewerten! <a href="{% url 'login' %}">Zum Login</a> </p>
 {% endif %}
 {% endblock %}

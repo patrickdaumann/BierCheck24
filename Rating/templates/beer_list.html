@@ -4,7 +4,7 @@
   <h1>Beer List</h1>
   <ul>
     {% for beer in beers %}
-      <li>{{ beer.display_name }}</li>
+      <li><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }}</a> - <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}">Jetzt Berwerten</a></li>
     {% empty %}
       <li>No beers available</li>
     {% endfor %}
