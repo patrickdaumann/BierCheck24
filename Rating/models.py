@@ -85,6 +85,9 @@ class Rating(models.Model):
     # Bezug auf das Bier
     beer = models.ForeignKey(Beer, on_delete=models.CASCADE)
 
+    # Empfohlen: Ja/Nein
+    recommended = models.BooleanField()
+
     # Bezug auf den bewertenden User
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
