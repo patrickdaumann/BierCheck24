@@ -28,7 +28,7 @@ def beer_detail(request, beer_id):
     context = {'beer': beer}
     return render(request, 'beer_detail.html', context)
 
-def beer_list(request):                 #Liste mit allen Bieren
+def beer_list(request):                 #Liste mit allen Bieren Test
     beers = Beer.objects.all()
     context = {'beers': beers}
     return render(request, 'beer_list.html', context)

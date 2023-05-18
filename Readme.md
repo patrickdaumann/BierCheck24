@@ -21,3 +21,5 @@ python3 manage.py runserver
 ```
 
 - Nach einem frischen Klonen ist --syncdb notwendig, da sonst notwendige Tabellen in der Datenbank fehlen!
+
+- Test
