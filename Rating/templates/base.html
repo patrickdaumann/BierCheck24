@@ -11,7 +11,7 @@
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'beer_list' %}">Bierliste</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="#">Brauereien</a></li>
+        <li><a href="{% url 'brewery_list' %}">Brauereien</a></li>
         <li><a href="#">News</a></li>
         <li><a href="/admin">Admin</a></li>
         {% if user.is_authenticated %}

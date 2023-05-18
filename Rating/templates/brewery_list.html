@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Brewery List</h1>
+  <ul>
+    {% for brewery in breweries %}
+      <li>{{ brewery.name }}</li>
+    {% empty %}
+      <li>No breweries available</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
