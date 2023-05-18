@@ -7,47 +7,63 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.generic.list import ListView
 from .forms import RatingFormByID
+
 # Hier werden die Routen für die Endpoints (URLs) eingetragen
+
+
+# Homepage
 def home(request):
     return render(request, 'home.html')
 
-def test(request):
-    return render(request=request, template_name='test.html')
 
+# About Seite
 def about(request):
     return render(request, template_name='about.html')
 
+
+# Detail Ansicht für die verschiedenen Bier Arten
 def beertype_detail(request, beertype_id):
     beertype = Beertype.objects.get(id=beertype_id)
     context = {'beertype': beertype}
     return render(request, 'beertype_detail.html', context)
 
+
+# Detailansicht für die Biere (Bspw. Früh Kölsch)
 def beer_detail(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
     context = {'beer': beer}
     return render(request, 'beer_detail.html', context)
 
-def beer_list(request):                 #Liste mit allen Bieren Test
+
+# Listenansicht für alle Biere
+def beer_list(request):
     beers = Beer.objects.all()
     context = {'beers': beers}
     return render(request, 'beer_list.html', context)
 
-def brewery_list(request):                 #Liste mit allen Brauereien
+
+# Listenansicht für alle Brauereien
+def brewery_list(request):
     breweries = Brewery.objects.all()
     context = {'breweries': breweries}
     return render(request, 'brewery_list.html', context)
+
 
 def brewery_detail(request, brewery_id):
     brewery = Brewery.objects.get(id=brewery_id)
     context = {'brewery': brewery}
     return render(request, 'brewery_detail.html', context)
 
+
+# Detailansicht für eine einzelne Bewertung
 def rating_detail(request, rating_id):
-    #rating = get_object_or_404(Rating, pk=rating_id)
+    # rating = get_object_or_404(Rating, pk=rating_id)
     rating = Rating.objects.get(id=rating_id)
     context = {'rating': rating}
     return render(request, 'rating_detail.html', context)
 
+
+# Nutzer Registrierung
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -64,6 +80,8 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
 
+
+# Nutzerlogin
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -71,16 +89,20 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home') # Hier kann man zu einer anderen URL weiterleiten
+            # Hier kann man zu einer anderen URL weiterleiten
+            return redirect('home')
         else:
             messages.error(request, 'Invalid username or password.')
     return render(request, 'login.html')
 
+
+# Nutzerlogout
 def logout_user(request):
     logout(request)
     return redirect('home')
 
 
+# Bewertungsseite auf der eine Bewertung erstellt werden kann
 def rate_beer_by_id(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
     if request.method == 'POST':
@@ -90,11 +112,12 @@ def rate_beer_by_id(request, beer_id):
             rating.user = request.user
             rating.beer = beer
             rating.save()
-            return redirect('rating_success') # Weiterleitung zur Erfolgsseite
+            return redirect('rating_success')  # Weiterleitung zur Erfolgsseite
     else:
         form = RatingFormByID()
     return render(request, 'rate_beer_by_id.html', {'form': form, 'beer': beer})
 
 
+# Anzeige einer Erfolgsmeldung nach dem erstellen einer Bewertung
 def rating_success(request):
     return render(request=request, template_name='rating_success.html')

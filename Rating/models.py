@@ -5,13 +5,13 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 # Create your models here.
 
 
+# Erweiterung des User Models
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     about = models.TextField()
 
+
 # Klasse für die Bierstile: Pils, Kölsch, Weizen, etc.
-
-
 class Beertype(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
@@ -23,9 +23,8 @@ class Beertype(models.Model):
     def __str__(self) -> str:
         return self.name
 
+
 # Klasse für die Basisdaten der Brauereien bzw. Hersteller der Biere
-
-
 class Brewery(models.Model):
     name = models.CharField(max_length=255)
     display_name = models.CharField(max_length=255)
@@ -37,9 +36,8 @@ class Brewery(models.Model):
     def __str__(self):
         return self.name
 
+
 # Klasse für die Basisdaten der einzelnen Biersorten
-
-
 class Beer(models.Model):
     # Primärschlüssel
     id = models.AutoField(primary_key=True)
@@ -81,6 +79,7 @@ class Beer(models.Model):
         return f"{self.display_name}"
 
 
+# Klasse für die Bewertungen
 class Rating(models.Model):
     # Bezug auf das Bier
     beer = models.ForeignKey(Beer, on_delete=models.CASCADE)

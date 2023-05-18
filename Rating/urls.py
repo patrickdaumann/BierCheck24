@@ -4,15 +4,11 @@ from django.contrib.auth import views as auth_views
 from .views import beertype_detail, beer_detail, brewery_detail, rating_detail, rating_success, beer_list, about, brewery_list, rate_beer_by_id
 
 
-
 urlpatterns = [
     path('', views.home, name='home'),
-    
     path('register/', views.register, name='register'),
-    #path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('login/', views.login_user, name='login'),
-    path('test/', views.test, name='test'),
     path('beertype/<int:beertype_id>/', beertype_detail,  name='beertype_detail'),
     path('beer/<int:beer_id>/', beer_detail,  name='beer_detail'),
     path('brewery/<int:brewery_id>/', brewery_detail,  name='brewery_detail'),
