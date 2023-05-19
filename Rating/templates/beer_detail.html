@@ -12,4 +12,47 @@
     <p><strong>Yeast:</strong> {{ beer.yeast }}</p>
     <p><strong>Gluten-free:</strong> {% if beer.is_gluten_free %}Yes{% else %}No{% endif %}</p>
     <p><strong>Description:</strong> {{ beer.description }}</p>
+
+
+
+{% if average_ratings %}
+    <h2>Durchschnittliche Bewertung</h2>
+    <p><strong>Farbe (1-10):</strong> {{ average_ratings.color__avg }}</p>
+    <p><strong>Einstieg (1-10):</strong> {{ average_ratings.entry__avg }}</p>
+    <p><strong>Körper (1-10):</strong> {{ average_ratings.body__avg }}</p>
+    <p><strong>Abgang (1-10):</strong> {{ average_ratings.finish__avg }}</p>
+    <p><strong>Kohlensäure (1-10):</strong> {{ average_ratings.carbonation__avg }}</p>
+    <p><strong>Säure (1-10):</strong> {{ average_ratings.acidity__avg }}</p>
+    <p><strong>Bitterkeit (1-10):</strong> {{ average_ratings.bitterness__avg }}</p>
+    <p><strong>Süffigkeit (1-10):</strong> {{ average_ratings.drinkability__avg }}</p>
+    {% if average_ratings.price__avg == 1 %}
+    <p><strong>Price: €</strong></p>
+    {% elif average_ratings.price__avg == 2 %}
+    <p><strong>Price: €€</strong></p>
+    {% elif average_ratings.price__avg == 3 %}
+    <p><strong>Price: €€€</strong></p>
+    {% endif %}
+
+    {% if beer.ratings_count >= 1 and recommended_percentage >= 80 %}
+    <p><strong>Besonders empfehlenswert  </strong> &#40; Bedeutet Score &#62; 80.0  und Bewertungen sind mehr als X. &#41; </p>
+    {% endif %}
+
+    <h2>Bewertungen</h2>
+
+    <p><strong>Bewertungen:</strong> {{ beer.ratings_count }}</p>
+    <p><strong>Wurde {{ beer.recommended_count }} mal empfohlen</strong></p> 
+    <p><strong>Score: </strong> {{recommended_percentage }} &#40; Verhältnis von Anzahl aller Bewertungen zur Anzahl von Empfehlungen in diesen. &#41;  </p> 
+
+    {% if recommended_percentage <= 50 and recommended_percentage > 0%}
+    <p><strong>So, lala</strong></p>
+    {% elif recommended_percentage > 50 and recommended_percentage <= 80%}
+    <p><strong>Schon besser</strong></p>
+    {% elif recommended_percentage > 80 %}
+    <p><strong>Super</strong></p>
+    {% endif %}
+
+{% else %}
+  <p>No ratings yet</p>
+{% endif %}
+
 {% endblock %}

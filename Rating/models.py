@@ -74,6 +74,12 @@ class Beer(models.Model):
 
     # Freitext für eine Beschreibung
     description = models.TextField()
+    
+    ratings_count = models.IntegerField(default=0)
+    
+    recommended_count = models.IntegerField(default=0)
+    
+  
 
     def __str__(self):
         return f"{self.display_name}"

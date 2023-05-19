@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.generic.list import ListView
 from .forms import RatingFormByID
+from django.db.models import Avg, Count
 
 # Hier werden die Routen für die Endpoints (URLs) eingetragen
 
@@ -31,7 +32,27 @@ def beertype_detail(request, beertype_id):
 # Detailansicht für die Biere (Bspw. Früh Kölsch)
 def beer_detail(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
-    context = {'beer': beer}
+    ratings = Rating.objects.filter(beer=beer)
+    average_ratings = ratings.aggregate(
+        Avg('color'), Avg('entry'), Avg('body'),
+        Avg('finish'), Avg('carbonation'), Avg('acidity'),
+        Avg('bitterness'), Avg('drinkability'), Avg('price')
+    )
+    beer.recommended_count = Rating.objects.filter(beer=beer, recommended=True).count()
+    beer.ratings_count = Rating.objects.filter(beer=beer).count()
+
+    if beer.ratings_count > 0:
+        recommended_percentage = (beer.recommended_count / beer.ratings_count) * 100
+    else:
+        recommended_percentage = 0
+     
+    context = {
+        'beer': beer,
+        'average_ratings': average_ratings,
+        'recommended_count': beer.recommended_count,
+        'ratings_count': beer.ratings_count,
+        'recommended_percentage': recommended_percentage
+    }
     return render(request, 'beer_detail.html', context)
 
 
@@ -105,6 +126,8 @@ def logout_user(request):
 # Bewertungsseite auf der eine Bewertung erstellt werden kann
 def rate_beer_by_id(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
+    
+    
     if request.method == 'POST':
         form = RatingFormByID(request.POST)
         if form.is_valid():
@@ -112,10 +135,15 @@ def rate_beer_by_id(request, beer_id):
             rating.user = request.user
             rating.beer = beer
             rating.save()
+            
+            beer.ratings_count = Rating.objects.filter(beer=beer).count() #Wieviele Berwertungen wurden schon abgegeben
+            beer.recommended_count = Rating.objects.filter(beer=beer, recommended=True).count() #Wie oft es als 'Recommended' ausgewählt wurde
+            beer.save()
+                    
             return redirect('rating_success')  # Weiterleitung zur Erfolgsseite
     else:
         form = RatingFormByID()
-    return render(request, 'rate_beer_by_id.html', {'form': form, 'beer': beer})
+    return render(request, 'rate_beer_by_id.html', {'form': form, 'beer': beer, 'ratings_count': beer.ratings_count, 'recommended_count': beer.recommended_count})
 
 
 # Anzeige einer Erfolgsmeldung nach dem erstellen einer Bewertung
