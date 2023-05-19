@@ -75,8 +75,10 @@ class Beer(models.Model):
     # Freitext für eine Beschreibung
     description = models.TextField()
     
+    #Zähler für die Anzahl von Bewertungen
     ratings_count = models.IntegerField(default=0)
     
+    #Zähler für die Anzahl von 'recommendet' in Bewertungen
     recommended_count = models.IntegerField(default=0)
     
   
@@ -141,6 +143,7 @@ class Rating(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(3)]
     )
 
+    
     def __str__(self):
         return f"{self.beer} Rating by {self.user.username}"
 

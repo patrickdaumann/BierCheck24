@@ -21,6 +21,9 @@ def home(request):
 def about(request):
     return render(request, template_name='about.html')
 
+# News Seite
+def news(request):
+    return render(request, template_name='news.html')
 
 # Detail Ansicht für die verschiedenen Bier Arten
 def beertype_detail(request, beertype_id):
