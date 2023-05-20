@@ -3,9 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>{% block title %}Biercheck24.de{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    {% load bootstrap5 %}         <!--Bootstrap5 wird geladen-->
+    {% bootstrap_css %}           <!-- insertes link element to bootstrap stylesheet-->
+    {% bootstrap_javascript %}    <!-- inserts the <script> element with the referral to the necessary javascript file-->
   </head>
   <body>
+    <!--
     <nav>
       <ul>
         <li><a href="{% url 'home' %}">Home</a></li>
@@ -21,6 +25,34 @@
         {% endif %}
       </ul>
     </nav>
-    <div class="content">{% block content %}{% endblock %}</div>
+    //-->
+    <div class="content">
+      <ul class="nav bg-info">
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'home' %}">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'beer_list' %}">Bierliste</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'brewery_list' %}">Brauereien</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'news' %}">News</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="{% url 'about' %}">About</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-light" href="/admin">Admin</a>
+        </li>
+      </ul>      
+      {% block content %}
+      {% endblock %}
+    </div>
   </body>
 </html>
