@@ -12,7 +12,7 @@ python3 manage.py createsuperuser
 
 python3 manage.py loaddata Beertypes.json --app Rating
 
-python3 manage.py loaddata Brewerys.json --app Rating
+python3 manage.py loaddata Breweries.json --app Rating
 
 python3 manage.py loaddata Beers.json --app Rating
 
