@@ -22,4 +22,4 @@ python3 manage.py runserver
 
 - Nach einem frischen Klonen ist --syncdb notwendig, da sonst notwendige Tabellen in der Datenbank fehlen!
 
-- Test
+- WICHTIG: Bitte 1x lokal: "pip install django-bootstrap-v5" ausführen um Bootstrap nutzen zu können!
