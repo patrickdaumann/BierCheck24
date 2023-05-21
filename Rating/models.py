@@ -45,6 +45,7 @@ class Beer(models.Model):
 
     # Brauerei -> Fremdschlüssel des Typs Brauerei
     brewery = models.ForeignKey(Brewery, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, blank=True, null=True)
     display_name = models.CharField(max_length=100)
 
     # Stil -> Pils, Kölsch...

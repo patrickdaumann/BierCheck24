@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+
+{% if user.is_authenticated %}
+<h1>Add Beer</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Beer</button>
+</form>
+{% else %}
+<p>Du musst angemeldet sein um Biere zu bewerten! <a href="{% url 'login' %}">Zum Login</a> </p>
+{% endif %}
+
+{% endblock %}

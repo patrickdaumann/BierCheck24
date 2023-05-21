@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.generic.list import ListView
-from .forms import RatingFormByID
+from .forms import RatingFormByID, BeerForm
 from django.db.models import Avg, Count
 
 # Hier werden die Routen für die Endpoints (URLs) eingetragen
@@ -124,6 +124,27 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+# Seite zum hinzufügen von Bieren
+
+
+def add_beer(request):
+    if request.method == 'POST':
+        form = BeerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('beer_list')
+        print(form.errors)  
+    else:
+        form = BeerForm()
+    
+    form.fields.pop('name')
+    form.fields.pop('ratings_count')
+    form.fields.pop('recommended_count')
+
+    context = {'form': form}
+    return render(request, 'add_beer.html', context)
+
 
 
 # Bewertungsseite auf der eine Bewertung erstellt werden kann
