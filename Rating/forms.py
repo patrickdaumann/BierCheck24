@@ -13,5 +13,7 @@ class BeerForm(forms.ModelForm):
         model = Beer
         fields = '__all__'
         widgets = {
-            'name': forms.TextInput(attrs={'required': False}),  # Set required attribute to False
+            'name': forms.TextInput(attrs={'required': False}),  # Attribute die nicht bei einem Bier benötigt werden
+            'ratings_count': forms.TextInput(attrs={'required': False}),  
+            'recommenden_count': forms.TextInput(attrs={'required': False}),  
         }

@@ -76,10 +76,10 @@ class Beer(models.Model):
     description = models.TextField()
     
     #Zähler für die Anzahl von Bewertungen
-    ratings_count = models.IntegerField(default=0)
+    ratings_count = models.IntegerField(default=0, blank=True, null=True)
     
     #Zähler für die Anzahl von 'recommendet' in Bewertungen
-    recommended_count = models.IntegerField(default=0)
+    recommended_count = models.IntegerField(default=0, blank=True, null=True)
     
   
 

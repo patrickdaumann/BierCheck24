@@ -132,15 +132,19 @@ def add_beer(request):
     if request.method == 'POST':
         form = BeerForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('beer_list')
-        print(form.errors)  
+            display_name = form.cleaned_data['display_name']
+            if Beer.objects.filter(display_name=display_name).exists():
+                messages.error(request, f'A beer with the name "{display_name}" already exists.')
+            else:
+                form.save()
+                return redirect('add_success')  # Weiterleitung zur Erfolgsseite 
     else:
         form = BeerForm()
     
     form.fields.pop('name')
     form.fields.pop('ratings_count')
     form.fields.pop('recommended_count')
+
 
     context = {'form': form}
     return render(request, 'add_beer.html', context)
@@ -173,3 +177,7 @@ def rate_beer_by_id(request, beer_id):
 # Anzeige einer Erfolgsmeldung nach dem erstellen einer Bewertung
 def rating_success(request):
     return render(request=request, template_name='rating_success.html')
+
+# Anzeige einer Erfolgsmeldung nach dem Hinzufügen eines Bieres
+def add_success(request):
+    return render(request=request, template_name='add_success.html')

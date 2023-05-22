@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>Bier gespeichert</h1>
+    <p>Vielen Dank für Ihre Unterstützung!</p>
+    <a href="{% url 'home' %}">Zurück zur Startseite</a>
+    <a href="{% url 'beer_list' %}">Zurück zur Bierliste</a>
+  </div>
+{% endblock %}
