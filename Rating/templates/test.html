@@ -1,9 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Mein erstes Django-Template</title>
-  </head>
-  <body>
-    <h1>Das ist ein Test!</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <title>Registrierung</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <h1 class="text-center mb-4">Registrierung</h1>
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">E-Mail</label>
+            <input type="email" class="form-control" id="email" placeholder="E-Mail eingeben" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Passwort</label>
+            <input type="password" class="form-control" id="password" placeholder="Passwort eingeben" required>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Registrieren</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

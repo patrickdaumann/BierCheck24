@@ -5,6 +5,8 @@
   <ul>
     {% for beer in beers %}
       <li><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }}</a> - <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}">Jetzt Berwerten</a></li>
+
+      <!-- <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}" class="btn btn-success">{{beer.display_name}}</a> <input type="button" class="btn btn-success" value="Bewerten"> </li> <br/> -->
     {% empty %}
       <li>No beers available</li>
     {% endfor %}
