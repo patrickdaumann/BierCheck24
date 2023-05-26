@@ -10,23 +10,6 @@
     {% bootstrap_javascript %}    <!-- inserts the <script> element with the referral to the necessary javascript file-->
   </head>
   <body>
-    <!--
-    <nav>
-      <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'beer_list' %}">Bierliste</a></li>        
-        <li><a href="{% url 'brewery_list' %}">Brauereien</a></li>
-        <li><a href="{% url 'news' %}">News</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="/admin">Admin</a></li>
-        {% if user.is_authenticated %}
-        <li>logged in as {{ user }} <a href="{% url 'logout' %}">Logout</a></li>
-        {% else %}
-        <li><a href="{% url 'login' %}">Login</a> or  <a href="{% url 'register' %}">Register</a></li>
-        {% endif %}
-      </ul>
-    </nav>
-    //-->
     <div class="content">
       <ul class="nav bg-warning">
         <li class="nav-item">
