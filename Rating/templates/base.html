@@ -10,11 +10,14 @@
     {% bootstrap_javascript %}    <!-- inserts the <script> element with the referral to the necessary javascript file-->
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-warning navbar-light">      <!-- navbar-expand-sm skaliert die navbar honizontal (statt vertikal), bg-warning ist die gelbe farbe, und navbar-dark macht den Text dunkel (eigentlich)-->
+      <div class="container-fluid justify-content-center">            <!-- justify-concent-center zentriert den container-->
+        <a class=""navbar-brand href="{% url 'home' %}">
+          <img src="{%static 'img/Logo.png'}" alt="HOME" style ="width: 40px;" class="rounded-pill">      <!-- Logo funktioniert noch nicht wie es soll!-->
+        </a>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link link-light" href="{% url 'home' %}">HOME</a>
+            <a class="nav-link link-dark" href="{% url 'home' %}">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link link-light" href="{% url 'beer_list' %}">Bierliste</a>
@@ -35,7 +38,7 @@
             <a class="nav-link link-light" href="{% url 'about' %}">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-item link-dark" href="{% url 'test' %}">Test</a>
+            <a class="nav-link link-dark" href="{% url 'test' %}">Test</a>
           </li>
           
           {% if user.is_authenticated %}
