@@ -21,6 +21,10 @@ def home(request):
 def about(request):
     return render(request, template_name='about.html')
 
+# Teste Seite
+def test(request):
+    return render(request, template_name='test.html')
+
 # News Seite
 def news(request):
     return render(request, template_name='news.html')
