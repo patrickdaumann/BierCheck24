@@ -2,11 +2,22 @@
 
 {% block content %}
   <h1>Brewery List</h1>
-  <ul>
+  <!--
+    <ul class="list-group">
     {% for brewery in breweries %}
-      <li>{{ brewery.name }}</li>
+    <li class="list-group-item">{{ brewery.name }}</li>
     {% empty %}
-      <li>No breweries available</li>
+    <li class="list-group-item">No breweries available</li>
     {% endfor %}
   </ul>
+-->
+  <div class="list-group">
+    {% for brewery in breweries %}
+    <a href="{% url 'brewery_detail' brewery_id=brewery.id %}" class="list-group-item list-group-item-action">{{ brewery.name }}</a>
+    {% empty %}
+    <li class="list-group-item">No breweries available</li>
+    {% endfor %}
+  </div> 
 {% endblock %}
+
+<!--'brewery/<int:brewery_id>/'
