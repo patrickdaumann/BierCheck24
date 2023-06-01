@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.staticfiles import finders
 from django.http import HttpResponse
 from .models import Beer, Brewery, Beertype, Rating
 
@@ -16,14 +17,15 @@ from django.db.models import Avg, Count
 def home(request):
     return render(request, 'home.html')
 
-
 # About Seite
 def about(request):
     return render(request, template_name='about.html')
 
 # Teste Seite
 def test(request):
-    return render(request, template_name='test.html')
+    beers = Beer.objects.all()
+    context = {'beers': beers}
+    return render(request, 'test.html', context)
 
 # News Seite
 def news(request):

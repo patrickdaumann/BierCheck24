@@ -1,35 +1,42 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
 {% block content %}
-<html lang="en">
+<!--
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-  <title>Registrierung</title>
+    <title>Beerlist</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
 </head>
+-->
 <body>
-  <div class="container">
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-6">
-        <h1 class="text-center mb-4">Registrierung</h1>
-        <form>
-          <div class="mb-3">
-            <label for="email" class="form-label">E-Mail</label>
-            <input type="email" class="form-control" id="email" placeholder="E-Mail eingeben" required>
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Passwort</label>
-            <input type="password" class="form-control" id="password" placeholder="Passwort eingeben" required>
-          </div>
-          <div class="d-grid">
-            <button type="submit" class="btn btn-primary">Registrieren</button>
-          </div>
-        </form>
-      </div>
+    <div class="container">
+        <h1>Beerlist</h1>
+        <p>Hier können Biere angeschaut, verglichen und bewertet werden.</p>
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Beschreibung</th>
+                    <th>Rating</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for beer in beers %}
+                <tr>
+                    <td><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }} </a></td>
+                    <td>{{ beer.description }}</td>
+                    <td>{{ beer.rating }}</td>
+                    <td><a href="{% url 'rate_beer_by_id' beer_id=beer.id %}" class="btn btn-primary">Bewerten</a></td>
+                </tr>
+              {% empty %}
+                <tr>
+                  <td>No Beers/Ratings available, please build db and import json files</td>
+              {% endfor %}
+            </tbody>
+        </table>
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+<!--
+</html>  
+-->
 {% endblock %}
