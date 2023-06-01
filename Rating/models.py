@@ -10,6 +10,9 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     about = models.TextField()
 
+    def __str__(self) -> str:
+        return self.user.username
+
 
 # Klasse für die Bierstile: Pils, Kölsch, Weizen, etc.
 class Beertype(models.Model):
