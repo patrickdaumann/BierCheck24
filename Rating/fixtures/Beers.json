@@ -5,7 +5,6 @@
     "fields": {
       "brewery": 7,
       "approvalstatus": true,
-      "name": "Kölsch",
       "display_name": "Früh Kölsch",
       "style": 6,
       "alcohol_content": "4.8",
@@ -24,7 +23,6 @@
     "fields": {
       "brewery": 4,
       "approvalstatus": true,
-      "name": "Pils",
       "display_name": "Bitburger Premium Pils",
       "style": 1,
       "alcohol_content": "4.8",
@@ -43,7 +41,6 @@
     "fields": {
       "brewery": 8,
       "approvalstatus": true,
-      "name": "Weißbier",
       "display_name": "Erdinger Weissbier",
       "style": 2,
       "alcohol_content": "5.3",

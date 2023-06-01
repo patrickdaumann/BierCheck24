@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-from .views import beertype_detail, beer_detail, brewery_detail, rating_detail, rating_success, beer_list, about, brewery_list, rate_beer_by_id
-
+from .views import beertype_detail, beer_detail, brewery_detail, rating_detail, rating_success, beer_list, about, test, brewery_list, rate_beer_by_id, news, add_beer
+from .views import add_success
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -15,7 +15,11 @@ urlpatterns = [
     path('rating/<int:rating_id>/', rating_detail,  name='rating_detail'),
     path('rating_success', rating_success, name='rating_success'),
     path('about', about, name="about"),
+    path('test', test, name="test"),
+    path('news', news, name="news"),
     path('beer_list', beer_list, name='beer_list'),
     path('brewery_list', brewery_list, name='brewery_list'),
     path('ratebeerbyid/<int:beer_id>', rate_beer_by_id, name='rate_beer_by_id'),
+    path('add_beer', add_beer, name='add_beer'),
+    path('add_success', add_success, name='add_success'),
 ]

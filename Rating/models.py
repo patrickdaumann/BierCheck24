@@ -48,7 +48,7 @@ class Beer(models.Model):
 
     # Brauerei -> Fremdschlüssel des Typs Brauerei
     brewery = models.ForeignKey(Brewery, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, blank=True, null=True)
     display_name = models.CharField(max_length=100)
 
     # Stil -> Pils, Kölsch...
@@ -77,6 +77,14 @@ class Beer(models.Model):
 
     # Freitext für eine Beschreibung
     description = models.TextField()
+    
+    #Zähler für die Anzahl von Bewertungen
+    ratings_count = models.IntegerField(default=0, blank=True, null=True)
+    
+    #Zähler für die Anzahl von 'recommendet' in Bewertungen
+    recommended_count = models.IntegerField(default=0, blank=True, null=True)
+    
+  
 
     def __str__(self):
         return f"{self.display_name}"
@@ -138,6 +146,7 @@ class Rating(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(3)]
     )
 
+    
     def __str__(self):
         return f"{self.beer} Rating by {self.user.username}"
 

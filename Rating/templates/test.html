@@ -1,9 +1,56 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Mein erstes Django-Template</title>
-  </head>
-  <body>
-    <h1>Das ist ein Test!</h1>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>Beerlist</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Beerlist</h1>
+        <p>Hier können Biere angeschaut, verglichen und bewertet werden.</p>
+        <div class="row">
+          <div class="col">
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Beschreibung</th>
+                        <th>Rating (1-10)</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for beer in beers %}
+                    <tr>
+                        <td><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }} </a></td>
+                        <td class="col-4">{{ beer.description }}</td> <!--col-4 begrenzt die Spaltenbreite auf 33% des Platzes!-->
+                        <td>{{ beer.rating }}
+                          <p>Farbe: {{ average_ratings.color__avg }}</p>
+                          <p>Einstieg: {{ average_ratings.entry__avg }}</p>
+                          <p>Körper: {{ average_ratings.body__avg }}</p>
+                          <p>Abgang: {{ average_ratings.finish__avg }}</p>
+                          <p>Kohlensäure: {{ average_ratings.carbonation__avg }}</p>
+                          <p>Säure: {{ average_ratings.acidity__avg }}</p>
+                          <p>Bitterkeit: {{ average_ratings.bitterness__avg }}</p>
+                          <p>Süffigkeit: {{ average_ratings.drinkability__avg }}</p>
+                          {% if average_ratings.price__avg == 1 %}
+                          <p><strong>Price: €</strong></p>
+                          {% elif average_ratings.price__avg == 2 %}
+                          <p><strong>Price: €€</strong></p>
+                          {% elif average_ratings.price__avg == 3 %}
+                          <p><strong>Price: €€€</strong></p>
+                          {% endif %}
+                        </td>
+                        <td><a href="{% url 'rate_beer_by_id' beer_id=beer.id %}" class="btn btn-primary">Bewerten</a></td>
+                    </tr>
+                  {% empty %}
+                    <tr>
+                      <td>No Beers/Ratings available, please build db and import json files</td>
+                  {% endfor %}
+                </tbody>
+            </table>
+          </div> 
+        </div>  
+    </div>
+</body>
+{% endblock %}

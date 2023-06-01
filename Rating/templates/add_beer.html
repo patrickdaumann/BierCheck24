@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>Add Beer</h1>
+
+{% if messages %}
+<div class="mt-4">
+    {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+            <strong>{{ message }}</strong>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Beer</button>
+</form>
+
+
+{% else %}
+<p>Du musst angemeldet sein um Biere hinzuzufügen! <a href="{% url 'login' %}">Zum Login</a> </p>
+{% endif %}
+
+{% endblock %}
