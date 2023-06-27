@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-  <h1>{{ brewery.display_name }}</h1>
-  <h2>founded {{ brewery.founded_year }} in {{ brewery.location }}</h2>
-  <p>{{ brewery.description }}</p>
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-md-6">
+          <h1>{{ brewery.display_name }}</h1>
+          <h2>founded {{ brewery.founded_year }} in {{ brewery.location }}</h2>
+          <p>{{ brewery.description }}</p>
+      </div>
+      <div class="col-md-6">
+        <img src="/static/img/brewery-image.jpg" alt="Bierbrauerei" class="brewery-image">
+    </div>
+  </div>
 </div>
+
 {% endblock %}
