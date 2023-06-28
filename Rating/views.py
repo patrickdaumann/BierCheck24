@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.generic.list import ListView
 from .forms import RatingFormByID, BeerForm
-from django.db.models import Avg, Count
+from django.db.models import Avg, Count, Q
 
 # Hier werden die Routen für die Endpoints (URLs) eingetragen
 
@@ -187,3 +187,13 @@ def rating_success(request):
 # Anzeige einer Erfolgsmeldung nach dem Hinzufügen eines Bieres
 def add_success(request):
     return render(request=request, template_name='add_success.html')
+
+
+
+def search_beer(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+        if query:
+            beers = Beer.objects.filter(Q(display_name__icontains=query))
+            return render(request, 'beer_list.html', {'beers': beers})
+    return redirect('beer_list')

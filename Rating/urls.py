@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from .views import beertype_detail, beer_detail, brewery_detail, rating_detail, rating_success, beer_list, about, test, brewery_list, rate_beer_by_id, news, add_beer
-from .views import add_success
+from .views import add_success, search_beer
 
 
 urlpatterns = [
@@ -25,4 +25,5 @@ urlpatterns = [
     path('ratebeerbyid/<int:beer_id>', rate_beer_by_id, name='rate_beer_by_id'),
     path('add_beer', add_beer, name='add_beer'),
     path('add_success', add_success, name='add_success'),
+    path('search/', search_beer, name='search_beer')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
