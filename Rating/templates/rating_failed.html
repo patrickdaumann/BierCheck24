@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1>Bewertung bereits vorhanden</h1>
+    <p>Es tut und Leid, aber zur Zeit ist nur eine (1) Bewertung pro Bier pro Nutzer erlaubt!</p>
+    <a href="{% url 'beer_list' %}">Anderes Bier bewerten</a>
+    <a href="{% url 'home' %}">Zurück zur Startseite</a>
+
+  </div>
+{% endblock %}

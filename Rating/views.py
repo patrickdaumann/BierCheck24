@@ -67,9 +67,33 @@ def beer_detail(request, beer_id):
 
 # Listenansicht für alle Biere
 def beer_list(request):
+    styles = Beertype.objects.all()
+    breweries = Brewery.objects.all()
+
+    # Get filter parameters from request GET parameters
+    style_filter = request.GET.get('style')
+    alcohol_content = request.GET.get('alcohol_content')
+    brewery_filter = request.GET.get('brewery')
+
     beers = Beer.objects.all()
-    context = {'beers': beers}
-    return render(request, 'beer_list.html', context)
+
+    if style_filter:
+        beers = beers.filter(style=style_filter)
+
+    if alcohol_content:
+        if alcohol_content == 'lt4':
+            beers = beers.filter(alcohol_content__lt=4.0)
+        elif alcohol_content == '4-5':
+            beers = beers.filter(alcohol_content__range=(4.0, 5.0))
+        elif alcohol_content == 'gt5':
+            beers = beers.filter(alcohol_content__gt=5.0)
+
+    if brewery_filter:
+        beers = beers.filter(brewery=brewery_filter)
+
+
+    #context = {'beers': beers}
+    return render(request, 'beer_list.html', {'beers': beers, 'styles': styles, 'breweries': breweries,'alcohol_content': alcohol_content})
 
 
 # Listenansicht für alle Brauereien
@@ -158,31 +182,44 @@ def add_beer(request):
 
 
 # Bewertungsseite auf der eine Bewertung erstellt werden kann
+
 def rate_beer_by_id(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
-    
-    
+    user = request.user
+    form = RatingFormByID()
+
     if request.method == 'POST':
-        form = RatingFormByID(request.POST)
-        if form.is_valid():
-            rating = form.save(commit=False)
-            rating.user = request.user
-            rating.beer = beer
-            rating.save()
-            
-            beer.ratings_count = Rating.objects.filter(beer=beer).count() #Wieviele Berwertungen wurden schon abgegeben
-            beer.recommended_count = Rating.objects.filter(beer=beer, recommended=True).count() #Wie oft es als 'Recommended' ausgewählt wurde
-            beer.save()
-                    
-            return redirect('rating_success')  # Weiterleitung zur Erfolgsseite
-    else:
-        form = RatingFormByID()
+        # Check if the user has already rated the beer
+        if Rating.objects.filter(beer=beer, user=user).exists():
+            messages.error(request, 'You have already rated this beer.')
+            return redirect('rating_failed')
+        else:
+            form = RatingFormByID(request.POST)
+            if form.is_valid():
+                rating = form.save(commit=False)
+                rating.user = user
+                rating.beer = beer
+                rating.save()
+
+                messages.success(request, 'Beer rated successfully!')
+
+                # Update beer ratings count and recommended count
+                beer.ratings_count = Rating.objects.filter(beer=beer).count()
+                beer.recommended_count = Rating.objects.filter(beer=beer, recommended=True).count()
+                beer.save()
+
+                return redirect('rating_success')
+
     return render(request, 'rate_beer_by_id.html', {'form': form, 'beer': beer, 'ratings_count': beer.ratings_count, 'recommended_count': beer.recommended_count})
 
 
 # Anzeige einer Erfolgsmeldung nach dem erstellen einer Bewertung
 def rating_success(request):
     return render(request=request, template_name='rating_success.html')
+
+# Anzeige einer Erfolgsmeldung nach dem erstellen einer Bewertung
+def rating_failed(request):
+    return render(request=request, template_name='rating_failed.html')
 
 # Anzeige einer Erfolgsmeldung nach dem Hinzufügen eines Bieres
 def add_success(request):

@@ -2,20 +2,40 @@
 
 {% block content %}
   <h1>Beer List</h1>
+
+  <form action="{% url 'beer_list' %}" method="get" class="filter-form">
+    <label for="style">Art:</label>
+    <select name="style" id="style">
+      <option value="">Alle</option>
+      {% for style in styles %}
+        <option value="{{ style.pk }}">{{ style.name }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="id_alcohol_content">Alcohol Content:</label>
+    <select name="alcohol_content" id="id_alcohol_content">
+        <option value="">Any</option>
+        <option value="lt4">Less than 4%</option>
+        <option value="4-5">4% to 5%</option>
+        <option value="gt5">Greater than 5%</option>
+    </select>
+
+    <label for="brewery">Brauerei:</label>
+    <select name="brewery" id="brewery">
+      <option value="">Alle</option>
+      {% for brewery in breweries %}
+        <option value="{{ brewery.pk }}">{{ brewery.name }}</option>
+      {% endfor %}
+    </select>
+
+    <button type="submit">Filter anwenden</button>
+  </form>
+
   <ul>
     {% for beer in beers %}
-      <li><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }} </a> - <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}">Jetzt Berwerten</a></li>
-
-      <!-- <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}" class="btn btn-success">{{beer.display_name}}</a> <input type="button" class="btn btn-success" value="Bewerten"> </li> <br/> -->
+      <li><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }}</a> - <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}">Jetzt Bewerten</a></li>
     {% empty %}
       <li>No beers available</li>
     {% endfor %}
   </ul>
-  <div class="list-group">
-    {% for beer in beers %}
-    <a href="{% url 'beer_detail' beer_id=beer.id %}" class="list-group-item list-group-item-action">{{ beer.display_name }}</a>  <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}" type="button" class="btn btn-warning">Bewerten</a>
-    {% empty %}
-    <li class="list-group-item">No Beers available, please build db and import json files</li>
-    {% endfor %}
-  </div>  
 {% endblock %}
