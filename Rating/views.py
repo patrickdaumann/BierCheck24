@@ -124,7 +124,7 @@ def beer_list(request):
     alcohol_content = request.GET.get('alcohol_content')
     brewery_filter = request.GET.get('brewery')
 
-    beers = Beer.objects.all()
+    beers = Beer.objects.filter(approvalstatus=True)
 
     if style_filter:
         beers = beers.filter(style=style_filter)
