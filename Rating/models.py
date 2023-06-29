@@ -85,7 +85,6 @@ class Beer(models.Model):
     recommended_count = models.IntegerField(default=0, blank=True, null=True)
     
   
-
     def __str__(self):
         return f"{self.display_name}"
 
@@ -146,9 +145,26 @@ class Rating(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(3)]
     )
 
+    #Zeitstempel
+    created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return f"{self.beer} Rating by {self.user.username}"
 
     class Meta:
         unique_together = ('beer', 'user')
+
+
+class Recommendation(models.Model):
+    #Name der Empfehlung
+    name = models.CharField(max_length=255, unique=True)
+    
+    #Primary Key
+    id = models.AutoField(primary_key=True)
+    
+    #Link auf empfohlenes Bier
+    beer = models.ForeignKey('Beer', on_delete=models.CASCADE)
+
+    # Anzeige im Admin Panel soll name der Recommendation sein
+    def __str__(self):
+        return f"{self.name}"
