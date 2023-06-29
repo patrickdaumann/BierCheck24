@@ -3,6 +3,8 @@
 {% block content %}
   <h1>Beer List</h1>
 
+  <a href="{% url 'test' %}">Erweiterte Ansicht</a> <!-- Link to test.html -->
+
   <form action="{% url 'beer_list' %}" method="get" class="filter-form">
     <label for="style">Art:</label>
     <select name="style" id="style">
@@ -30,7 +32,10 @@
 
     <button type="submit">Filter anwenden</button>
   </form>
-
+  
+    
+  
+  
   <ul>
     {% for beer in beers %}
       <li><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }}</a> - <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}">Jetzt Bewerten</a></li>

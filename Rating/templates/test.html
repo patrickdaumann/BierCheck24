@@ -8,6 +8,34 @@
     <div class="container">
         <h1>Beerlist</h1>
         <p>Hier können Biere angeschaut, verglichen und bewertet werden.</p>
+        <a href="{% url 'beer_list' %}">Normale Ansicht</a> <!-- Link to test.html -->
+        <form action="{% url 'test' %}" method="get" class="filter-form">
+          <label for="style">Art:</label>
+          <select name="style" id="style">
+            <option value="">Alle</option>
+            {% for style in styles %}
+              <option value="{{ style.pk }}">{{ style.name }}</option>
+            {% endfor %}
+          </select>
+      
+          <label for="id_alcohol_content">Alcohol Content:</label>
+          <select name="alcohol_content" id="id_alcohol_content">
+              <option value="">Any</option>
+              <option value="lt4">Less than 4%</option>
+              <option value="4-5">4% to 5%</option>
+              <option value="gt5">Greater than 5%</option>
+          </select>
+      
+          <label for="brewery">Brauerei:</label>
+          <select name="brewery" id="brewery">
+            <option value="">Alle</option>
+            {% for brewery in breweries %}
+              <option value="{{ brewery.pk }}">{{ brewery.name }}</option>
+            {% endfor %}
+          </select>
+      
+          <button type="submit">Filter anwenden</button>
+        </form>
         <div class="row">
           <div class="col">
             <table class="table table-borderless">
@@ -16,23 +44,25 @@
                         <th>Name</th>
                         <th>Beschreibung</th>
                         <th>Rating (1-10)</th>
+                        
                         <th> </th>
                     </tr>
                 </thead>
                 <tbody>
                   {% for beer in beers %}
+                  
                     <tr>
                         <td><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }} </a></td>
                         <td class="col-4">{{ beer.description }}</td> <!--col-4 begrenzt die Spaltenbreite auf 33% des Platzes!-->
-                        <td>{{ beer.rating }}
-                          <p>Farbe: {{ average_ratings.color__avg }}</p>
-                          <p>Einstieg: {{ average_ratings.entry__avg }}</p>
-                          <p>Körper: {{ average_ratings.body__avg }}</p>
-                          <p>Abgang: {{ average_ratings.finish__avg }}</p>
-                          <p>Kohlensäure: {{ average_ratings.carbonation__avg }}</p>
-                          <p>Säure: {{ average_ratings.acidity__avg }}</p>
-                          <p>Bitterkeit: {{ average_ratings.bitterness__avg }}</p>
-                          <p>Süffigkeit: {{ average_ratings.drinkability__avg }}</p>
+                        <td>{{ average_ratings.acidity__avg }}
+                          <p><strong>Color (1-10):</strong> {{ beer.color__avg }}</p>
+                          <p><strong>Entry (1-10):</strong> {{ beer.entry__avg }}</p>
+                          <p><strong>Body (1-10):</strong> {{ beer.body__avg }}</p>
+                          <p><strong>Finish (1-10):</strong> {{ beer.finish__avg }}</p>
+                          <p><strong>Carbonation (1-10):</strong> {{ beer.carbonation__avg }}</p>
+                          <p><strong>Acidity (1-10):</strong> {{ beer.acidity__avg }}</p>
+                          <p><strong>Bitterness (1-10):</strong> {{ beer.bitterness__avg }}</p>
+                          <p><strong>Drinkability (1-10):</strong> {{ beer.drinkability__avg }}</p>
                           {% if average_ratings.price__avg == 1 %}
                           <p><strong>Price: €</strong></p>
                           {% elif average_ratings.price__avg == 2 %}

@@ -23,8 +23,44 @@ def about(request):
 
 # Teste Seite
 def test(request):
-    beers = Beer.objects.all()
-    context = {'beers': beers}
+    beers = Beer.objects.annotate(
+        color__avg=Avg('rating__color'),
+        entry__avg=Avg('rating__entry'),
+        body__avg=Avg('rating__body'),
+        finish__avg=Avg('rating__finish'),
+        carbonation__avg=Avg('rating__carbonation'),
+        acidity__avg=Avg('rating__acidity'),
+        bitterness__avg=Avg('rating__bitterness'),
+        drinkability__avg=Avg('rating__drinkability'),
+        price__avg=Avg('rating__price')
+    )
+    
+    styles = Beertype.objects.all()
+    breweries = Brewery.objects.all()
+
+    # Get filter parameters from request GET parameters
+    style_filter = request.GET.get('style')
+    alcohol_content = request.GET.get('alcohol_content')
+    brewery_filter = request.GET.get('brewery')
+
+    
+
+    if style_filter:
+        beers = beers.filter(style=style_filter)
+
+    if alcohol_content:
+        if alcohol_content == 'lt4':
+            beers = beers.filter(alcohol_content__lt=4.0)
+        elif alcohol_content == '4-5':
+            beers = beers.filter(alcohol_content__range=(4.0, 5.0))
+        elif alcohol_content == 'gt5':
+            beers = beers.filter(alcohol_content__gt=5.0)
+
+    if brewery_filter:
+        beers = beers.filter(brewery=brewery_filter)
+    
+    
+    context = {'beers': beers, 'styles': styles, 'breweries': breweries,'alcohol_content': alcohol_content}
     return render(request, 'test.html', context)
 
 # News Seite
@@ -63,6 +99,9 @@ def beer_detail(request, beer_id):
         'recommended_percentage': recommended_percentage
     }
     return render(request, 'beer_detail.html', context)
+
+
+
 
 
 # Listenansicht für alle Biere
