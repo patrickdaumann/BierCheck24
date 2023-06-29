@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.staticfiles import finders
 from django.http import HttpResponse
-from .models import Beer, Brewery, Beertype, Rating
+from .models import Beer, Brewery, Beertype, Rating, Recommendation
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -15,7 +15,17 @@ from django.db.models import Avg, Count, Q
 
 # Homepage
 def home(request):
-    return render(request, 'home.html')
+    recommendation = Recommendation.objects.get(name="BeerOfMonth")
+    
+    # Access the associated beer
+    beer_of_month = recommendation.beer
+    
+    # Create the context dictionary with the beer_of_month variable
+    context = {
+        'beer_of_month': beer_of_month,
+    }
+    
+    return render(request, 'home.html', context)
 
 # About Seite
 def about(request):
