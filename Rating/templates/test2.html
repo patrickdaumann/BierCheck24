@@ -1,0 +1,132 @@
+{% block content %}
+<head>
+    <title>Beerlist</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <style>
+        .extended-view {
+            display: none;
+        }
+        .slide-in {
+            animation: slide-in-up 0.5s ease-in-out;
+        }
+        .slide-out {
+            animation: slide-out-down 0.5s ease-in-out;
+        }
+        @keyframes slide-in-up {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+        @keyframes slide-out-down {
+            0% {
+                transform: translateY(0%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Beerlist</h1>
+        <p>Hier können Biere angeschaut, verglichen und bewertet werden.</p>
+        <a href="{% url 'beer_list' %}">Normale Ansicht</a> <!-- Link to test.html -->
+        <form action="{% url 'test' %}" method="get" class="filter-form">
+            <label for="style">Art:</label>
+          <select name="style" id="style">
+            <option value="">Alle</option>
+            {% for style in styles %}
+              <option value="{{ style.pk }}">{{ style.name }}</option>
+            {% endfor %}
+          </select>
+      
+          <label for="id_alcohol_content">Alcohol Content:</label>
+          <select name="alcohol_content" id="id_alcohol_content">
+              <option value="">Any</option>
+              <option value="lt4">Less than 4%</option>
+              <option value="4-5">4% to 5%</option>
+              <option value="gt5">Greater than 5%</option>
+          </select>
+      
+          <label for="brewery">Brauerei:</label>
+          <select name="brewery" id="brewery">
+            <option value="">Alle</option>
+            {% for brewery in breweries %}
+              <option value="{{ brewery.pk }}">{{ brewery.name }}</option>
+            {% endfor %}
+          </select>
+      
+          <button type="submit">Filter anwenden</button>
+        </form>
+        <div class="row">
+            <div class="col">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Beschreibung</th>
+                            <th>Rating (1-10)</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for beer in beers %}
+                            <tr>
+                                <td><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }} </a></td>
+                                <td class="col-4 beer-description">
+                                    {{ beer.description }}
+                                    <div class="extended-view">
+                                        <p><strong>Color (1-10):</strong> {{ beer.color__avg }}</p>
+                                        <p><strong>Entry (1-10):</strong> {{ beer.entry__avg }}</p>
+                                        <p><strong>Body (1-10):</strong> {{ beer.body__avg }}</p>
+                                        <p><strong>Finish (1-10):</strong> {{ beer.finish__avg }}</p>
+                                        <p><strong>Carbonation (1-10):</strong> {{ beer.carbonation__avg }}</p>
+                                        <p><strong>Acidity (1-10):</strong> {{ beer.acidity__avg }}</p>
+                                        <p><strong>Bitterness (1-10):</strong> {{ beer.bitterness__avg }}</p>
+                                        <p><strong>Drinkability (1-10):</strong> {{ beer.drinkability__avg }}</p>
+                                        {% if average_ratings.price__avg == 1 %}
+                                        <p><strong>Price: €</strong></p>
+                                        {% elif average_ratings.price__avg == 2 %}
+                                        <p><strong>Price: €€</strong></p>
+                                        {% elif average_ratings.price__avg == 3 %}
+                                        <p><strong>Price: €€€</strong></p>
+                                    </div>
+                                    <button class="btn btn-primary show-extended-view">Erweiterte Ansicht</button>
+                                </td>
+                                <td>{{ average_ratings.acidity__avg }}</td>
+                                <td><a href="{% url 'rate_beer_by_id' beer_id=beer.id %}" class="btn btn-primary">Bewerten</a></td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="4">No Beers/Ratings available, please build db and import json files</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div> 
+        </div>  
+    </div>
+
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const extendedViews = document.querySelectorAll(".beer-description .extended-view");
+            const showButtons = document.querySelectorAll(".beer-description .show-extended-view");
+
+            function toggleExtendedView(event) {
+                const extendedView = event.target.parentElement.querySelector(".extended-view");
+                extendedView.classList.toggle("slide-in");
+                extendedView.classList.toggle("slide-out");
+            }
+
+            showButtons.forEach(function(button) {
+                button.addEventListener("click", toggleExtendedView);
+            });
+        });
+    </script>
+</body>
+{% endblock %}

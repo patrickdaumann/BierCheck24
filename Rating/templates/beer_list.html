@@ -1,46 +1,61 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Beer List</h1>
+  <h1 class="text-center">Beer List</h1>
 
-  <a href="{% url 'test' %}">Erweiterte Ansicht</a> <!-- Link to test.html -->
+  <a href="{% url 'test' %}" class="d-block text-center mb-3">Erweiterte Ansicht</a>
 
   <form action="{% url 'beer_list' %}" method="get" class="filter-form">
-    <label for="style">Art:</label>
-    <select name="style" id="style">
-      <option value="">Alle</option>
-      {% for style in styles %}
-        <option value="{{ style.pk }}">{{ style.name }}</option>
-      {% endfor %}
-    </select>
+    <div class="row g-3 align-items-end">
+      <div class="col-md-4">
+        <label for="style" class="form-label">Art:</label>
+        <select name="style" id="style" class="form-select">
+          <option value="">Alle</option>
+          {% for style in styles %}
+            <option value="{{ style.pk }}">{{ style.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
 
-    <label for="id_alcohol_content">Alcohol Content:</label>
-    <select name="alcohol_content" id="id_alcohol_content">
-        <option value="">Any</option>
-        <option value="lt4">Less than 4%</option>
-        <option value="4-5">4% to 5%</option>
-        <option value="gt5">Greater than 5%</option>
-    </select>
+      <div class="col-md-4">
+        <label for="id_alcohol_content" class="form-label">Alcohol Content:</label>
+        <select name="alcohol_content" id="id_alcohol_content" class="form-select">
+          <option value="">Any</option>
+          <option value="lt4">Less than 4%</option>
+          <option value="4-5">4% to 5%</option>
+          <option value="gt5">Greater than 5%</option>
+        </select>
+      </div>
 
-    <label for="brewery">Brauerei:</label>
-    <select name="brewery" id="brewery">
-      <option value="">Alle</option>
-      {% for brewery in breweries %}
-        <option value="{{ brewery.pk }}">{{ brewery.name }}</option>
-      {% endfor %}
-    </select>
-
-    <button type="submit">Filter anwenden</button>
+      <div class="col-md-4">
+        <label for="brewery" class="form-label">Brauerei:</label>
+        <select name="brewery" id="brewery" class="form-select">
+          <option value="">Alle</option>
+          {% for brewery in breweries %}
+            <option value="{{ brewery.pk }}">{{ brewery.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-12 d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary">Filter anwenden</button>
+      </div>
+    </div>
   </form>
-  
-    
-  
-  
-  <ul>
+
+  <ul class="list-group">
     {% for beer in beers %}
-      <li><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }}</a> - <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}">Jetzt Bewerten</a></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }}</a>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'rate_beer_by_id' beer_id=beer.id %}'">Bewerten</button>
+      </li>
     {% empty %}
-      <li>No beers available</li>
+      <li class="list-group-item">No beers available</li>
     {% endfor %}
   </ul>
 {% endblock %}
+
+
+
+
