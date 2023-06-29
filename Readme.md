@@ -16,6 +16,8 @@ python3 manage.py loaddata Breweries.json --app Rating
 
 python3 manage.py loaddata Beers.json --app Rating
 
+python3 manage.py loaddata Recommendations.json --app Rating
+
 python3 manage.py runserver
 
 ```
