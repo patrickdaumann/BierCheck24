@@ -1,0 +1,10 @@
+[
+    {
+      "model": "Rating.Recommendation",
+      "pk": 1,
+      "fields": {
+        "name": "BeerOfMonth",
+        "beer": 1
+      }
+    }
+  ]
