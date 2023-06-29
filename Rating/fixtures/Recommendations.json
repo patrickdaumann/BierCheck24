@@ -6,5 +6,37 @@
         "name": "BeerOfMonth",
         "beer": 1
       }
-    }
+    },
+    {
+        "model": "Rating.Recommendation",
+        "pk": 2,
+        "fields": {
+          "name": "NewArrival",
+          "beer": 1
+        }
+      },
+      {
+        "model": "Rating.Recommendation",
+        "pk": 3,
+        "fields": {
+          "name": "BestRatedEver",
+          "beer": 1
+        }
+      },
+      {
+        "model": "Rating.Recommendation",
+        "pk": 4,
+        "fields": {
+          "name": "BestRated_1M",
+          "beer": 1
+        }
+      },
+      {
+        "model": "Rating.Recommendation",
+        "pk": 5,
+        "fields": {
+          "name": "Trending",
+          "beer": 1
+        }
+      }
   ]
