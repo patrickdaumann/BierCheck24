@@ -1,90 +1,189 @@
 [
   {
     "model": "Rating.Brewery",
-    "pk": 1,
+    "pk": null,
     "fields": {
       "name": "Anheuser-Busch InBev",
       "display_name": "Anheuser-Busch InBev",
-      "location": "Belgium",
+      "location": "Leuven, Belgien",
       "founded_year": 2008,
-      "description": "Anheuser-Busch InBev is a multinational beverage and brewing company based in Leuven, Belgium. It is the world's largest brewer with nearly 500 brands and operations in over 50 countries."
+      "description": "Anheuser-Busch InBev ist ein multinationaler Getränke- und Braukonzern mit Sitz in Leuven, Belgien. Es ist der weltweit größte Brauereikonzern mit nahezu 500 Marken und Aktivitäten in über 50 Ländern."
     }
   },
   {
     "model": "Rating.Brewery",
-    "pk": 2,
+    "pk": null,
     "fields": {
       "name": "Heineken",
       "display_name": "Heineken",
-      "location": "Netherlands",
+      "location": "Amsterdam, Niederlande",
       "founded_year": 1864,
-      "description": "Heineken is a Dutch brewing company founded in 1864. It is the second largest brewer in the world and produces over 250 international, regional, local and specialty beers and ciders."
+      "description": "Heineken ist eine international bekannte Brauerei mit Hauptsitz in Amsterdam, Niederlande. Das Unternehmen wurde im Jahr 1864 gegründet und hat sich seitdem zu einer der führenden Biermarken weltweit entwickelt."
     }
   },
   {
     "model": "Rating.Brewery",
-    "pk": 3,
+    "pk": null,
     "fields": {
       "name": "Carlsberg",
       "display_name": "Carlsberg",
-      "location": "Denmark",
+      "location": "Kopenhagen, Dänemark",
       "founded_year": 1847,
-      "description": "Carlsberg is a Danish brewing company founded in 1847. It is the fourth largest brewer in the world and produces over 500 beer brands."
+      "description": "Carlsberg ist eine Brauerei, die im Jahr 1847 in Kopenhagen, Dänemark, gegründet wurde. Sie ist bekannt für ihre traditionsreichen Biermarken, darunter das namensgebende Carlsberg Lager. Die Brauerei hat im Laufe der Jahre weltweite Anerkennung für ihre Bierqualität und Braukunst erlangt."
     }
   },
   {
     "model": "Rating.Brewery",
-    "pk": 4,
+    "pk": null,
     "fields": {
       "name": "Bitburger Braugruppe",
       "display_name": "Bitburger",
-      "location": "Germany",
+      "location": "Bitburg, Deutschland",
       "founded_year": 1817,
-      "description": "Bitburger Braugruppe is a German brewing company founded in 1817. It is one of the largest privately owned breweries in Germany and produces over 20 beer brands."
+      "description": "Bitburger ist eine Brauerei, die im Jahr 1817 in Bitburg, Deutschland, gegründet wurde. Sie ist für ihr bekanntes Bier, das Bitburger Premium Pils, international bekannt. Bitburger hat sich im Laufe der Zeit als eine der führenden Brauereien in Deutschland etabliert und ist für seine hohe Bierqualität und Brautradition bekannt."
     }
   },
   {
     "model": "Rating.Brewery",
-    "pk": 5,
+    "pk": null,
     "fields": {
       "name": "Oettinger Brauerei",
-      "display_name": "Oettinger",
-      "location": "Germany",
+      "display_name": "Oettinger Brauerei",
+      "location": "Oettingen in Bayern, Deutschland",
       "founded_year": 1731,
-      "description": "Oettinger Brauerei is a German brewing company founded in 1731. It is one of the largest privately owned breweries in Germany and produces over 30 beer brands."
+      "description": "Die Oettinger Brauerei wurde im Jahr 1731 in Oettingen in Bayern, Deutschland, gegründet. Sie hat sich zu einer der größten Brauereigruppen in Deutschland entwickelt. Oettinger ist für sein breites Sortiment an Biersorten bekannt, darunter Pils, Export, Weizenbier und alkoholfreie Biere. Die Brauerei legt Wert auf Qualität und bietet ihre Biere zu einem erschwinglichen Preis an."
     }
   },
   {
     "model": "Rating.Brewery",
-    "pk": 6,
+    "pk": null,
     "fields": {
-      "name": "Radeberger Gruppe",
+      "name": "Radeberger",
       "display_name": "Radeberger",
-      "location": "Germany",
+      "location": "Radeberg, Deutschland",
       "founded_year": 1872,
-      "description": "Radeberger Gruppe is a German brewing company founded in 1872. It is one of the largest brewery groups in Germany and produces over 20 beer brands."
+      "description": "Die Radeberger Brauerei wurde im Jahr 1872 in Radeberg, Deutschland, gegründet. Sie ist bekannt für ihr gleichnamiges Bier, das Radeberger Pilsner. Das Bier wird nach traditionellen Braumethoden hergestellt und zeichnet sich durch seinen charakteristischen Geschmack aus. Radeberger ist eine der ältesten Brauereien in Deutschland und hat eine lange Geschichte in der Braukunst."
     }
   },
   {
     "model": "Rating.Brewery",
-    "pk": 7,
+    "pk": null,
     "fields": {
       "name": "Cölner Hofbräu Früh",
-      "display_name": "Früh",
-      "location": "Germany",
+      "display_name": "Cölner Hofbräu Früh",
+      "location": "Köln, Deutschland",
       "founded_year": 1904,
-      "description": "Die Cölner Hofbräu Früh GmbH ist eine Brauerei mit Sitz in Köln und gehört zu den ältesten Brauereien Deutschlands. Sie wurde im Jahr 1904 gegründet und ist vor allem bekannt für ihr Kölsch, ein obergäriges Bier, das in der Region um Köln hergestellt wird. Die Brauerei hat eine lange Tradition und ist eng mit der Kölner Kultur und Geschichte verbunden. Sie betreibt mehrere Gaststätten in der Stadt und ist eine der bekanntesten Brauereien in der Region."
+      "description": "Die Cölner Hofbräu Früh Brauerei wurde im Jahr 1904 in Köln, Deutschland, gegründet. Sie ist vor allem für ihr bekanntes Bier, das Früh Kölsch, bekannt. Das Früh Kölsch ist ein traditionelles obergäriges Bier, das in der Region Köln gebraut wird. Die Brauerei legt großen Wert auf Qualität und Tradition und ist eine beliebte Brauerei in Köln und darüber hinaus."
     }
   },
   {
     "model": "Rating.Brewery",
-    "pk": 8,
+    "pk": null,
     "fields": {
-      "name": "Erdinger Weissbräu",
-      "display_name": "Erdinger Weissbräu",
-      "location": "Erding, Germany",
+      "name": "Erdinger Weißbräu",
+      "display_name": "Erdinger Weißbräu",
+      "location": "Erding, Deutschland",
       "founded_year": 1886,
-      "description": "Erdinger Weissbräu is a brewery located in Erding, Germany. It is best known for its Weissbier, a traditional Bavarian wheat beer that has been brewed since 1886."
+      "description": "Die Erdinger Weißbräu Brauerei wurde im Jahr 1886 in Erding, Deutschland, gegründet. Sie ist bekannt für ihre hochwertigen Weißbiere, insbesondere das Erdinger Weißbier. Das Erdinger Weißbier zeichnet sich durch seinen erfrischenden Geschmack und seine hohe Qualität aus. Die Brauerei setzt auf traditionelle Braumethoden und hat sich zu einer der bekanntesten Weißbierbrauereien in Deutschland entwickelt."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": null,
+    "fields": {
+      "name": "Krombacher Brauerei",
+      "display_name": "Krombacher Brauerei",
+      "location": "Kreuztal, Deutschland",
+      "founded_year": 1803,
+      "description": "Die Krombacher Brauerei wurde im Jahr 1803 in Kreuztal, Deutschland, gegründet. Sie ist eine der bekanntesten und größten Brauereien in Deutschland. Krombacher ist vor allem für sein Pilsener Bier bekannt, das für seine hohe Qualität und den erfrischenden Geschmack geschätzt wird. Die Brauerei legt großen Wert auf Tradition und verwendet nur beste Zutaten bei der Herstellung ihrer Biere. Mit einer breiten Palette von Biersorten und einem Engagement für Umweltschutz ist die Krombacher Brauerei zu einem beliebten Brauereiunternehmen sowohl in Deutschland als auch international geworden."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": null,
+    "fields": {
+      "name": "Brauerei Beck",
+      "display_name": "Brauerei Beck",
+      "location": "Bremen, Deutschland",
+      "founded_year": 1873,
+      "description": "Die Brauerei Beck wurde im Jahr 1873 in Bremen, Deutschland, gegründet. Sie ist bekannt für ihre traditionsreiche Geschichte und ihr Qualitätsbier. Brauerei Beck produziert verschiedene Biersorten, darunter das beliebte Beck's Bier. Mit seinem markanten grünen Etikett und seinem unverwechselbaren Geschmack hat sich Beck's zu einer international bekannten Biermarke entwickelt. Die Brauerei legt großen Wert auf handwerkliches Brauen und verwendet hochwertige Zutaten, um erstklassige Biere zu produzieren. Brauerei Beck ist stolz auf seine norddeutsche Brautradition und hat einen festen Platz in der deutschen Bierkultur."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": null,
+    "fields": {
+      "name": "Warsteiner Brauerei Haus Cramer",
+      "display_name": "Warsteiner Brauerei",
+      "location": "Warstein, Deutschland",
+      "founded_year": 1753,
+      "description": "Die Warsteiner Brauerei Haus Cramer wurde im Jahr 1753 in Warstein, Deutschland, gegründet. Sie zählt zu den größten Privatbrauereien Deutschlands und ist für ihr qualitativ hochwertiges Bier bekannt. Die Brauerei produziert eine Vielzahl von Biersorten, darunter das berühmte Warsteiner Premium Pilsener. Mit modernster Brautechnologie und einer langen Tradition des Brauhandwerks hat sich die Warsteiner Brauerei einen Namen gemacht. Das Unternehmen legt großen Wert auf Qualität, Reinheit und Geschmack seiner Biere. Warsteiner Biere sind sowohl national als auch international beliebt und haben zahlreiche Auszeichnungen erhalten."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": null,
+    "fields": {
+      "name": "Paulaner Brauerei",
+      "display_name": "Paulaner Brauerei",
+      "location": "München, Deutschland",
+      "founded_year": 1634,
+      "description": "Die Paulaner Brauerei wurde im Jahr 1634 in München, Deutschland, gegründet. Sie ist eine der ältesten Brauereien in Bayern und hat eine lange Tradition in der Herstellung von erstklassigem Bier. Die Brauerei ist vor allem für ihr Paulaner Bier bekannt, insbesondere das Paulaner Hefeweizen. Mit sorgfältig ausgewählten Zutaten und dem Einsatz traditioneller Brautechniken stellt die Paulaner Brauerei Biere von hoher Qualität und unverwechselbarem Geschmack her. Das Unternehmen hat sich im Laufe der Jahrhunderte einen erstklassigen Ruf erarbeitet und ist sowohl in Deutschland als auch international für seine exzellenten Bierspezialitäten geschätzt."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": null,
+    "fields": {
+      "name": "Franziskaner-Brauerei",
+      "display_name": "Franziskaner-Brauerei",
+      "location": "München, Deutschland",
+      "founded_year": 1363,
+      "description": "Die Franziskaner-Brauerei wurde im Jahr 1363 in München, Deutschland, gegründet und kann somit auf eine lange Geschichte zurückblicken. Sie ist bekannt für ihre traditionellen Weißbiere und zählt zu den renommiertesten Brauereien in Bayern. Die Brauerei produziert verschiedene Biersorten, darunter das berühmte Franziskaner Hefeweizen. Mit ihrer langjährigen Brauexpertise und der Verwendung hochwertiger Zutaten stellt die Franziskaner-Brauerei Biere von außergewöhnlicher Qualität her. Das Unternehmen ist stolz auf seine bayerische Brautradition und trägt zur reichen Bierkultur Münchens bei. Die Franziskaner-Brauerei ist sowohl national als auch international für ihre exzellenten Weißbiere bekannt und beliebt."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": null,
+    "fields": {
+      "name": "C.& A. Veltins GmbH & Co. KG",
+      "display_name": "Veltins",
+      "location": "Meschede-Grevenstein, Deutschland",
+      "founded_year": 1824,
+      "description": "Die C.& A. Veltins GmbH & Co. KG, besser bekannt als Veltins, ist eine Brauerei mit Sitz in Meschede-Grevenstein, Deutschland. Sie wurde im Jahr 1824 gegründet und hat sich zu einer der bekanntesten deutschen Brauereien entwickelt. Veltins ist vor allem für sein Veltins Pilsener bekannt, das für seinen angenehm hopfigen Geschmack und seine hohe Qualität geschätzt wird. Die Brauerei setzt auf modernste Brautechnologie und legt großen Wert auf Nachhaltigkeit und Umweltschutz. Mit einer breiten Palette von Biersorten und einem starken Engagement für Qualität und Geschmack hat sich Veltins einen festen Platz in der deutschen Bierlandschaft erobert."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": null,
+    "fields": {
+      "name": "China Resources Breweries Ltd.",
+      "display_name": "China Resources Breweries",
+      "location": "Peking, China",
+      "founded_year": 1994,
+      "description": "China Resources Breweries Ltd. ist ein bedeutendes Brauunternehmen mit Sitz in Peking, China. Gegründet im Jahr 1994, ist es zu einer der größten und einflussreichsten Brauereien in China geworden. Das Unternehmen produziert eine Vielzahl von Biermarken, die den unterschiedlichen Geschmacksrichtungen und Vorlieben der Verbraucher gerecht werden. China Resources Breweries legt großen Wert auf hohe Qualitätsstandards und setzt fortschrittliche Brautechniken ein, um die Exzellenz ihrer Produkte sicherzustellen. Mit einer starken Präsenz auf dem chinesischen Markt expandiert das Unternehmen weiterhin und treibt Innovationen in der Brauindustrie voran."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": null,
+    "fields": {
+      "name": "Molson Coors Brewing Company",
+      "display_name": "Molson Coors",
+      "location": "Denver, Colorado, USA",
+      "founded_year": 1786,
+      "description": "Die Molson Coors Brewing Company ist ein führendes Brauunternehmen mit Sitz in Denver, Colorado, USA. Sie wurde im Jahr 1786 gegründet und hat sich im Laufe der Zeit zu einem international renommierten Brauereikonzern entwickelt. Molson Coors produziert eine Vielzahl von Biermarken, darunter bekannte Namen wie Coors, Molson, Blue Moon und Miller. Das Unternehmen legt großen Wert auf Qualität, Handwerkskunst und Innovation, um seinen Kunden erstklassige Biere anzubieten. Mit einer langen Geschichte und einer breiten Palette von Biersorten ist Molson Coors ein bedeutender Akteur auf dem globalen Biermarkt."
+    }
+  },
+  {
+    "model": "Rating.Brewery",
+    "pk": null,
+    "fields": {
+      "name": "Efes Group",
+      "display_name": "Efes",
+      "location": "Istanbul, Türkei",
+      "founded_year": 1969,
+      "description": "Die Efes Group ist ein bedeutendes Brauunternehmen mit Sitz in Istanbul, Türkei. Gegründet im Jahr 1969, hat es sich zu einem führenden Akteur in der türkischen Brauindustrie entwickelt. Die Efes Group produziert eine breite Palette von Biermarken, darunter Efes Pilsen, eine der bekanntesten und beliebtesten Biermarken in der Türkei. Mit ihrem Engagement für Qualität und Innovation hat die Efes Group dazu beigetragen, die Bierkultur in der Türkei voranzutreiben. Das Unternehmen ist stolz auf seine türkischen Wurzeln und trägt zur Entwicklung der lokalen Brauindustrie bei. Mit einer starken Präsenz auf dem nationalen und internationalen Markt ist die Efes Group ein wichtiger Akteur in der globalen Bierlandschaft."
     }
   }
 ]
