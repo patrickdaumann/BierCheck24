@@ -221,6 +221,7 @@ def add_beer(request):
         form = BeerForm()
     
     form.fields.pop('name')
+    form.fields.pop('approvalstatus')
     form.fields.pop('ratings_count')
     form.fields.pop('recommended_count')
 
