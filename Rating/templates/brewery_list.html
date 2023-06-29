@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Brauerei Liste</h1>
-  <div class="list-group">
-    {% for brewery in breweries %}
-    <a href="{% url 'brewery_detail' brewery_id=brewery.id %}" class="list-group-item list-group-item-action">{{ brewery.name }}</a>
-    {% empty %}
-    <li class="list-group-item">No breweries available</li>
-    {% endfor %}
-  </div> 
+  <h1 style="text-align: center;">Brauerei Liste</h1>
+  <div style="display: flex; justify-content: center;">
+    {% if breweries %}
+      <div class="card" style="width: 300px;">
+        <ul class="list-group list-group-flush">
+          {% for brewery in breweries %}
+            <li class="list-group-item">
+              <a href="{% url 'brewery_detail' brewery_id=brewery.id %}" style="text-decoration: none; color: inherit;">{{ brewery.name }}</a>
+            </li>
+          {% empty %}
+            <li class="list-group-item">No breweries available</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% else %}
+      <p>No breweries available</p>
+    {% endif %}
+  </div>
 {% endblock %}
