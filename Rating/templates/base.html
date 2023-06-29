@@ -66,13 +66,12 @@
           
           <li class="nav-item">
             <a class="nav-link link-light" href="/admin">Admin</a>
-          </li>
-
-          <form action="{% url 'search_beer' %}" method="get" class="search-form">
-            <input type="text" name="q" placeholder="Biernamen Suchen">
-            <button type="submit">Suchen</button>
-          </form>
+          </li>      
         </ul>
+        <form class="d-flex align-items-center ml-auto" action="{% url 'search_beer' %}" method="GET">
+          <input class="form-control me-2" type="search" placeholder="Bier suchen" aria-label="Search" name="q">
+          <button class="btn btn-outline-primary" type="submit">Suchen</button>
+        </form>
       </div>
     </nav>
     {% block content %}
