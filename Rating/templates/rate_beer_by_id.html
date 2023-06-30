@@ -2,13 +2,26 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  <h1>Rate Beer {{ beer.display_name }}</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Rate">
-  </form>
+  <div class="container">
+    <h1>Rate Beer {{ beer.display_name }}</h1>
+    <form method="post" class="mt-4">
+      {% csrf_token %}
+      <table class="table">
+        {% for field in form %}
+        <tr>
+          <td>{{ field.label_tag }}</td>
+          <td>{{ field }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <button type="submit" class="btn btn-primary">Rate</button>
+    </form>
+  </div>
 {% else %}
-<p>Du musst angemeldet sein um Biere zu bewerten! <a href="{% url 'login' %}">Zum Login</a> </p>
+  <div class="container">
+    <p class="mt-4">Du musst angemeldet sein, um Biere zu bewerten! <a href="{% url 'login' %}" class="btn btn-primary">Zum Login</a></p>
+  </div>
 {% endif %}
 {% endblock %}
+
+
