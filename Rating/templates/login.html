@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        <div>
-            <label for="id_username">Anmeldename:</label>
-            <input type="text" name="username" required id="id_username">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">Login</h2>
+            <form method="post" class="needs-validation" novalidate>
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="id_username" class="form-label">Anmeldename:</label>
+                <input type="text" name="username" required id="id_username" class="form-control">
+                <div class="invalid-feedback">Bitte geben Sie Ihren Anmeldenamen ein.</div>
+              </div>
+              <div class="mb-3">
+                <label for="id_password" class="form-label">Passwort:</label>
+                <input type="password" name="password" required id="id_password" class="form-control">
+                <div class="invalid-feedback">Bitte geben Sie Ihr Passwort ein.</div>
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+          </div>
         </div>
-        <div>
-            <label for="id_password">Passwort:</label>
-            <input type="password" name="password" required id="id_password">
-        </div>
-        <button type="submit">Login</button>
-    </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}
