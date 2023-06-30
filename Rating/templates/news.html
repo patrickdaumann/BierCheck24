@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <head>
+<!--  
+<head>
     <title>Mein erstes Django-Template</title>
   </head>
   <body>
@@ -14,4 +15,48 @@
 
   </body>
 </html>
+-->
+
+<main class="container">
+  <h1 class="my-4">Neuigkeiten</h1>
+
+  <!-- News-Formular -->
+  <form>
+      <div class="mb-3">
+          <label for="title" class="form-label">Titel</label>
+          <input type="text" class="form-control" id="title" placeholder="Geben Sie einen Titel ein">
+      </div>
+      <div class="mb-3">
+          <label for="content" class="form-label">Inhalt</label>
+          <textarea class="form-control" id="content" rows="4" placeholder="Geben Sie den Inhalt ein"></textarea>
+      </div>
+      <button type="submit" class="btn btn-secondary">Posten</button>
+  </form>
+
+  <!-- News-Einträge -->
+  <div class="my-4">
+      <h2>Aktuelle Einträge</h2>
+      <div class="card mb-3">
+          <div class="card-body">
+              <h5 class="card-title">Beispiel-Eintrag 1</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies quam vitae lacus vestibulum placerat.</p>
+              <button class="btn btn-outline-success"><i class="bi bi-hand-thumbs-up"></i> 42</button>
+          </div>
+      </div>
+      <div class="card mb-3">
+          <div class="card-body">
+              <h5 class="card-title">Beispiel-Eintrag 2</h5>
+              <p class="card-text">Praesent efficitur odio non magna vulputate cursus. Curabitur venenatis mi ac justo consectetur, id consectetur enim lacinia.</p>
+              <button class="btn btn-outline-success"><i class="bi bi-hand-thumbs-up"></i> 18</button>
+          </div>
+      </div>
+      <div class="card mb-3">
+          <div class="card-body">
+              <h5 class="card-title">Beispiel-Eintrag 3</h5>
+              <p class="card-text">Vestibulum vestibulum lacus ac ante accumsan, et ultricies sapien pharetra. Aliquam eu enim nec lorem ultricies congue.</p>
+              <button class="btn btn-outline-success"><i class="bi bi-hand-thumbs-up"></i> 29</button>
+          </div>
+      </div>
+  </div>
+</main>
 {% endblock %}
