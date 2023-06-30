@@ -1,0 +1,27 @@
+[
+  {
+    "model": "Rating.recommendation",
+    "pk": 1,
+    "fields": { "name": "BeerOfMonth", "beer": 1 }
+  },
+  {
+    "model": "Rating.recommendation",
+    "pk": 2,
+    "fields": { "name": "NewArrival", "beer": 3 }
+  },
+  {
+    "model": "Rating.recommendation",
+    "pk": 3,
+    "fields": { "name": "BestRatedEver", "beer": 1 }
+  },
+  {
+    "model": "Rating.recommendation",
+    "pk": 4,
+    "fields": { "name": "BestRated_1M", "beer": 1 }
+  },
+  {
+    "model": "Rating.recommendation",
+    "pk": 5,
+    "fields": { "name": "Trending", "beer": 1 }
+  }
+]
