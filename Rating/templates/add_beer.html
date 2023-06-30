@@ -2,7 +2,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<h1>Add Beer</h1>
+<h1>Neues Bier!</h1>
 
 {% if messages %}
 <div class="mt-4">
@@ -16,8 +16,68 @@
 
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Add Beer</button>
+
+  <div class="form-group">
+    <label for="{{ form.display_name.id_for_label }}">Beer Name:</label>
+    {{ form.display_name }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.brewery.id_for_label }}">Brauerei:</label>
+    {{ form.brewery }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.style.id_for_label }}">Art:</label>
+    {{ form.style }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.alcohol_content.id_for_label }}">Alkoholgehalt:</label>
+    {{ form.alcohol_content }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.original_gravity.id_for_label }}">Stammwürzgehalt:</label>
+    {{ form.original_gravity }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.recommended_serving_temperature.id_for_label }}">Empfohlene Serviertemperatur:</label>
+    {{ form.recommended_serving_temperature }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.is_organic.id_for_label }}">Biobier:</label>
+    {{ form.is_organic }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.clarity.id_for_label }}">Klarheit:</label>
+    {{ form.clarity }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.yeast.id_for_label }}">Hefe:</label>
+    {{ form.yeast }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.is_gluten_free.id_for_label }}">Glutenfrei:</label>
+    {{ form.is_gluten_free }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.description.id_for_label }}">Kurze Beschreibung:</label>
+    {{ form.description }}
+  </div>
+
+
+
+
+
+  
+  <button type="submit">Bier hinzufügen</button>
 </form>
 
 
