@@ -17,15 +17,18 @@ from django.db.models import Avg, Count, Q
 def home(request):
     beer_of_month = Recommendation.objects.get(name="BeerOfMonth")
     new_arrival = Recommendation.objects.get(name="NewArrival")
+    best_rated_ever = Recommendation.objects.get(name="BestRatedEver")
     
     # Access the associated beer
     beer_of_month = beer_of_month.beer
     new_arrival = new_arrival.beer
+    best_rated_ever = best_rated_ever.beer
     
     # Create the context dictionary with the beerofmonth variable
     context = {
         'beer_of_month': beer_of_month,
         'new_arrival' : new_arrival,
+        'best_rated_ever' : best_rated_ever,
     }
     
     return render(request, 'home.html', context)
