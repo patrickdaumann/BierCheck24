@@ -217,12 +217,13 @@ def add_beer(request):
     if request.method == 'POST':
         form = BeerForm(request.POST)
         if form.is_valid():
-            display_name = form.cleaned_data['display_name']
-            if Beer.objects.filter(display_name=display_name).exists():
-                messages.error(request, f'A beer with the name "{display_name}" already exists.')
+            beer = form.save(commit=False)
+            beer.name = form.cleaned_data['display_name']
+            if Beer.objects.filter(display_name=beer.name).exists():
+                messages.error(request, f'A beer with the name "{beer.name}" already exists.')
             else:
-                form.save()
-                return redirect('add_success')  # Weiterleitung zur Erfolgsseite 
+                beer.save()
+                return redirect('add_success')
     else:
         form = BeerForm()
     
@@ -230,7 +231,6 @@ def add_beer(request):
     form.fields.pop('approvalstatus')
     form.fields.pop('ratings_count')
     form.fields.pop('recommended_count')
-
 
     context = {'form': form}
     return render(request, 'add_beer.html', context)
