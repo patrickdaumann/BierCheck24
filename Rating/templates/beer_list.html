@@ -3,7 +3,7 @@
 {% block content %}
   <h1 class="text-center">Beer List</h1>
 
-  <a href="{% url 'test' %}" class="d-block text-center mb-3">Erweiterte Ansicht</a>
+  <a href="{% url 'beer_list_ext' %}" class="d-block text-center mb-3">Erweiterte Ansicht</a>
 
   <form action="{% url 'beer_list' %}" method="get" class="filter-form">
     <div class="row g-3 align-items-end">

@@ -3,7 +3,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from .views import beertype_detail, beer_detail, brewery_detail, rating_detail, rating_success, beer_list, about, test, brewery_list, rate_beer_by_id, news, add_beer
+from .views import beertype_detail, beer_detail, brewery_detail, rating_detail, rating_success, beer_list, about, beer_list_ext, brewery_list, rate_beer_by_id, news, add_beer
 from .views import add_success, search_beer, rating_failed
 
 
@@ -19,7 +19,7 @@ urlpatterns = [
     path('rating_success', rating_success, name='rating_success'),
     path('rating_failed', rating_failed, name='rating_failed'),
     path('about', about, name="about"),
-    path('test', test, name="test"),
+    path('beer_list_ext', beer_list_ext, name="beer_list_ext"),
     path('news', news, name="news"),
     path('beer_list', beer_list, name='beer_list'),
     path('brewery_list', brewery_list, name='brewery_list'),

@@ -37,8 +37,8 @@ def home(request):
 def about(request):
     return render(request, template_name='about.html')
 
-# Teste Seite
-def test(request):
+# beer_list_ext Seite
+def beer_list_ext(request):
     beers = Beer.objects.annotate(
         color__avg=Avg('rating__color'),
         entry__avg=Avg('rating__entry'),
@@ -77,7 +77,7 @@ def test(request):
     
     
     context = {'beers': beers, 'styles': styles, 'breweries': breweries,'alcohol_content': alcohol_content}
-    return render(request, 'test.html', context)
+    return render(request, 'beer_list_ext.html', context)
 
 # News Seite
 def news(request):
