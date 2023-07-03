@@ -1,0 +1,242 @@
+[
+    {
+        "model": "app_name.phrase",
+        "pk": 1,
+        "fields": {
+            "phrase": "Die Kurve begradigen",
+            "intextphrase": "Die Kurve begradigen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 2,
+        "fields": {
+            "phrase": "Den Damm biebern",
+            "intextphrase": "Den Damm biebern"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 3,
+        "fields": {
+            "phrase": "Die Dachrinne verzinken",
+            "intextphrase": "Die Dachrinne verzinken"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 4,
+        "fields": {
+            "phrase": "Sich einen in die Rüstung römern",
+            "intextphrase": "Sich einen in die Rüstung römern"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 5,
+        "fields": {
+            "phrase": "Einen in die Kaschemme wemmsen",
+            "intextphrase": "Einen in die Kaschemme wemmsen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 6,
+        "fields": {
+            "phrase": "Die Festplatte formatieren",
+            "intextphrase": "Die Festplatte formatieren"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 7,
+        "fields": {
+            "phrase": "Die Fliesen verfugen",
+            "intextphrase": "Die Fliesen verfugen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 8,
+        "fields": {
+            "phrase": "Alles auf Werkseinstellungen zurücksetzen",
+            "intextphrase": "Alles auf Werkseinstellungen zurücksetzen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 9,
+        "fields": {
+            "phrase": "Die Leber von der Spenderliste nehmen",
+            "intextphrase": "Die Leber von der Spenderliste nehmen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 10,
+        "fields": {
+            "phrase": "Sich eine Hopfenschorle ins Feinkostgewölbe kippen",
+            "intextphrase": "Sich eine Hopfenschorle ins Feinkostgewölbe kippen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 11,
+        "fields": {
+            "phrase": "Die Muttersprache abtrainieren",
+            "intextphrase": "Die Muttersprache abtrainieren"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 12,
+        "fields": {
+            "phrase": "Das Klima wandeln",
+            "intextphrase": "Das Klima wandeln"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 13,
+        "fields": {
+            "phrase": "Die Batterie abklemmen",
+            "intextphrase": "Die Batterie abklemmen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 14,
+        "fields": {
+            "phrase": "Die Kabel aus dem Receiver ziehen",
+            "intextphrase": "Die Kabel aus dem Receiver ziehen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 15,
+        "fields": {
+            "phrase": "Sich einen in den Kutter rudern",
+            "intextphrase": "Sich einen in den Kutter rudern"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 16,
+        "fields": {
+            "phrase": "Schauen ob der Hals noch dicht ist",
+            "intextphrase": "Schauen ob der Hals noch dicht ist"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 17,
+        "fields": {
+            "phrase": "Die Kette spannen",
+            "intextphrase": "Die Kette spannen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 18,
+        "fields": {
+            "phrase": "Den Helm lackieren",
+            "intextphrase": "Den Helm lackieren"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 19,
+        "fields": {
+            "phrase": "Sich einen untern Christbaum stellen",
+            "intextphrase": "Sich einen untern Christbaum stellen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 20,
+        "fields": {
+            "phrase": "Sich einen hinter die Buche fichten",
+            "intextphrase": "Sich einen hinter die Buche fichten"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 21,
+        "fields": {
+            "phrase": "Die Akte zutackern",
+            "intextphrase": "Die Akte zutackern"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 22,
+        "fields": {
+            "phrase": "Einen in die Sakristei orgeln",
+            "intextphrase": "Einen in die Sakristei orgeln"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 23,
+        "fields": {
+            "phrase": "Achtarming einen reinorgeln",
+            "intextphrase": "Achtarming einen reinorgeln"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 24,
+        "fields": {
+            "phrase": "Einen hinter die Alm jodeln",
+            "intextphrase": "Einen hinter die Alm jodeln"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 25,
+        "fields": {
+            "phrase": "Die Fahne mit Stolz tragen",
+            "intextphrase": "Die Fahne mit Stolz tragen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 26,
+        "fields": {
+            "phrase": "Sich das Stirnband von innen versticken",
+            "intextphrase": "Sich das Stirnband von innen versticken"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 27,
+        "fields": {
+            "phrase": "Mal ordentlich die Grenze verzollen",
+            "intextphrase": "Mal ordentlich die Grenze verzollen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 28,
+        "fields": {
+            "phrase": "Das Etui vollstiften",
+            "intextphrase": "Das Etui vollstiften"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 29,
+        "fields": {
+            "phrase": "Das Alphabet ausdünnen",
+            "intextphrase": "Das Alphabet ausdünnen"
+        }
+    },
+    {
+        "model": "app_name.phrase",
+        "pk": 30,
+        "fields": {
+            "phrase": "Die Einfahrt kärchern",
+            "intextphrase": "Die Einfahrt kärchern"
+        }
+    }
+]
