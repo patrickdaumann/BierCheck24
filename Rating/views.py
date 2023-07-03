@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.staticfiles import finders
 from django.http import HttpResponse
-from .models import Beer, Brewery, Beertype, Rating, Recommendation
+from .models import Beer, Brewery, Beertype, Rating, Recommendation, User
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -173,21 +173,28 @@ def rating_detail(request, rating_id):
 
 
 # Nutzer Registrierung
+
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
+            
+           
+            form.save()
             user = authenticate(username=username, password=password)
             login(request, user)
-
-            # Redirect nach erfolgreicher anmeldung
             return redirect('home')
     else:
         form = UserCreationForm()
+    
     return render(request, 'register.html', {'form': form})
+
+
+
+
 
 
 # Nutzerlogin

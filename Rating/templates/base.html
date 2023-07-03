@@ -57,6 +57,7 @@
           <li class="nav-item">
             <a class="nav-link link-light" href="{% url 'logout' %}">Logout</a>
           </li>
+          
           {% else %}
           <li class="nav-item">
             <a class="nav-link link-light" href="{% url 'login' %}">Login</a>
@@ -64,6 +65,9 @@
           <li class="nav-item">
             <a class="nav-link link-light" href="{% url 'register' %}">Register</a>
           </li>
+          
+
+
           {% endif %}
           
           <li class="nav-item">
@@ -74,6 +78,14 @@
           <input class="form-control me-2" type="search" placeholder="Bier suchen" aria-label="Search" name="q">
           <button class="btn btn-outline-primary" type="submit">Suchen</button>
         </form>
+
+        
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <span class="navbar-text">Logged in as: {{ user.username }}</span>
+        </li>
+        {% endif %}
+
       </div>
     </nav>
     {% block content %}
