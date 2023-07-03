@@ -81,10 +81,12 @@
 
         
         {% if user.is_authenticated %}
-        <li class="nav-item">
+        <li class="nav-item list-unstyled" style="margin-left: 10px;">
           <span class="navbar-text">Logged in as: {{ user.username }}</span>
         </li>
         {% endif %}
+
+
 
       </div>
     </nav>
