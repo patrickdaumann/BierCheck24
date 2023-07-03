@@ -40,8 +40,8 @@ def about(request):
 # beer_list_ext Seite
 def beer_list_ext(request):
     beers = Beer.objects.annotate(
-        Farbe__avg=Avg('rating__Farbe'),
-        Einstieg__avg=Avg('rating__Einstieg'),
+        Color__avg=Avg('rating__Color'),
+        Entry__avg=Avg('rating__Entry'),
         body__avg=Avg('rating__body'),
         finish__avg=Avg('rating__finish'),
         carbonation__avg=Avg('rating__carbonation'),
@@ -95,7 +95,7 @@ def beer_detail(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
     ratings = Rating.objects.filter(beer=beer)
     average_ratings = ratings.aggregate(
-        Avg('Farbe'), Avg('Einstieg'), Avg('body'),
+        Avg('Color'), Avg('Entry'), Avg('body'),
         Avg('finish'), Avg('carbonation'), Avg('acidity'),
         Avg('bitterness'), Avg('drinkability'), Avg('price')
     )

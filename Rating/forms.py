@@ -4,7 +4,7 @@ from .models import Rating,Beer
 class RatingFormByID(forms.ModelForm):
     class Meta:
         model = Rating
-        fields = ['recommended', 'Farbe', 'Einstieg', 'body', 'finish', 'carbonation', 'acidity', 'bitterness', 'drinkability', 'price']
+        fields = ['recommended', 'Color', 'Entry', 'body', 'finish', 'carbonation', 'acidity', 'bitterness', 'drinkability', 'price']
 
 
 

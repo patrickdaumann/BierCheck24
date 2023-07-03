@@ -5,7 +5,7 @@
     "fields": {
       "name": "Pilsner",
       "brewing_type": "Untergärig",
-      "Farbe": "Hell",
+      "Color": "Hell",
       "origin": "Tschechien",
       "description": "Ein helles, untergäriges Bier mit mittlerem bis starkem Hopfenaroma und bitterem Geschmack. Pilsner ist das meistverkaufte Bier in Deutschland."
     }
@@ -16,9 +16,9 @@
     "fields": {
       "name": "Weizenbier",
       "brewing_type": "Obergärig",
-      "Farbe": "Hell",
+      "Color": "Hell",
       "origin": "Bayern",
-      "description": "Ein obergäriges Bier aus mindestens 50% Weizenmalz. Es hat einen fruchtigen Geschmack und eine trübe goldene Farbe."
+      "description": "Ein obergäriges Bier aus mindestens 50% Weizenmalz. Es hat einen fruchtigen Geschmack und eine trübe goldene Color."
     }
   },
   {
@@ -27,7 +27,7 @@
     "fields": {
       "name": "Export",
       "brewing_type": "Untergärig",
-      "Farbe": "Dunkel",
+      "Color": "Dunkel",
       "origin": "Deutschland",
       "description": "Ein untergäriges Bier mit einem höheren Alkoholgehalt und einem malzigen Geschmack. Export ist dunkler als Pilsner."
     }
@@ -38,7 +38,7 @@
     "fields": {
       "name": "Alt",
       "brewing_type": "Obergärig",
-      "Farbe": "Dunkel",
+      "Color": "Dunkel",
       "origin": "Düsseldorf",
       "description": "Ein obergäriges Bier aus dem Rheinland mit einem dunklen Bernstein-Farbton und einem starken malzigen Geschmack."
     }
@@ -49,7 +49,7 @@
     "fields": {
       "name": "Helles",
       "brewing_type": "Untergärig",
-      "Farbe": "Hell",
+      "Color": "Hell",
       "origin": "Bayern",
       "description": "Ein helles, untergäriges Bier mit einem süßen, malzigen Geschmack und einem leichten Hopfenaroma. Helles wird oft als leichter und milder als Pilsner angesehen."
     }
@@ -60,9 +60,9 @@
     "fields": {
       "name": "Kölsch",
       "brewing_type": "Obergärig",
-      "Farbe": "Hellgelb",
+      "Color": "Hellgelb",
       "origin": "Köln",
-      "description": "Kölsch ist ein obergäriges Bier, das traditionell in der Region Köln gebraut wird. Es hat eine hellgelbe Farbe, ist klar und hat einen leichten Körper. Der Geschmack ist malzig-süß mit einem milden Hopfenaroma und einer leichten Fruchtigkeit. Kölsch wird oft in kleinen Gläsern serviert und soll möglichst frisch getrunken werden."
+      "description": "Kölsch ist ein obergäriges Bier, das traditionell in der Region Köln gebraut wird. Es hat eine hellgelbe Color, ist klar und hat einen leichten Körper. Der Geschmack ist malzig-süß mit einem milden Hopfenaroma und einer leichten Fruchtigkeit. Kölsch wird oft in kleinen Gläsern serviert und soll möglichst frisch getrunken werden."
     }
   },
   {
@@ -236,9 +236,9 @@
     "fields": {
       "name": "Molson Coors Brewing Company",
       "display_name": "Molson Coors",
-      "location": "Denver, Farbeado, USA",
+      "location": "Denver, Colorado, USA",
       "founded_year": 1786,
-      "description": "Die Molson Coors Brewing Company ist ein führendes Brauunternehmen mit Sitz in Denver, Farbeado, USA. Sie wurde im Jahr 1786 gegründet und hat sich im Laufe der Zeit zu einem international renommierten Brauereikonzern entwickelt. Molson Coors produziert eine Vielzahl von Biermarken, darunter bekannte Namen wie Coors, Molson, Blue Moon und Miller. Das Unternehmen legt großen Wert auf Qualität, Handwerkskunst und Innovation, um seinen Kunden erstklassige Biere anzubieten. Mit einer langen Geschichte und einer breiten Palette von Biersorten ist Molson Coors ein bedeutender Akteur auf dem globalen Biermarkt."
+      "description": "Die Molson Coors Brewing Company ist ein führendes Brauunternehmen mit Sitz in Denver, Colorado, USA. Sie wurde im Jahr 1786 gegründet und hat sich im Laufe der Zeit zu einem international renommierten Brauereikonzern entwickelt. Molson Coors produziert eine Vielzahl von Biermarken, darunter bekannte Namen wie Coors, Molson, Blue Moon und Miller. Das Unternehmen legt großen Wert auf Qualität, Handwerkskunst und Innovation, um seinen Kunden erstklassige Biere anzubieten. Mit einer langen Geschichte und einer breiten Palette von Biersorten ist Molson Coors ein bedeutender Akteur auf dem globalen Biermarkt."
     }
   },
   {
@@ -322,8 +322,8 @@
       "beer": 1,
       "recommended": true,
       "user": 218,
-      "Farbe": 10,
-      "Einstieg": 10,
+      "Color": 10,
+      "Entry": 10,
       "body": 10,
       "finish": 10,
       "carbonation": 10,
@@ -341,8 +341,8 @@
       "beer": 1,
       "recommended": false,
       "user": 673,
-      "Farbe": 10,
-      "Einstieg": 10,
+      "Color": 10,
+      "Entry": 10,
       "body": 10,
       "finish": 10,
       "carbonation": 10,
@@ -360,8 +360,8 @@
       "beer": 2,
       "recommended": true,
       "user": 218,
-      "Farbe": 5,
-      "Einstieg": 5,
+      "Color": 5,
+      "Entry": 5,
       "body": 5,
       "finish": 5,
       "carbonation": 5,
@@ -379,8 +379,8 @@
       "beer": 2,
       "recommended": true,
       "user": 673,
-      "Farbe": 10,
-      "Einstieg": 10,
+      "Color": 10,
+      "Entry": 10,
       "body": 10,
       "finish": 10,
       "carbonation": 10,
@@ -398,8 +398,8 @@
       "beer": 3,
       "recommended": true,
       "user": 218,
-      "Farbe": 5,
-      "Einstieg": 5,
+      "Color": 5,
+      "Entry": 5,
       "body": 5,
       "finish": 5,
       "carbonation": 5,
@@ -417,8 +417,8 @@
       "beer": 3,
       "recommended": true,
       "user": 673,
-      "Farbe": 5,
-      "Einstieg": 5,
+      "Color": 5,
+      "Entry": 5,
       "body": 5,
       "finish": 5,
       "carbonation": 5,

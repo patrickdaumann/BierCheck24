@@ -19,7 +19,7 @@ class Beertype(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     brewing_type = models.CharField(max_length=255)
-    Farbe = models.CharField(max_length=255)
+    Color = models.CharField(max_length=255)
     origin = models.CharField(max_length=255)
     description = models.TextField()
 
@@ -97,13 +97,13 @@ class Rating(models.Model):
     # Bezug auf den bewertenden User
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    # Farbe (1-10)
-    Farbe = models.IntegerField(
+    # Color (1-10)
+    Color = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(10)]
     )
 
-    # Einstieg (1-10)
-    Einstieg = models.IntegerField(
+    # Entry (1-10)
+    Entry = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(10)]
     )
 

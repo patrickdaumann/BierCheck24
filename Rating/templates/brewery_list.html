@@ -7,7 +7,7 @@
       <ul style="list-style: none; padding: 0; margin: 0;">
         {% for brewery in breweries %}
           <li style="border-bottom: 1px solid #ccc; padding: 10px;">
-            <a href="{% url 'brewery_detail' brewery_id=brewery.id %}" style="text-decoration: none; Farbe: inherit;">{{ brewery.name }}</a>
+            <a href="{% url 'brewery_detail' brewery_id=brewery.id %}" style="text-decoration: none; Color: inherit;">{{ brewery.name }}</a>
           </li>
         {% empty %}
           <li style="border-bottom: 1px solid #ccc; padding: 10px;">No breweries available</li>
