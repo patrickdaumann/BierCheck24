@@ -26,44 +26,44 @@
     
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-warning navbar-light">      <!-- navbar-expand-sm skaliert die navbar honizontal (statt vertikal), bg-warning ist die gelbe Color, und navbar-dark macht den Text dunkel (eigentlich)-->
+    <nav class="navbar navbar-expand-sm bg-warning navbar-light">      <!-- navbar-expand-sm skaliert die navbar honizontal (statt vertikal), bg-warning ist die gelbe Color, und navbar-dark macht den Text dunkel-->
       <div class="container-fluid justify-content-center">            <!-- justify-concent-center zentriert den container-->
         <a class=""navbar-brand href="{% url 'home' %}">
           <img src="/static/img/Logo.png" alt="HOME" style ="width: 60px;" class="rounded-pill">
         </a>
         <ul class="navbar-nav">          
           <li class="nav-item">
-            <a class="nav-link link-light" href="{% url 'beer_list' %}">Bierliste</a>
+            <a class="nav-link link-dark" href="{% url 'beer_list' %}">Bierliste</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-light" href="{% url 'add_beer' %}">Bier hinzufügen!</a>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link-light" href="{% url 'brewery_list' %}">Brauereien</a>
+            <a class="nav-link link-dark" href="{% url 'add_beer' %}">Bier hinzufügen!</a>
           </li>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-light" href="{% url 'news' %}">News</a>
+            <a class="nav-link link-dark" href="{% url 'brewery_list' %}">Brauereien</a>
           </li>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-light" href="{% url 'about' %}">About</a>
+            <a class="nav-link link-dark" href="{% url 'news' %}">News</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link-dark" href="{% url 'about' %}">About</a>
           </li>
           
       
           
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link link-light" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link link-dark" href="{% url 'logout' %}">Logout</a>
           </li>
           
           {% else %}
           <li class="nav-item">
-            <a class="nav-link link-light" href="{% url 'login' %}">Login</a>
+            <a class="nav-link link-dark" href="{% url 'login' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-light" href="{% url 'register' %}">Register</a>
+            <a class="nav-link link-dark" href="{% url 'register' %}">Register</a>
           </li>
           
 
@@ -71,7 +71,7 @@
           {% endif %}
           
           <li class="nav-item">
-            <a class="nav-link link-light" href="/admin">Admin</a>
+            <a class="nav-link link-dark" href="/admin">Admin</a>
           </li>      
         </ul>
         <form class="d-flex align-items-center ml-auto my-2 my-lg-0" action="{% url 'search_beer' %}" method="GET">
