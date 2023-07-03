@@ -8,8 +8,8 @@
     <div class="container">
         <h1>Beerlist</h1>
         <p>Hier können Biere angeschaut, verglichen und bewertet werden.</p>
-        <a href="{% url 'beer_list' %}">Normale Ansicht</a> <!-- Link to test.html -->
-        <form action="{% url 'test' %}" method="get" class="filter-form">
+        <a href="{% url 'beer_list' %}">Normale Ansicht</a> <!-- Link to beer_list_ext.html -->
+        <form action="{% url 'beer_list_ext' %}" method="get" class="filter-form">
           <label for="style">Art:</label>
           <select name="style" id="style">
             <option value="">Alle</option>
