@@ -168,3 +168,47 @@ class Recommendation(models.Model):
     # Anzeige im Admin Panel soll name der Recommendation sein
     def __str__(self):
         return f"{self.name}"
+    
+
+class BlogEntry(models.Model):
+    #Primary Key
+    id = models.AutoField(primary_key=True)
+
+    #Titel
+    title = models.CharField(max_length=200)
+    
+    #Inhalt
+    content = models.TextField()
+
+    #Erstellungs Zeitstempel
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    #Autor -> User Bezug
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    #Zähler für Upvotes
+    upvotes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+
+
+    #Methode für Upvotes
+    def upvote(self):
+        self.upvotes += 1
+        self.save()
+
+
+#Klasse für Sprüche
+class Phrase(models.Model):
+    #Primary Key
+    id = models.AutoField(primary_key=True)
+
+    #Spruch
+    phrase = models.CharField(max_length=400)
+
+    #Zur Benutzung in Fließtext
+    intextphrase = models.CharField(max_length=400)
+
+    def __str__(self) -> str:
+        return self.phrase
