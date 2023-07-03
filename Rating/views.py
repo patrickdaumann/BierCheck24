@@ -24,7 +24,7 @@ def home(request):
     new_arrival = new_arrival.beer
     best_rated_ever = best_rated_ever.beer
     
-    # Create the context dictionary with the beerofmonth variable
+    # Create the context dictionary with the recommendation variable
     context = {
         'beer_of_month': beer_of_month,
         'new_arrival' : new_arrival,
@@ -40,8 +40,8 @@ def about(request):
 # beer_list_ext Seite
 def beer_list_ext(request):
     beers = Beer.objects.annotate(
-        color__avg=Avg('rating__color'),
-        entry__avg=Avg('rating__entry'),
+        Farbe__avg=Avg('rating__Farbe'),
+        Einstieg__avg=Avg('rating__Einstieg'),
         body__avg=Avg('rating__body'),
         finish__avg=Avg('rating__finish'),
         carbonation__avg=Avg('rating__carbonation'),
@@ -95,7 +95,7 @@ def beer_detail(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
     ratings = Rating.objects.filter(beer=beer)
     average_ratings = ratings.aggregate(
-        Avg('color'), Avg('entry'), Avg('body'),
+        Avg('Farbe'), Avg('Einstieg'), Avg('body'),
         Avg('finish'), Avg('carbonation'), Avg('acidity'),
         Avg('bitterness'), Avg('drinkability'), Avg('price')
     )

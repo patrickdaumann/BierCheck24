@@ -19,7 +19,7 @@ class Beertype(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     brewing_type = models.CharField(max_length=255)
-    color = models.CharField(max_length=255)
+    Farbe = models.CharField(max_length=255)
     origin = models.CharField(max_length=255)
     description = models.TextField()
 
@@ -94,19 +94,16 @@ class Rating(models.Model):
     # Bezug auf das Bier
     beer = models.ForeignKey(Beer, on_delete=models.CASCADE)
 
-    # Empfohlen: Ja/Nein
-    recommended = models.BooleanField()
-
     # Bezug auf den bewertenden User
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # Farbe (1-10)
-    color = models.IntegerField(
+    Farbe = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(10)]
     )
 
     # Einstieg (1-10)
-    entry = models.IntegerField(
+    Einstieg = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(10)]
     )
 
@@ -144,6 +141,9 @@ class Rating(models.Model):
     price = models.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(3)]
     )
+    
+    # Empfohlen: Ja/Nein
+    recommended = models.BooleanField()
 
     #Zeitstempel
     created_at = models.DateTimeField(auto_now_add=True)

@@ -5,7 +5,7 @@
         "fields": {
             "name": "Pilsner",
             "brewing_type": "Untergärig",
-            "color": "Hell",
+            "Farbe": "Hell",
             "origin": "Tschechien",
             "description": "Ein helles, untergäriges Bier mit mittlerem bis starkem Hopfenaroma und bitterem Geschmack. Pilsner ist das meistverkaufte Bier in Deutschland."
         }
@@ -16,7 +16,7 @@
         "fields": {
             "name": "Weizenbier",
             "brewing_type": "Obergärig",
-            "color": "Hell",
+            "Farbe": "Hell",
             "origin": "Bayern",
             "description": "Ein obergäriges Bier aus mindestens 50% Weizenmalz. Es hat einen fruchtigen Geschmack und eine trübe goldene Farbe."
         }
@@ -27,7 +27,7 @@
         "fields": {
             "name": "Export",
             "brewing_type": "Untergärig",
-            "color": "Dunkel",
+            "Farbe": "Dunkel",
             "origin": "Deutschland",
             "description": "Ein untergäriges Bier mit einem höheren Alkoholgehalt und einem malzigen Geschmack. Export ist dunkler als Pilsner."
         }
@@ -38,7 +38,7 @@
         "fields": {
             "name": "Alt",
             "brewing_type": "Obergärig",
-            "color": "Dunkel",
+            "Farbe": "Dunkel",
             "origin": "Düsseldorf",
             "description": "Ein obergäriges Bier aus dem Rheinland mit einem dunklen Bernstein-Farbton und einem starken malzigen Geschmack."
         }
@@ -49,7 +49,7 @@
         "fields": {
             "name": "Helles",
             "brewing_type": "Untergärig",
-            "color": "Hell",
+            "Farbe": "Hell",
             "origin": "Bayern",
             "description": "Ein helles, untergäriges Bier mit einem süßen, malzigen Geschmack und einem leichten Hopfenaroma. Helles wird oft als leichter und milder als Pilsner angesehen."
         }
@@ -60,7 +60,7 @@
         "fields": {
             "name": "Kölsch",
             "brewing_type": "Obergärig",
-            "color": "Hellgelb",
+            "Farbe": "Hellgelb",
             "origin": "Köln",
             "description": "Kölsch ist ein obergäriges Bier, das traditionell in der Region Köln gebraut wird. Es hat eine hellgelbe Farbe, ist klar und hat einen leichten Körper. Der Geschmack ist malzig-süß mit einem milden Hopfenaroma und einer leichten Fruchtigkeit. Kölsch wird oft in kleinen Gläsern serviert und soll möglichst frisch getrunken werden."
         }

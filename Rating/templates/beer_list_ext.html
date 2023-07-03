@@ -55,8 +55,8 @@
                         <td><a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }} </a></td>
                         <td class="col-4">{{ beer.description }}</td> <!--col-4 begrenzt die Spaltenbreite auf 33% des Platzes!-->
                         <td>{{ average_ratings.acidity__avg }}
-                          <p><strong>Color (1-10):</strong> {{ beer.color__avg }}</p>
-                          <p><strong>Entry (1-10):</strong> {{ beer.entry__avg }}</p>
+                          <p><strong>Farbe (1-10):</strong> {{ beer.Farbe__avg }}</p>
+                          <p><strong>Einstieg (1-10):</strong> {{ beer.Einstieg__avg }}</p>
                           <p><strong>Body (1-10):</strong> {{ beer.body__avg }}</p>
                           <p><strong>Finish (1-10):</strong> {{ beer.finish__avg }}</p>
                           <p><strong>Carbonation (1-10):</strong> {{ beer.carbonation__avg }}</p>

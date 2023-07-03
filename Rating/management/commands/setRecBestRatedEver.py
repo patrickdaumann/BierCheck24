@@ -25,8 +25,8 @@ class Command(BaseCommand):
             #iterate Ratings and calculate average
             for rating in ratings:
                 AvgRating = 0
-                AvgRating += rating.color
-                AvgRating += rating.entry
+                AvgRating += rating.Farbe
+                AvgRating += rating.Einstieg
                 AvgRating += rating.body
                 AvgRating += rating.finish
                 AvgRating += rating.carbonation
