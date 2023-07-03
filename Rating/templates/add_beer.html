@@ -15,6 +15,9 @@
   </div>
   {% endif %}
 
+ 
+
+
   <form method="post">
     {% csrf_token %}
     <table class="table">
@@ -110,7 +113,9 @@
       </tbody>
     </table>
     <div class="d-grid gap-2 col-6 mx-auto">
-      <button type="submit" class="btn btn-primary">Bier hinzufügen</button>
+      <p>Wir bitten um höchste Sorgfalt bei der Angabe der obigen Daten. </p>
+      <p>Nach ausgiebiger Überprüfung wird das beantragte Bier von uns freigegeben und in der Liste angezeigt! Vielen Dank für den Beitrag und der Hilfe unser aller Bierhorizont zu erweitern. </p>
+      <button type="submit" class="btn btn-primary">Bier beantragen!</button>
     </div>
   </form>
   {% else %}
