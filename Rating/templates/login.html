@@ -12,18 +12,62 @@
               <div class="mb-3">
                 <label for="id_username" class="form-label">Anmeldename:</label>
                 <input type="text" name="username" required id="id_username" class="form-control">
+                {% if form.username.errors %}
+                  <div class="alert alert-danger">
+                    {% for error in form.username.errors %}
+                      {{ error }}
+                    {% endfor %}
+                  </div>
+                {% endif %}
                 <div class="invalid-feedback">Bitte geben Sie Ihren Anmeldenamen ein.</div>
               </div>
               <div class="mb-3">
                 <label for="id_password" class="form-label">Passwort:</label>
-                <input type="password" name="password" required id="id_password" class="form-control">
+                <div class="input-group">
+                  <input type="password" name="password" required id="id_password" class="form-control">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <input type="checkbox" id="show_password">
+                      <label for="show_password" class="form-check-label">Zeige Passwort</label>
+                    </div>
+                  </div>
+                </div>
+                {% if form.password.errors %}
+                  <div class="alert alert-danger">
+                    {% for error in form.password.errors %}
+                      {{ error }}
+                    {% endfor %}
+                  </div>
+                {% endif %}
                 <div class="invalid-feedback">Bitte geben Sie Ihr Passwort ein.</div>
               </div>
               <button type="submit" class="btn btn-primary">Login</button>
             </form>
+            {% if messages %}
+              <div class="alert alert-danger mt-3">
+                {% for message in messages %}
+                  {{ message }}
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const showPasswordCheckbox = document.getElementById('show_password');
+      const passwordInput = document.getElementById('id_password');
+
+      showPasswordCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+          passwordInput.type = 'text';
+        } else {
+          passwordInput.type = 'password';
+        }
+      });
+    });
+  </script>
 {% endblock %}

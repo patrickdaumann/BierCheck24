@@ -198,6 +198,10 @@ def register(request):
 
 
 # Nutzerlogin
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -205,10 +209,14 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            # Hier kann man zu einer anderen URL weiterleiten
             return redirect('home')
         else:
             messages.error(request, 'Invalid username or password.')
+    else:
+        # Clear any existing messages if not a POST request
+        storage = messages.get_messages(request)
+        storage.used = True
+    
     return render(request, 'login.html')
 
 
