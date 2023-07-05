@@ -4,6 +4,11 @@
 {% if user.is_authenticated %}
   <div class="container">
     <h1>Rate Beer {{ beer.display_name }}</h1>
+    {% for message in messages %}
+      <div class="alert alert-danger" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
     <form method="post" class="mt-4">
       {% csrf_token %}
       <table class="table">
@@ -23,5 +28,3 @@
   </div>
 {% endif %}
 {% endblock %}
-
-

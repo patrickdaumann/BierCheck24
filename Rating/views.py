@@ -315,34 +315,79 @@ def add_beer(request):
 
 # Bewertungsseite auf der eine Bewertung erstellt werden kann
 
+
+from django.contrib import messages
+
 def rate_beer_by_id(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
     user = request.user
-    form = RatingFormByID()
+
+    class CustomRatingFormByID(RatingFormByID):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            custom_labels = {
+                'recommended': 'Empfohlen (0-10)',
+                'Color': 'Farbe (0-10) ',
+                'Entry': 'Einstieg (0-10)' ,
+                'body': 'Körper (0-10)',
+                'finish': 'Abgang (0-10)',
+                'carbonation': 'Kohlensäure (0-10)',
+                'acidity': 'Säure (0-10)',
+                'bitterness': 'Bitterkeit (0-10)',
+                'drinkability': 'Süffigkeit (0-10)',
+                'price': 'Preis (1-3)'
+                # Add custom labels for other fields here
+            }
+            for field_name, label in custom_labels.items():
+                self.fields[field_name].label = label
 
     if request.method == 'POST':
         # Check if the user has already rated the beer
         if Rating.objects.filter(beer=beer, user=user).exists():
-            messages.error(request, 'You have already rated this beer.')
+            messages.error(request, 'You have already rated this beer.', extra_tags='rating_error')
             return redirect('rating_failed')
+
+        form = CustomRatingFormByID(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.user = user
+            rating.beer = beer
+            rating.save()
+
+            messages.success(request, 'Beer rated successfully!', extra_tags='rating_success')
+
+            # Update beer ratings count and recommended count
+            beer.refresh_from_db()  # Refresh the beer object from the database
+            beer.ratings_count = Rating.objects.filter(beer=beer).count()
+            beer.recommended_count = Rating.objects.filter(beer=beer, recommended=True).count()
+            beer.save()
+
+            return redirect('rating_success')
         else:
-            form = RatingFormByID(request.POST)
-            if form.is_valid():
-                rating = form.save(commit=False)
-                rating.user = user
-                rating.beer = beer
-                rating.save()
+            # Add form errors to the messages framework
+            for field, errors in form.errors.items():
+                for error in errors:
+                    # Get the custom label for the field, if available
+                    label = form.fields[field].label or field.capitalize()
+                    messages.error(request, f'Error in {label}: {error}')
+    else:
+        form = CustomRatingFormByID()
 
-                messages.success(request, 'Beer rated successfully!')
+    context = {
+        'form': form,
+        'beer': beer,
+        'ratings_count': beer.ratings_count,
+        'recommended_count': beer.recommended_count,
+        'messages': messages.get_messages(request),  # Add messages to the context
+    }
 
-                # Update beer ratings count and recommended count
-                beer.ratings_count = Rating.objects.filter(beer=beer).count()
-                beer.recommended_count = Rating.objects.filter(beer=beer, recommended=True).count()
-                beer.save()
+    return render(request, 'rate_beer_by_id.html', context)
 
-                return redirect('rating_success')
 
-    return render(request, 'rate_beer_by_id.html', {'form': form, 'beer': beer, 'ratings_count': beer.ratings_count, 'recommended_count': beer.recommended_count})
+
+
+
+
 
 
 # Anzeige einer Erfolgsmeldung nach dem erstellen einer Bewertung
