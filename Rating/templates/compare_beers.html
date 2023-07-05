@@ -70,70 +70,76 @@
 
     <h2>Bewertungen</h2>
 
-    <table>
-        <tr>
-            <th>Attribute</th>
-            <th>{{ beer1.display_name }}</th>
-            <th>{{ beer2.display_name }}</th>
-        </tr>
-        <tr>
-            <td>Color (1-10)</td>
-            <td>{{ beer1_average_ratings.Color__avg }}</td>
-            <td>{{ beer2_average_ratings.Color__avg }}</td>
-        </tr>
-        <tr>
-            <td>Entry (1-10)</td>
-            <td>{{ beer1_average_ratings.Entry__avg }}</td>
-            <td>{{ beer2_average_ratings.Entry__avg }}</td>
-        </tr>
-        <tr>
-            <td>Body (1-10)</td>
-            <td>{{ beer1_average_ratings.body__avg }}</td>
-            <td>{{ beer2_average_ratings.body__avg }}</td>
-        </tr>
-        <tr>
-            <td>Finish (1-10)</td>
-            <td>{{ beer1_average_ratings.finish__avg }}</td>
-            <td>{{ beer2_average_ratings.finish__avg }}</td>
-        </tr>
-        <tr>
-            <td>Carbonation (1-10)</td>
-            <td>{{ beer1_average_ratings.carbonation__avg }}</td>
-            <td>{{ beer2_average_ratings.carbonation__avg }}</td>
-        </tr>
-        <tr>
-            <td>Acidity (1-10)</td>
-            <td>{{ beer1_average_ratings.acidity__avg }}</td>
-            <td>{{ beer2_average_ratings.acidity__avg }}</td>
-        </tr>
-        <tr>
-            <td>Bitterness (1-10)</td>
-            <td>{{ beer1_average_ratings.bitterness__avg }}</td>
-            <td>{{ beer2_average_ratings.bitterness__avg }}</td>
-        </tr>
-        <tr>
-            <td>Drinkability (1-10)</td>
-            <td>{{ beer1_average_ratings.drinkability__avg }}</td>
-            <td>{{ beer2_average_ratings.drinkability__avg }}</td>
-        </tr>
-        {% if beer1_average_ratings.price__avg == 1 %}
-            <tr>
-                <td>Price</td>
-                <td>€</td>
-                <td>€</td>
-            </tr>
-        {% elif beer1_average_ratings.price__avg == 2 %}
-            <tr>
-                <td>Price</td>
-                <td>€€</td>
-                <td>€€</td>
-            </tr>
-        {% elif beer1_average_ratings.price__avg == 3 %}
-            <tr>
-                <td>Price</td>
-                <td>€€€</td>
-                <td>€€€</td>
-            </tr>
-        {% endif %}
-    </table>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>{{ beer1.display_name }}</th>
+                    <th>{{ beer2.display_name }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Color (1-10)</td>
+                    <td>{{ beer1_average_ratings.Color__avg }}</td>
+                    <td>{{ beer2_average_ratings.Color__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Entry (1-10)</td>
+                    <td>{{ beer1_average_ratings.Entry__avg }}</td>
+                    <td>{{ beer2_average_ratings.Entry__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Body (1-10)</td>
+                    <td>{{ beer1_average_ratings.body__avg }}</td>
+                    <td>{{ beer2_average_ratings.body__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Finish (1-10)</td>
+                    <td>{{ beer1_average_ratings.finish__avg }}</td>
+                    <td>{{ beer2_average_ratings.finish__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Carbonation (1-10)</td>
+                    <td>{{ beer1_average_ratings.carbonation__avg }}</td>
+                    <td>{{ beer2_average_ratings.carbonation__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Acidity (1-10)</td>
+                    <td>{{ beer1_average_ratings.acidity__avg }}</td>
+                    <td>{{ beer2_average_ratings.acidity__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Bitterness (1-10)</td>
+                    <td>{{ beer1_average_ratings.bitterness__avg }}</td>
+                    <td>{{ beer2_average_ratings.bitterness__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Drinkability (1-10)</td>
+                    <td>{{ beer1_average_ratings.drinkability__avg }}</td>
+                    <td>{{ beer2_average_ratings.drinkability__avg }}</td>
+                </tr>
+                {% if beer1_average_ratings.price__avg == 1 %}
+                    <tr>
+                        <td>Price</td>
+                        <td>€</td>
+                        <td>€</td>
+                    </tr>
+                {% elif beer1_average_ratings.price__avg == 2 %}
+                    <tr>
+                        <td>Price</td>
+                        <td>€€</td>
+                        <td>€€</td>
+                    </tr>
+                {% elif beer1_average_ratings.price__avg == 3 %}
+                    <tr>
+                        <td>Price</td>
+                        <td>€€€</td>
+                        <td>€€€</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
