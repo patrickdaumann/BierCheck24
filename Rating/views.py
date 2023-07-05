@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.generic.list import ListView
 from .forms import RatingFormByID, BeerForm
-from django.db.models import Avg, Count, Q
+from django.db.models import Avg, Count, Q, F
 
 # Hier werden die Routen für die Endpoints (URLs) eingetragen
 
@@ -84,13 +84,8 @@ def news(request):
     return render(request, template_name='news.html')
 
 # Detail Ansicht für die verschiedenen Bier Arten
-def beertype_detail(request, beertype_id):
-    beertype = Beertype.objects.get(id=beertype_id)
-    context = {'beertype': beertype}
-    return render(request, 'beertype_detail.html', context)
 
 
-# Detailansicht für die Biere (Bspw. Früh Kölsch)
 def beer_detail(request, beer_id):
     beer = Beer.objects.get(id=beer_id)
     ratings = Rating.objects.filter(beer=beer)
@@ -106,16 +101,27 @@ def beer_detail(request, beer_id):
         recommended_percentage = (beer.recommended_count / beer.ratings_count) * 100
     else:
         recommended_percentage = 0
-     
+
+    # Calculate the overall rating excluding the price rating
+    overall_rating = (
+        (average_ratings['Color__avg'] or 0) + (average_ratings['Entry__avg'] or 0) +
+        (average_ratings['body__avg'] or 0) + (average_ratings['finish__avg'] or 0) +
+        (average_ratings['carbonation__avg'] or 0) + (average_ratings['acidity__avg'] or 0) +
+        (average_ratings['bitterness__avg'] or 0) + (average_ratings['drinkability__avg'] or 0)
+    ) / 8
+
     context = {
         'beer': beer,
         'average_ratings': average_ratings,
         'recommended_count': beer.recommended_count,
         'ratings_count': beer.ratings_count,
         'recommended_percentage': recommended_percentage,
+        'overall_rating': overall_rating,
         'all_beers': Beer.objects.exclude(id=beer_id),
     }
     return render(request, 'beer_detail.html', context)
+
+
 
 # Seite zum Biervergleich
 
@@ -147,11 +153,25 @@ def compare_beers(request, beer_id):
             Avg('bitterness'), Avg('drinkability'), Avg('price')
         )
 
+        beer1_overall_rating = (
+        (beer1_average_ratings['Color__avg'] + beer1_average_ratings['Entry__avg'] + beer1_average_ratings['body__avg']
+         + beer1_average_ratings['finish__avg'] + beer1_average_ratings['carbonation__avg'] + beer1_average_ratings['acidity__avg']
+         + beer1_average_ratings['bitterness__avg'] + beer1_average_ratings['drinkability__avg']) / 8
+        )
+
+        beer2_overall_rating = (
+        (beer2_average_ratings['Color__avg'] + beer2_average_ratings['Entry__avg'] + beer2_average_ratings['body__avg']
+         + beer2_average_ratings['finish__avg'] + beer2_average_ratings['carbonation__avg'] + beer2_average_ratings['acidity__avg']
+         + beer2_average_ratings['bitterness__avg'] + beer2_average_ratings['drinkability__avg']) / 8
+        )
+
         context = {
             'beer1': beer1,
             'beer2': beer2,
             'beer1_average_ratings': beer1_average_ratings,
             'beer2_average_ratings': beer2_average_ratings,
+            'beer1_overall_rating': beer1_overall_rating,
+            'beer2_overall_rating': beer2_overall_rating
         }
         return render(request, 'compare_beers.html', context)
 

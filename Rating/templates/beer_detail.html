@@ -43,6 +43,7 @@
         <p><strong>Säure (1-10):</strong> {{ average_ratings.acidity__avg }}</p>
         <p><strong>Bitterkeit (1-10):</strong> {{ average_ratings.bitterness__avg }}</p>
         <p><strong>Süffigkeit (1-10):</strong> {{ average_ratings.drinkability__avg }}</p>
+
         {% if average_ratings.price__avg == 1 %}
             <p><strong>Price: €</strong></p>
         {% elif average_ratings.price__avg == 2 %}
@@ -52,14 +53,14 @@
         {% endif %}
 
         {% if beer.ratings_count >= 1 and recommended_percentage >= 80 %}
-            <p><strong>Besonders empfehlenswert  </strong> (Bedeutet Score > 80.0  und Bewertungen sind mehr als X.)</p>
+            <p><strong>Besonders empfehlenswert</strong> (Bedeutet Score > 80.0 und Bewertungen sind mehr als X.)</p>
         {% endif %}
 
         <h2>Bewertungen</h2>
 
-        <p><strong>Bewertungen:</strong> {{ beer.ratings_count }}</p>
-        <p><strong>Wurde {{ beer.recommended_count }} mal empfohlen</strong></p> 
-        <p><strong>Score: </strong> {{ recommended_percentage }} (Verhältnis von Anzahl aller Bewertungen zur Anzahl von Empfehlungen in diesen.)</p> 
+        <p><strong>Bewertungen:</strong> {{ ratings_count }}</p>
+        <p><strong>Wurde {{ recommended_count }} mal empfohlen</strong></p>
+        <p><strong>Score:</strong> {{ recommended_percentage|floatformat:2 }} (Verhältnis von Anzahl aller Bewertungen zur Anzahl von Empfehlungen in diesen.)</p>
 
         {% if recommended_percentage <= 50 and recommended_percentage > 0 %}
             <p><strong>So, lala</strong></p>
@@ -67,6 +68,11 @@
             <p><strong>Schon besser</strong></p>
         {% elif recommended_percentage > 80 %}
             <p><strong>Super</strong></p>
+        {% endif %}
+        
+        {% if overall_rating %}
+            <h2>Gesamtbewertung</h2>
+            <p><strong>Gesamtbewertung:</strong> {{ overall_rating|floatformat:2 }}</p>
         {% endif %}
 
     {% else %}
