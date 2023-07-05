@@ -154,15 +154,15 @@ def compare_beers(request, beer_id):
         )
 
         beer1_overall_rating = (
-        (beer1_average_ratings['Color__avg'] + beer1_average_ratings['Entry__avg'] + beer1_average_ratings['body__avg']
-         + beer1_average_ratings['finish__avg'] + beer1_average_ratings['carbonation__avg'] + beer1_average_ratings['acidity__avg']
-         + beer1_average_ratings['bitterness__avg'] + beer1_average_ratings['drinkability__avg']) / 8
+        (beer1_average_ratings['Color__avg'] or 0) + (beer1_average_ratings['Entry__avg'] or 0) + (beer1_average_ratings['body__avg'] or 0)
+         + (beer1_average_ratings['finish__avg'] or 0) + (beer1_average_ratings['carbonation__avg'] or 0) + (beer1_average_ratings['acidity__avg'] or 0)
+         + (beer1_average_ratings['bitterness__avg'] or 0) + (beer1_average_ratings['drinkability__avg'] or 0) / 8
         )
 
         beer2_overall_rating = (
-        (beer2_average_ratings['Color__avg'] + beer2_average_ratings['Entry__avg'] + beer2_average_ratings['body__avg']
-         + beer2_average_ratings['finish__avg'] + beer2_average_ratings['carbonation__avg'] + beer2_average_ratings['acidity__avg']
-         + beer2_average_ratings['bitterness__avg'] + beer2_average_ratings['drinkability__avg']) / 8
+        (beer2_average_ratings['Color__avg'] or 0) + (beer2_average_ratings['Entry__avg'] or 0) + (beer2_average_ratings['body__avg'] or 0)
+         + (beer2_average_ratings['finish__avg'] or 0) + (beer2_average_ratings['carbonation__avg'] or 0) + (beer2_average_ratings['acidity__avg'] or 0)
+         + (beer2_average_ratings['bitterness__avg'] or 0) + (beer2_average_ratings['drinkability__avg'] or 0) / 8
         )
 
         context = {
