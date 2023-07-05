@@ -4,130 +4,142 @@
     <h1>Compare Beers</h1>
     <h2>{{ beer1.display_name }} vs {{ beer2.display_name }}</h2>
 
-    <table>
-        <tr>
-            <th>Beer</th>
-            <th>{{ beer1.display_name }}</th>
-            <th>{{ beer2.display_name }}</th>
-        </tr>
-        <tr>
-            <td>Brauerei</td>
-            <td>{{ beer1.brewery.name }}</td>
-            <td>{{ beer2.brewery.name }}</td>
-        </tr>
-        <tr>
-            <td>Art</td>
-            <td>{{ beer1.style.name }}</td>
-            <td>{{ beer2.style.name }}</td>
-        </tr>
-        <tr>
-            <td>Alkoholgehalt</td>
-            <td>{{ beer1.alcohol_content }}%</td>
-            <td>{{ beer2.alcohol_content }}%</td>
-        </tr>
-        <tr>
-            <td>Stammwürze</td>
-            <td>{{ beer1.original_gravity }}</td>
-            <td>{{ beer2.original_gravity }}</td>
-        </tr>
-        <tr>
-            <td>Empfohlene Serviertemperatur</td>
-            <td>{{ beer1.recommended_serving_temperature }}°C</td>
-            <td>{{ beer2.recommended_serving_temperature }}°C</td>
-        </tr>
-        <tr>
-            <td>Biobier</td>
-            <td>{% if beer1.is_organic %}Yes{% else %}No{% endif %}</td>
-            <td>{% if beer2.is_organic %}Yes{% else %}No{% endif %}</td>
-        </tr>
-        <tr>
-            <td>Klarheit</td>
-            <td>{{ beer1.clarity }}</td>
-            <td>{{ beer2.clarity }}</td>
-        </tr>
-        <tr>
-            <td>Hefe</td>
-            <td>{{ beer1.yeast }}</td>
-            <td>{{ beer2.yeast }}</td>
-        </tr>
-        <tr>
-            <td>Glutenfrei</td>
-            <td>{% if beer1.is_gluten_free %}Yes{% else %}No{% endif %}</td>
-            <td>{% if beer2.is_gluten_free %}Yes{% else %}No{% endif %}</td>
-        </tr>
-        <tr>
-            <td>Beschreibung</td>
-            <td>{{ beer1.description }}</td>
-            <td>{{ beer2.description }}</td>
-        </tr>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Beer</th>
+                    <th>{{ beer1.display_name }}</th>
+                    <th>{{ beer2.display_name }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Brauerei</td>
+                    <td>{{ beer1.brewery.name }}</td>
+                    <td>{{ beer2.brewery.name }}</td>
+                </tr>
+                <tr>
+                    <td>Art</td>
+                    <td>{{ beer1.style.name }}</td>
+                    <td>{{ beer2.style.name }}</td>
+                </tr>
+                <tr>
+                    <td>Alkoholgehalt</td>
+                    <td>{{ beer1.alcohol_content }}%</td>
+                    <td>{{ beer2.alcohol_content }}%</td>
+                </tr>
+                <tr>
+                    <td>Stammwürze</td>
+                    <td>{{ beer1.original_gravity }}</td>
+                    <td>{{ beer2.original_gravity }}</td>
+                </tr>
+                <tr>
+                    <td>Empfohlene Serviertemperatur</td>
+                    <td>{{ beer1.recommended_serving_temperature }}°C</td>
+                    <td>{{ beer2.recommended_serving_temperature }}°C</td>
+                </tr>
+                <tr>
+                    <td>Biobier</td>
+                    <td>{% if beer1.is_organic %}Yes{% else %}No{% endif %}</td>
+                    <td>{% if beer2.is_organic %}Yes{% else %}No{% endif %}</td>
+                </tr>
+                <tr>
+                    <td>Klarheit</td>
+                    <td>{{ beer1.clarity }}</td>
+                    <td>{{ beer2.clarity }}</td>
+                </tr>
+                <tr>
+                    <td>Hefe</td>
+                    <td>{{ beer1.yeast }}</td>
+                    <td>{{ beer2.yeast }}</td>
+                </tr>
+                <tr>
+                    <td>Glutenfrei</td>
+                    <td>{% if beer1.is_gluten_free %}Yes{% else %}No{% endif %}</td>
+                    <td>{% if beer2.is_gluten_free %}Yes{% else %}No{% endif %}</td>
+                </tr>
+                <tr>
+                    <td>Beschreibung</td>
+                    <td>{{ beer1.description }}</td>
+                    <td>{{ beer2.description }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <h2>Bewertungen</h2>
 
-    <table>
-        <tr>
-            <th>Attribute</th>
-            <th>{{ beer1.display_name }}</th>
-            <th>{{ beer2.display_name }}</th>
-        </tr>
-        <tr>
-            <td>Color (1-10)</td>
-            <td>{{ beer1_average_ratings.Color__avg }}</td>
-            <td>{{ beer2_average_ratings.Color__avg }}</td>
-        </tr>
-        <tr>
-            <td>Entry (1-10)</td>
-            <td>{{ beer1_average_ratings.Entry__avg }}</td>
-            <td>{{ beer2_average_ratings.Entry__avg }}</td>
-        </tr>
-        <tr>
-            <td>Body (1-10)</td>
-            <td>{{ beer1_average_ratings.body__avg }}</td>
-            <td>{{ beer2_average_ratings.body__avg }}</td>
-        </tr>
-        <tr>
-            <td>Finish (1-10)</td>
-            <td>{{ beer1_average_ratings.finish__avg }}</td>
-            <td>{{ beer2_average_ratings.finish__avg }}</td>
-        </tr>
-        <tr>
-            <td>Carbonation (1-10)</td>
-            <td>{{ beer1_average_ratings.carbonation__avg }}</td>
-            <td>{{ beer2_average_ratings.carbonation__avg }}</td>
-        </tr>
-        <tr>
-            <td>Acidity (1-10)</td>
-            <td>{{ beer1_average_ratings.acidity__avg }}</td>
-            <td>{{ beer2_average_ratings.acidity__avg }}</td>
-        </tr>
-        <tr>
-            <td>Bitterness (1-10)</td>
-            <td>{{ beer1_average_ratings.bitterness__avg }}</td>
-            <td>{{ beer2_average_ratings.bitterness__avg }}</td>
-        </tr>
-        <tr>
-            <td>Drinkability (1-10)</td>
-            <td>{{ beer1_average_ratings.drinkability__avg }}</td>
-            <td>{{ beer2_average_ratings.drinkability__avg }}</td>
-        </tr>
-        {% if beer1_average_ratings.price__avg == 1 %}
-            <tr>
-                <td>Price</td>
-                <td>€</td>
-                <td>€</td>
-            </tr>
-        {% elif beer1_average_ratings.price__avg == 2 %}
-            <tr>
-                <td>Price</td>
-                <td>€€</td>
-                <td>€€</td>
-            </tr>
-        {% elif beer1_average_ratings.price__avg == 3 %}
-            <tr>
-                <td>Price</td>
-                <td>€€€</td>
-                <td>€€€</td>
-            </tr>
-        {% endif %}
-    </table>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>{{ beer1.display_name }}</th>
+                    <th>{{ beer2.display_name }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Color (1-10)</td>
+                    <td>{{ beer1_average_ratings.Color__avg }}</td>
+                    <td>{{ beer2_average_ratings.Color__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Entry (1-10)</td>
+                    <td>{{ beer1_average_ratings.Entry__avg }}</td>
+                    <td>{{ beer2_average_ratings.Entry__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Body (1-10)</td>
+                    <td>{{ beer1_average_ratings.body__avg }}</td>
+                    <td>{{ beer2_average_ratings.body__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Finish (1-10)</td>
+                    <td>{{ beer1_average_ratings.finish__avg }}</td>
+                    <td>{{ beer2_average_ratings.finish__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Carbonation (1-10)</td>
+                    <td>{{ beer1_average_ratings.carbonation__avg }}</td>
+                    <td>{{ beer2_average_ratings.carbonation__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Acidity (1-10)</td>
+                    <td>{{ beer1_average_ratings.acidity__avg }}</td>
+                    <td>{{ beer2_average_ratings.acidity__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Bitterness (1-10)</td>
+                    <td>{{ beer1_average_ratings.bitterness__avg }}</td>
+                    <td>{{ beer2_average_ratings.bitterness__avg }}</td>
+                </tr>
+                <tr>
+                    <td>Drinkability (1-10)</td>
+                    <td>{{ beer1_average_ratings.drinkability__avg }}</td>
+                    <td>{{ beer2_average_ratings.drinkability__avg }}</td>
+                </tr>
+                {% if beer1_average_ratings.price__avg == 1 %}
+                    <tr>
+                        <td>Price</td>
+                        <td>€</td>
+                        <td>€</td>
+                    </tr>
+                {% elif beer1_average_ratings.price__avg == 2 %}
+                    <tr>
+                        <td>Price</td>
+                        <td>€€</td>
+                        <td>€€</td>
+                    </tr>
+                {% elif beer1_average_ratings.price__avg == 3 %}
+                    <tr>
+                        <td>Price</td>
+                        <td>€€€</td>
+                        <td>€€€</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
