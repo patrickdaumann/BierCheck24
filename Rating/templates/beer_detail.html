@@ -2,54 +2,115 @@
 
 {% block content %}
     <h1>{{ beer.display_name }}</h1>
-    <p><strong>Brauerei:</strong> {{ beer.brewery.name }}</p>
-    <p><strong>Art:</strong> {{ beer.style.name }}</p>
-    <p><strong>Alkoholgehalt:</strong> {{ beer.alcohol_content }}%</p>
-    <p><strong>Stammwürze:</strong> {{ beer.original_gravity }}</p>
-    <p><strong>Empfohlene Serviertemperatur:</strong> {{ beer.recommended_serving_temperature }}°C</p>
-    <p><strong>Biobier:</strong> {% if beer.is_organic %}Yes{% else %}No{% endif %}</p>
-    <p><strong>Klarheit:</strong> {{ beer.clarity }}</p>
-    <p><strong>Hefe:</strong> {{ beer.yeast }}</p>
-    <p><strong>Glutenfrei:</strong> {% if beer.is_gluten_free %}Yes{% else %}No{% endif %}</p>
-    <p><strong>Beschreibung:</strong> {{ beer.description }}</p>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th scope="row">Brauerei</th>
+                    <td>{{ beer.brewery.name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Art</th>
+                    <td>{{ beer.style.name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Alkoholgehalt</th>
+                    <td>{{ beer.alcohol_content }}%</td>
+                </tr>
+                <tr>
+                    <th scope="row">Stammwürze</th>
+                    <td>{{ beer.original_gravity }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Empfohlene Serviertemperatur</th>
+                    <td>{{ beer.recommended_serving_temperature }}°C</td>
+                </tr>
+                <tr>
+                    <th scope="row">Biobier</th>
+                    <td>{% if beer.is_organic %}Yes{% else %}No{% endif %}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Klarheit</th>
+                    <td>{{ beer.clarity }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Hefe</th>
+                    <td>{{ beer.yeast }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Glutenfrei</th>
+                    <td>{% if beer.is_gluten_free %}Yes{% else %}No{% endif %}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Beschreibung</th>
+                    <td>{{ beer.description }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <h2>Compare Beers</h2>
-    <form action="{% url 'compare_beers' beer_id=beer.id %}" method="post">
-        {% csrf_token %}
-        <div class="row g-3">
-            <div class="col-md-4">
-                <label for="second_beer">Choose second beer:</label>
-                <select name="second_beer" id="second_beer" class="form-select">
-                    {% for other_beer in all_beers %}
-                        <option value="{{ other_beer.id }}">{{ other_beer.display_name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label for="second_beer" class="form-label">Choose second beer:</label>
+            <select name="second_beer" id="second_beer" class="form-select">
+                {% for other_beer in all_beers %}
+                    <option value="{{ other_beer.id }}">{{ other_beer.display_name }}</option>
+                {% endfor %}
+            </select>
         </div>
-        <div class="row mt-2">
-            <div class="col-md-12 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary">Compare</button>
-            </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">Compare</button>
         </div>
-    </form>
+    </div>
 
     {% if average_ratings %}
         <h2>Durchschnittliche Bewertung</h2>
-        <p><strong>Farbe (1-10):</strong> {{ average_ratings.Color__avg }}</p>
-        <p><strong>Einstieg (1-10):</strong> {{ average_ratings.Entry__avg }}</p>
-        <p><strong>Körper (1-10):</strong> {{ average_ratings.body__avg }}</p>
-        <p><strong>Abgang (1-10):</strong> {{ average_ratings.finish__avg }}</p>
-        <p><strong>Kohlensäure (1-10):</strong> {{ average_ratings.carbonation__avg }}</p>
-        <p><strong>Säure (1-10):</strong> {{ average_ratings.acidity__avg }}</p>
-        <p><strong>Bitterkeit (1-10):</strong> {{ average_ratings.bitterness__avg }}</p>
-        <p><strong>Süffigkeit (1-10):</strong> {{ average_ratings.drinkability__avg }}</p>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">Farbe (1-10)</th>
+                        <td>{{ average_ratings.Color__avg }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Einstieg (1-10)</th>
+                        <td>{{ average_ratings.Entry__avg }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Körper (1-10)</th>
+                        <td>{{ average_ratings.body__avg }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Abgang (1-10)</th>
+                        <td>{{ average_ratings.finish__avg }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Kohlensäure (1-10)</th>
+                        <td>{{ average_ratings.carbonation__avg }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Säure (1-10)</th>
+                        <td>{{ average_ratings.acidity__avg }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Bitterkeit (1-10)</th>
+                        <td>{{ average_ratings.bitterness__avg }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Süffigkeit (1-10)</th>
+                        <td>{{ average_ratings.drinkability__avg }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         {% if average_ratings.price__avg == 1 %}
-            <p><strong>Price: €</strong></p>
+            <p><strong>Price:</strong> €</p>
         {% elif average_ratings.price__avg == 2 %}
-            <p><strong>Price: €€</strong></p>
+            <p><strong>Price:</strong> €€</p>
         {% elif average_ratings.price__avg == 3 %}
-            <p><strong>Price: €€€</strong></p>
+            <p><strong>Price:</strong> €€€</p>
         {% endif %}
 
         {% if beer.ratings_count >= 1 and recommended_percentage >= 80 %}
