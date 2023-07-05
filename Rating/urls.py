@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from .views import beertype_detail, beer_detail, brewery_detail, rating_detail, rating_success, beer_list, about, beer_list_ext, brewery_list, rate_beer_by_id, news, add_beer
-from .views import add_success, search_beer, rating_failed
+from .views import add_success, search_beer, rating_failed, compare_beers
 
 
 urlpatterns = [
@@ -14,6 +14,7 @@ urlpatterns = [
     path('login/', views.login_user, name='login'),
     path('beertype/<int:beertype_id>/', beertype_detail,  name='beertype_detail'),
     path('beer/<int:beer_id>/', beer_detail,  name='beer_detail'),
+    path('beer/<int:beer_id>/compare/', views.compare_beers, name='compare_beers'),
     path('brewery/<int:brewery_id>/', brewery_detail,  name='brewery_detail'),
     path('rating/<int:rating_id>/', rating_detail,  name='rating_detail'),
     path('rating_success', rating_success, name='rating_success'),

@@ -44,16 +44,41 @@
     </div>
   </form>
 
-  <ul class="list-group">
-    {% for beer in beers %}
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }}</a>
-        <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'rate_beer_by_id' beer_id=beer.id %}'">Bewerten</button>
-      </li>
-    {% empty %}
-      <li class="list-group-item">No beers available</li>
-    {% endfor %}
-  </ul>
+  <div class="row mt-3">
+    <div class="col">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            
+            
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for beer in beers|dictsort:'display_name' %}
+            <tr>
+              <td>
+              <a href="{% url 'beer_detail' beer_id=beer.id %}">{{ beer.display_name }}</a>
+              </td>
+              
+              <td>
+              <a href="{% url 'rate_beer_by_id' beer_id=beer.id %}" class="btn btn-primary">Bewerten</a>
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="4">No beers available</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+
+
+  
 {% endblock %}
 
 

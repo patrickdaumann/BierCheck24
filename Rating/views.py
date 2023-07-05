@@ -112,9 +112,50 @@ def beer_detail(request, beer_id):
         'average_ratings': average_ratings,
         'recommended_count': beer.recommended_count,
         'ratings_count': beer.ratings_count,
-        'recommended_percentage': recommended_percentage
+        'recommended_percentage': recommended_percentage,
+        'all_beers': Beer.objects.exclude(id=beer_id),
     }
     return render(request, 'beer_detail.html', context)
+
+# Seite zum Biervergleich
+
+from django.db.models import Avg
+
+def compare_beers(request, beer_id):
+    if request.method == 'POST':
+        # Retrieve the selected beer IDs
+        beer1_id = beer_id
+        beer2_id = request.POST.get('second_beer')
+
+        # Get the beer objects
+        beer1 = Beer.objects.get(id=beer1_id)
+        beer2 = Beer.objects.get(id=beer2_id)
+
+        # Get the ratings for both beers
+        beer1_ratings = Rating.objects.filter(beer=beer1)
+        beer2_ratings = Rating.objects.filter(beer=beer2)
+
+        # Calculate the average ratings for both beers
+        beer1_average_ratings = beer1_ratings.aggregate(
+            Avg('Color'), Avg('Entry'), Avg('body'),
+            Avg('finish'), Avg('carbonation'), Avg('acidity'),
+            Avg('bitterness'), Avg('drinkability'), Avg('price')
+        )
+        beer2_average_ratings = beer2_ratings.aggregate(
+            Avg('Color'), Avg('Entry'), Avg('body'),
+            Avg('finish'), Avg('carbonation'), Avg('acidity'),
+            Avg('bitterness'), Avg('drinkability'), Avg('price')
+        )
+
+        context = {
+            'beer1': beer1,
+            'beer2': beer2,
+            'beer1_average_ratings': beer1_average_ratings,
+            'beer2_average_ratings': beer2_average_ratings,
+        }
+        return render(request, 'compare_beers.html', context)
+
+    return redirect('beer_detail', beer_id=beer_id)
 
 
 
@@ -146,7 +187,7 @@ def beer_list(request):
     if brewery_filter:
         beers = beers.filter(brewery=brewery_filter)
 
-
+    beers = beers.order_by('display_name')  # Order beers by display name in ascending order
     #context = {'beers': beers}
     return render(request, 'beer_list.html', {'beers': beers, 'styles': styles, 'breweries': breweries,'alcohol_content': alcohol_content})
 

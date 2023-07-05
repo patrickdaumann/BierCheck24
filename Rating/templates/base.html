@@ -53,20 +53,7 @@
           
       
           
-          {% if user.is_authenticated %}
           
-          
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link link-dark" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link-dark" href="{% url 'register' %}">Register</a>
-          </li>
-          
-
-
-          {% endif %}
           
           <li class="nav-item">
             <a class="nav-link link-dark" href="/admin">Admin</a>
@@ -79,14 +66,31 @@
 
         
         {% if user.is_authenticated %}
-        <li class="nav-item list-unstyled" style="margin-left: 10px;">
-          <span class="navbar-text">Logged in as: {{ user.username }}</span>
-        </li>
+          <li class="nav-item list-unstyled" style="margin-left: 10px;">
+            <span class="navbar-text">Logged in as: <br>{{ user.username }}</span>
+          </li>
+                
 
         
-        <li class="nav-item list-unstyled" style="margin-left: 10px">
+          <li class="nav-item list-unstyled" style="margin-left: 10px">
           <a class="btn btn-outline-dark" href="{% url 'logout' %}">Logout</a>
-        </li>
+          </li>
+        {% endif %}
+
+
+        {% if user.is_authenticated %}
+          
+          
+        {% else %}
+          <li class="nav-item nav-item list-unstyled">
+            <a class="nav-link link-dark" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item nav-item list-unstyled">
+            <a class="nav-link link-dark" href="{% url 'register' %}">Register</a>
+          </li>
+          
+
+
         {% endif %}
 
 
