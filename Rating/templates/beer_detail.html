@@ -50,18 +50,17 @@
     </div>
 
     <h2>Compare Beers</h2>
-    <div class="row g-3">
-        <div class="col-md-4">
+    <div class="col-md-12 text-center mt-4">
+        <form method="POST" action="{% url 'compare_beers' beer.id %}">
+            {% csrf_token %}
             <label for="second_beer" class="form-label">Choose second beer:</label>
             <select name="second_beer" id="second_beer" class="form-select">
                 {% for other_beer in all_beers %}
                     <option value="{{ other_beer.id }}">{{ other_beer.display_name }}</option>
                 {% endfor %}
             </select>
-        </div>
-        <div class="col-md-2">
             <button type="submit" class="btn btn-primary">Compare</button>
-        </div>
+        </form>
     </div>
 
     {% if average_ratings %}

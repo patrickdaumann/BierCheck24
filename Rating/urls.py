@@ -14,7 +14,7 @@ urlpatterns = [
     path('login/', views.login_user, name='login'),
     
     path('beer/<int:beer_id>/', beer_detail,  name='beer_detail'),
-    path('beer/<int:beer_id>/compare/', views.compare_beers, name='compare_beers'),
+    path('compare_beers/<int:beer_id>/', views.compare_beers, name='compare_beers'),
     path('brewery/<int:brewery_id>/', brewery_detail,  name='brewery_detail'),
     path('rating/<int:rating_id>/', rating_detail,  name='rating_detail'),
     path('rating_success', rating_success, name='rating_success'),
