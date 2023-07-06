@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block content %}
 <div class="container mt-5">
@@ -9,9 +10,15 @@
           <p>{{ brewery.description }}</p>
       </div>
       <div class="col-md-6">
-        <img src="/static/img/brewery-image.jpg" alt="Bierbrauerei" class="brewery-image">
+        {% if "/static/img/BreweryPictures/"|add:brewery.id|stringformat:"s"|add:".png"|file_exists %}
+          <img src="/static/img/BreweryPictures/{{ brewery.id }}.jpg" alt="Logo der Brauerei" class="brewery-image">
+        {% else %}
+          <img src="/static/img/BreweryPictures/brewery-image.jpg" alt="Logo der Brauerei" class="brewery-image">
+        {% endif %}
     </div>
   </div>
 </div>
-
 {% endblock %}
+
+
+<!-- Work in Progress, funktioniert leider noch nicht wie gedacht, bisher wird immer nur das brewery-image.jpg angezeigt.-->
