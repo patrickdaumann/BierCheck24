@@ -27,3 +27,11 @@ python3 manage.py runserver
 - WICHTIG: Bitte 1x lokal: "pip install django-bootstrap-v5" ausführen um Bootstrap nutzen zu können!
 
 - WICHTIG: pip install Pillow
+
+WINDOWS:
+python manage.py migrate --run-syncdb  
+python manage.py loaddata Users.json --app Rating 
+python manage.py loaddata Beertypes.json --app Rating
+python manage.py loaddata Breweries.json --app Rating
+python manage.py loaddata Beers.json --app Rating
+python manage.py loaddata Recommendations.json --app Rating
