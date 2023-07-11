@@ -35,7 +35,12 @@ class Brewery(models.Model):
     location = models.CharField(max_length=255)
     founded_year = models.IntegerField()
     description = models.TextField()
-
+    thumbnail = models.ImageField(
+        upload_to="img/BreweryPictures/",
+        blank=True,
+        null=True
+    )
+ 
     def __str__(self):
         return self.name
 

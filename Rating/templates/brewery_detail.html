@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load custom_filters %}
 
+
 {% block content %}
 <div class="container mt-5">
   <div class="row">
@@ -10,15 +11,17 @@
           <p>{{ brewery.description }}</p>
       </div>
       <div class="col-md-6">
-        {% if "/static/img/BreweryPictures/"|add:brewery.id|stringformat:"s"|add:".png"|file_exists %}
-          <img src="/static/img/BreweryPictures/{{ brewery.id }}.jpg" alt="Logo der Brauerei" class="brewery-image">
+        {% if brewery.thumbnail %}
+            <img src="{{ brewery.thumbnail.url }}" alt="Logo der Brauerei" class="brewery-image">
         {% else %}
-          <img src="/static/img/BreweryPictures/brewery-image.jpg" alt="Logo der Brauerei" class="brewery-image">
+            <img src="/media/img/BreweryPictures/img/BreweryPictures/default.jpg" alt="Logo der Brauerei" class="brewery-image">
         {% endif %}
     </div>
   </div>
 </div>
 {% endblock %}
+
+
 
 
 <!-- Work in Progress, funktioniert leider noch nicht wie gedacht, bisher wird immer nur das brewery-image.jpg angezeigt.-->

@@ -28,4 +28,7 @@ urlpatterns = [
     path('add_beer', add_beer, name='add_beer'),
     path('add_success', add_success, name='add_success'),
     path('search/', search_beer, name='search_beer')
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] 
+
+
+
