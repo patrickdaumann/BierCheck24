@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="container">
-    <h1>Rating gespeichert</h1>
-    <p>Vielen Dank für Ihre Bewertung!</p>
-    <a href="{% url 'beer_list' %}">Weiteres Bier bewerten.</a>
-    <a href="{% url 'home' %}">Zurück zur Startseite</a>
+  <div class="container mt-4">    <!-- Erzeugt oberen Abstand von 4 Einheiten zur navbar-->
+    <div class="card text-center">
+      <div class="card-body">
+        <h1 class="card-title">Rating gespeichert</h1>
+        <p class="card-text">Vielen Dank für Ihre Bewertung!</p>
+        <a href="{% url 'beer_list' %}" class="btn btn-primary">Weiteres Bier bewerten</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Zurück zur Startseite</a>
+      </div>
+    </div>
   </div>
 {% endblock %}

@@ -20,6 +20,9 @@ python3 manage.py loaddata Recommendations.json --app Rating
 
 python3 manage.py runserver
 
+pip install django-bootstrap-v5
+pip install pillow
+
 ```
 
 - Nach einem frischen Klonen ist --syncdb notwendig, da sonst notwendige Tabellen in der Datenbank fehlen!

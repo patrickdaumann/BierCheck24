@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-  <div class="container">
+  <div class="container mt-4">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
@@ -26,10 +26,11 @@
                 <div class="input-group">
                   <input type="password" name="password" required id="id_password" class="form-control">
                   <div class="input-group-append">
-                    <div class="input-group-text">
-                      <input type="checkbox" id="show_password">
-                      <label for="show_password" class="form-check-label">Zeige Passwort</label>
-                    </div>
+                    <button type="button" id="toggle_password" class="btn btn-outline-secondary">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
+                        <use xlink:href="{% static 'icons/eye-slash.svg' %}"/>
+                      </svg>
+                    </button>
                   </div>
                 </div>
                 {% if form.password.errors %}
@@ -58,14 +59,24 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const showPasswordCheckbox = document.getElementById('show_password');
+      const togglePasswordButton = document.getElementById('toggle_password');
       const passwordInput = document.getElementById('id_password');
 
-      showPasswordCheckbox.addEventListener('change', function() {
-        if (this.checked) {
+      togglePasswordButton.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
           passwordInput.type = 'text';
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+              <use xlink:href="{% static 'icons/eye.svg' %}"/>
+            </svg>
+          `;
         } else {
           passwordInput.type = 'password';
+          this.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
+              <use xlink:href="{% static 'icons/eye-slash.svg' %}"/>
+            </svg>
+          `;
         }
       });
     });
