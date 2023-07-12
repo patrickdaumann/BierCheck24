@@ -28,7 +28,7 @@
                   <div class="input-group-append">
                     <button type="button" id="toggle_password" class="btn btn-outline-secondary">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
-                        <use xlink:href="{% static 'icons/eye-slash.svg' %}"/>
+                        <image xlink:href="{% static 'icons/eye-slash.svg' %}" src="eye" width="16px" height="16px"></image>
                       </svg>
                     </button>
                   </div>
@@ -67,14 +67,14 @@
           passwordInput.type = 'text';
           this.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-              <use xlink:href="{% static 'icons/eye.svg' %}"/>
+              <image xlink:href="{% static 'icons/eye.svg' %}" width="16px" height="16px"></image>
             </svg>
           `;
         } else {
           passwordInput.type = 'password';
           this.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
-              <use xlink:href="{% static 'icons/eye-slash.svg' %}"/>
+              <image xlink:href="{% static 'icons/eye-slash.svg' %}" width="16px" height="16px"></image>
             </svg>
           `;
         }

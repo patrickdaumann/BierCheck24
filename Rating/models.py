@@ -36,7 +36,7 @@ class Brewery(models.Model):
     founded_year = models.IntegerField()
     description = models.TextField()
     thumbnail = models.ImageField(
-        upload_to="img/BreweryPictures/",
+        upload_to="BreweryPictures/",
         blank=True,
         null=True
     )

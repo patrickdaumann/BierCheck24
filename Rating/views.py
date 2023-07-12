@@ -209,6 +209,8 @@ def beer_list(request):
 
     beers = beers.order_by('display_name')  # Order beers by display name in ascending order
     #context = {'beers': beers}
+    
+    
     return render(request, 'beer_list.html', {'beers': beers, 'styles': styles, 'breweries': breweries,'alcohol_content': alcohol_content})
 
 
@@ -344,7 +346,7 @@ def rate_beer_by_id(request, beer_id):
     if request.method == 'POST':
         # Check if the user has already rated the beer
         if Rating.objects.filter(beer=beer, user=user).exists():
-            messages.error(request, 'You have already rated this beer.', extra_tags='rating_error')
+            
             return redirect('rating_failed')
 
         form = CustomRatingFormByID(request.POST)
@@ -354,7 +356,7 @@ def rate_beer_by_id(request, beer_id):
             rating.beer = beer
             rating.save()
 
-            messages.success(request, 'Beer rated successfully!', extra_tags='rating_success')
+            #messages.success(request, 'Beer rated successfully!', extra_tags='rating_success')
 
             # Update beer ratings count and recommended count
             beer.refresh_from_db()  # Refresh the beer object from the database
