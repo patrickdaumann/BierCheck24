@@ -1,30 +1,35 @@
 [
-    {
-      "model": "Rating.BlogEntry",
-      "pk": 1,
-      "fields": {
-        "title": "Beispiel-Eintrag 1",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "upvotes": 42
-      }
-    },
-    {
-      "model": "Rating.BlogEntry",
-      "pk": 2,
-      "fields": {
-        "title": "Beispiel-Eintrag 2",
-        "content": "Praesent efficitur odio non magna vulputate cursus.",
-        "upvotes": 18
-      }
-    },
-    {
-      "model": "Rating.BlogEntry",
-      "pk": 3,
-      "fields": {
-        "title": "Beispiel-Eintrag 3",
-        "content": "Vestibulum vestibulum lacus ac ante accumsan.",
-        "upvotes": 29
-      }
+  {
+    "model": "Rating.BlogEntry",
+    "pk": 1,
+    "fields": {
+      "title": "Beispiel-Eintrag 1",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "upvotes": 42,
+      "created_at": "2023-07-10T09:30:00Z",
+      "author": 20
     }
-  ]
-  
+  },
+  {
+    "model": "Rating.BlogEntry",
+    "pk": 2,
+    "fields": {
+      "title": "Beispiel-Eintrag 2",
+      "content": "Praesent efficitur odio non magna vulputate cursus.",
+      "upvotes": 18,
+      "created_at": "2023-07-09T14:45:00Z",
+      "author": 21
+    }
+  },
+  {
+    "model": "Rating.BlogEntry",
+    "pk": 3,
+    "fields": {
+      "title": "Beispiel-Eintrag 3",
+      "content": "Vestibulum vestibulum lacus ac ante accumsan.",
+      "upvotes": 29,
+      "created_at": "2023-07-08T20:15:00Z",
+      "author": 22
+    }
+  }
+]
