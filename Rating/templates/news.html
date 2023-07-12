@@ -29,8 +29,9 @@
             <div class="card-body">
                 <h5 class="card-title">{{ entry.title }}</h5>
                 <p class="card-text">{{ entry.content }}</p>
-                <button class="btn btn-outline-success" onclick="upvoteEntry({{ entry.id }})"><i class="bi bi-hand-thumbs-up"></i> <span id="upvotes_{{ entry.id }}">{{ entry.upvotes }}</span></button>
-            </div>
+                <button id="upvoteButton_{{ entry.id }}" class="btn btn-outline-success" onclick="upvoteEntry({{ entry.id }})"><i class="bi bi-hand-thumbs-up"></i> Upvote</button>
+                <span id="upvoteCount_{{ entry.id }}">{{ entry.upvotes }}</span>
+            </div>            
         </div>
         {% endfor %}
     </div>
@@ -79,17 +80,45 @@ document.getElementById('postEntryForm').addEventListener('submit', function(eve
     xhr.send('title=' + encodeURIComponent(title) + '&content=' + encodeURIComponent(content));
 });
 
+// function upvoteEntry(entryId) {
+//     var csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('POST', '/upvote/', true);
+//     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+//     xhr.setRequestHeader('X-CSRFToken', csrfToken);
+//     xhr.onload = function() {
+//         if (xhr.status === 200) {
+//             var response = JSON.parse(xhr.responseText);
+//             if (response.success) {
+//                 var upvoteButton = document.getElementById('upvoteButton_' + entryId);
+//                 var upvoteCount = document.getElementById('upvoteCount_' + entryId);
+//                 upvoteButton.disabled = true;
+//                 upvoteCount.textContent = response.upvotes;
+//             }
+//         } else {
+//             console.error('Error:', xhr.status);
+//         }
+//     };
+//     xhr.onerror = function() {
+//         console.error('Request failed');
+//     };
+//     xhr.send();
+// }
+
 function upvoteEntry(entryId) {
+    var csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/upvote/', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.setRequestHeader('X-CSRFToken', csrfToken);
     xhr.onload = function() {
         if (xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
-            if (response.upvotes) {
-                var upvotesSpan = document.getElementById('upvotes_' + entryId);
-                upvotesSpan.innerText = response.upvotes;
+            if (response.upvotes !== undefined) {
+                var upvoteCountElement = document.getElementById('upvoteCount_' + entryId);
+                upvoteCountElement.textContent = response.upvotes;
             }
         } else {
             console.error('Error:', xhr.status);
@@ -98,7 +127,8 @@ function upvoteEntry(entryId) {
     xhr.onerror = function() {
         console.error('Request failed');
     };
-    xhr.send('entry_id=' + entryId);
+    xhr.send('entry_id=' + encodeURIComponent(entryId));
 }
+
 </script>
 {% endblock %}
