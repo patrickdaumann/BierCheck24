@@ -80,6 +80,15 @@ def beer_list_ext(request):
     return render(request, 'beer_list_ext.html', context)
 
 # News Seite mit Upvote Funktion der EInträge
+def post_entry(request):
+    if request.method == 'POST' and request.is_ajax():
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        author = request.user  # Der aktuell angemeldete Benutzer wird als Autor verwendet
+        entry = BlogEntry.objects.create(title=title, content=content, author=author)
+        return JsonResponse({'entry_id': entry.pk, 'title': entry.title, 'content': entry.content})
+    return JsonResponse({'error': 'Invalid request'})
+
 def upvote_entry(request):
     if request.method == 'POST' and request.is_ajax():
         entry_id = request.POST.get('entry_id')

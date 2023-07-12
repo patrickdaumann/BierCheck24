@@ -6,17 +6,20 @@
   <h1 class="my-4">Neuigkeiten</h1>
 
   <!-- News-Formular -->
-  <form>
-      <div class="mb-3">
-          <label for="title" class="form-label">Titel</label>
-          <input type="text" class="form-control" id="title" placeholder="Geben Sie einen Titel ein">
-      </div>
-      <div class="mb-3">
-          <label for="content" class="form-label">Inhalt</label>
-          <textarea class="form-control" id="content" rows="4" placeholder="Geben Sie den Inhalt ein"></textarea>
-      </div>
-      <button type="submit" class="btn btn-secondary">Posten</button>
+  <form id="postEntryForm">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="title" class="form-label">Titel</label>
+        <input type="text" class="form-control" id="title" placeholder="Geben Sie einen Titel ein" required>
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Inhalt</label>
+        <textarea class="form-control" id="content" rows="4" placeholder="Geben Sie den Inhalt ein" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-secondary">Posten</button>
   </form>
+
+
 
     <!-- News-Einträge -->
     <div class="my-4">
@@ -34,6 +37,47 @@
   </main>
 
 <script>
+
+document.getElementById('postEntryForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var title = document.getElementById('title').value;
+    var content = document.getElementById('content').value;
+    var csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/post_entry/', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.setRequestHeader('X-CSRFToken', csrfToken);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.entry_id && response.title && response.content) {
+                var entryId = response.entry_id;
+                var title = response.title;
+                var content = response.content;
+                var newEntryHtml = `
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <p class="card-text">${content}</p>
+                            <button class="btn btn-outline-success" onclick="upvoteEntry(${entryId})"><i class="bi bi-hand-thumbs-up"></i> 0</button>
+                        </div>
+                    </div>
+                `;
+                var newsContainer = document.getElementById('newsContainer');
+                newsContainer.insertAdjacentHTML('afterbegin', newEntryHtml);
+                document.getElementById('title').value = '';
+                document.getElementById('content').value = '';
+            }
+        } else {
+            console.error('Error:', xhr.status);
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Request failed');
+    };
+    xhr.send('title=' + encodeURIComponent(title) + '&content=' + encodeURIComponent(content));
+});
 
 function upvoteEntry(entryId) {
     var xhr = new XMLHttpRequest();
