@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.staticfiles import finders
-from django.http import HttpResponse
-from .models import Beer, Brewery, Beertype, Rating, Recommendation, User
+from django.http import HttpResponse, JsonResponse
+from .models import Beer, Brewery, Beertype, Rating, Recommendation, User, BlogEntry
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -79,9 +79,19 @@ def beer_list_ext(request):
     context = {'beers': beers, 'styles': styles, 'breweries': breweries,'alcohol_content': alcohol_content}
     return render(request, 'beer_list_ext.html', context)
 
-# News Seite
+# News Seite mit Upvote Funktion der EInträge
+def upvote_entry(request):
+    if request.method == 'POST' and request.is_ajax():
+        entry_id = request.POST.get('entry_id')
+        entry = get_object_or_404(BlogEntry, id=entry_id)
+        entry.upvote()
+        upvotes_count = entry.upvotes
+        return JsonResponse({'upvotes': upvotes_count})
+    return JsonResponse({'error': 'Invalid request'})
+
 def news(request):
-    return render(request, template_name='news.html')
+    entries = BlogEntry.objects.all()
+    return render(request, 'news.html', {'entries': entries})
 
 # Detail Ansicht für die verschiedenen Bier Arten
 

@@ -1,21 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!--  
-<head>
-    <title>Mein erstes Django-Template</title>
-  </head>
-  <body>
-    <h1>What's new?</h1>
-
-    <p>
-      Hier können neu hinzugefügt Biere präsentiert und vorgestellt werden. Neue Funktionen können hier ebenfalls erwähnt werden bzw.
-      kommende Funktionen angekündigt.
-    </p>
-
-  </body>
-</html>
--->
 
 <main class="container">
   <h1 class="my-4">Neuigkeiten</h1>
@@ -33,30 +18,43 @@
       <button type="submit" class="btn btn-secondary">Posten</button>
   </form>
 
-  <!-- News-Einträge -->
-  <div class="my-4">
-      <h2>Aktuelle Einträge</h2>
-      <div class="card mb-3">
-          <div class="card-body">
-              <h5 class="card-title">Beispiel-Eintrag 1</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies quam vitae lacus vestibulum placerat.</p>
-              <button class="btn btn-outline-success"><i class="bi bi-hand-thumbs-up"></i> 42</button>
-          </div>
-      </div>
-      <div class="card mb-3">
-          <div class="card-body">
-              <h5 class="card-title">Beispiel-Eintrag 2</h5>
-              <p class="card-text">Praesent efficitur odio non magna vulputate cursus. Curabitur venenatis mi ac justo consectetur, id consectetur enim lacinia.</p>
-              <button class="btn btn-outline-success"><i class="bi bi-hand-thumbs-up"></i> 18</button>
-          </div>
-      </div>
-      <div class="card mb-3">
-          <div class="card-body">
-              <h5 class="card-title">Beispiel-Eintrag 3</h5>
-              <p class="card-text">Vestibulum vestibulum lacus ac ante accumsan, et ultricies sapien pharetra. Aliquam eu enim nec lorem ultricies congue.</p>
-              <button class="btn btn-outline-success"><i class="bi bi-hand-thumbs-up"></i> 29</button>
-          </div>
-      </div>
-  </div>
-</main>
+    <!-- News-Einträge -->
+    <div class="my-4">
+        <h2>Aktuelle Einträge</h2>
+        {% for entry in entries %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ entry.title }}</h5>
+                <p class="card-text">{{ entry.content }}</p>
+                <button class="btn btn-outline-success" onclick="upvoteEntry({{ entry.id }})"><i class="bi bi-hand-thumbs-up"></i> <span id="upvotes_{{ entry.id }}">{{ entry.upvotes }}</span></button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </main>
+
+<script>
+
+function upvoteEntry(entryId) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/upvote/', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.upvotes) {
+                var upvotesSpan = document.getElementById('upvotes_' + entryId);
+                upvotesSpan.innerText = response.upvotes;
+            }
+        } else {
+            console.error('Error:', xhr.status);
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Request failed');
+    };
+    xhr.send('entry_id=' + entryId);
+}
+</script>
 {% endblock %}

@@ -186,7 +186,7 @@ class BlogEntry(models.Model):
     content = models.TextField()
 
     #Erstellungs Zeitstempel
-    created_at = models.DateTimeField(auto_now_add=True)
+    #created_at = models.DateTimeField(auto_now_add=True)
     
     #Autor -> User Bezug
     author = models.ForeignKey(User, on_delete=models.CASCADE)
