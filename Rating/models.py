@@ -193,15 +193,22 @@ class BlogEntry(models.Model):
     
     #Zähler für Upvotes
     upvotes = models.IntegerField(default=0)
+    
+    #Upvoted User
+    upvoted_users = models.ManyToManyField(User, related_name='upvoted_entries', blank=True)
 
     def __str__(self):
         return self.title
 
-
     #Methode für Upvotes
-    def upvote(self):
-        self.upvotes += 1
-        self.save()
+    def upvote(self, user):
+        if user not in self.upvoted_users.all():
+            self.upvoted_users.add(user)
+            self.upvotes += 1
+            self.save()
+
+    def can_upvote(self, user):
+        return user not in self.upvoted_users.all()
 
 
 #Klasse für Sprüche

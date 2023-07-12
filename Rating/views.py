@@ -6,6 +6,7 @@ from .models import Beer, Brewery, Beertype, Rating, Recommendation, User, BlogE
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.list import ListView
 from .forms import RatingFormByID, BeerForm
 from django.db.models import Avg, Count, Q, F
@@ -80,6 +81,7 @@ def beer_list_ext(request):
     return render(request, 'beer_list_ext.html', context)
 
 # News Seite mit Upvote Funktion der EInträge
+@csrf_exempt
 def post_entry(request):
     if request.method == 'POST' and request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         title = request.POST.get('title')
@@ -89,22 +91,19 @@ def post_entry(request):
         return JsonResponse({'entry_id': entry.pk, 'title': entry.title, 'content': entry.content})
     return JsonResponse({'error': 'Invalid request'})
 
+@csrf_exempt
 def upvote_entry(request):
-    if request.method == 'POST' and request.is_ajax():
+    if request.method == 'POST' and request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         entry_id = request.POST.get('entry_id')
         entry = get_object_or_404(BlogEntry, id=entry_id)
-        entry.upvote()
-        upvotes_count = entry.upvotes
-        return JsonResponse({'upvotes': upvotes_count})
+        user = request.user
+        if entry.can_upvote(user):
+            entry.upvote(user)
+            upvotes_count = entry.upvotes
+            return JsonResponse({'upvotes': upvotes_count})
+        else:
+            return JsonResponse({'error': 'Already upvoted'})
     return JsonResponse({'error': 'Invalid request'})
-
-# def upvote_entry(request):
-#     if request.method == 'POST' and request.is_ajax():
-#         entry_id = request.POST.get('entry_id')
-#         entry = BlogEntry.objects.get(id=entry_id)
-#         entry.upvote()
-#         return JsonResponse({'success': True, 'upvotes': entry.upvotes})
-#     return JsonResponse({'error': 'Invalid request'})
 
 def news(request):
     entries = BlogEntry.objects.all()
