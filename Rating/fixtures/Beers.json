@@ -58,25 +58,6 @@
   },
   {
     "model": "Rating.Beer",
-    "pk": 5,
-    "fields": {
-      "brewery": 16,
-      "approvalstatus": true,
-      "display_name": "Mythos",
-      "name": "Mythos",
-      "style": 1,
-      "alcohol_content": "4.7",
-      "original_gravity": "11.4",
-      "recommended_serving_temperature": 6,
-      "is_organic": false,
-      "clarity": "Klar",
-      "yeast": "Untergärige Hefe",
-      "is_gluten_free": false,
-      "description": "Mythos ist ein beliebtes griechisches Bier, das von der Mythos Breweries in Thessaloniki, Griechenland, hergestellt wird. Es handelt sich um ein untergäriges Lagerbier mit einem erfrischenden Geschmack und einer goldenen Farbe. Mythos wird aus ausgewählten Zutaten und nach traditionellen Braumethoden gebraut. Das Bier hat einen angenehmen Malzgeschmack und eine leichte Bitterkeit. Es ist ein beliebtes Bier in Griechenland und wird auch international geschätzt."
-    }
-  },  
-  {
-    "model": "Rating.Beer",
     "pk": 4,
     "fields": {
       "brewery": 1,
@@ -94,6 +75,25 @@
       "description": "Beck's ist ein bekanntes Bier, das von der Brauerei Beck in Bremen, Deutschland, hergestellt wird. Es handelt sich um ein untergäriges Bier mit einem angenehm hopfigen Geschmack. Beck's wird nach traditionellen Braumethoden und mit sorgfältig ausgewählten Zutaten gebraut. Das Bier hat eine klare Farbe und einen erfrischenden Charakter. Es ist international beliebt und hat zahlreiche Auszeichnungen für seine Qualität erhalten."
     }
   },
+  {
+    "model": "Rating.Beer",
+    "pk": 5,
+    "fields": {
+      "brewery": 16,
+      "approvalstatus": true,
+      "display_name": "Mythos",
+      "name": "Mythos",
+      "style": 1,
+      "alcohol_content": "4.7",
+      "original_gravity": "11.4",
+      "recommended_serving_temperature": 6,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Untergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Mythos ist ein beliebtes griechisches Bier, das von der Mythos Breweries in Thessaloniki, Griechenland, hergestellt wird. Es handelt sich um ein untergäriges Lagerbier mit einem erfrischenden Geschmack und einer goldenen Farbe. Mythos wird aus ausgewählten Zutaten und nach traditionellen Braumethoden gebraut. Das Bier hat einen angenehmen Malzgeschmack und eine leichte Bitterkeit. Es ist ein beliebtes Bier in Griechenland und wird auch international geschätzt."
+    }
+  },  
   {
     "model": "Rating.Beer",
     "pk": 6,
