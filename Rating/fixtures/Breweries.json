@@ -1,7 +1,7 @@
 [
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 1,
     "fields": {
       "name": "Anheuser-Busch InBev",
       "display_name": "Anheuser-Busch InBev",
@@ -12,7 +12,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 2,
     "fields": {
       "name": "Heineken",
       "display_name": "Heineken",
@@ -23,7 +23,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 3,
     "fields": {
       "name": "Carlsberg",
       "display_name": "Carlsberg",
@@ -34,7 +34,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 4,
     "fields": {
       "name": "Bitburger Braugruppe",
       "display_name": "Bitburger",
@@ -45,7 +45,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 5,
     "fields": {
       "name": "Oettinger Brauerei",
       "display_name": "Oettinger Brauerei",
@@ -56,7 +56,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 6,
     "fields": {
       "name": "Radeberger",
       "display_name": "Radeberger",
@@ -67,7 +67,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 7,
     "fields": {
       "name": "Cölner Hofbräu Früh",
       "display_name": "Cölner Hofbräu Früh",
@@ -78,7 +78,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 8,
     "fields": {
       "name": "Erdinger Weißbräu",
       "display_name": "Erdinger Weißbräu",
@@ -89,7 +89,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 9,
     "fields": {
       "name": "Krombacher Brauerei",
       "display_name": "Krombacher Brauerei",
@@ -100,7 +100,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 10,
     "fields": {
       "name": "Brauerei Beck",
       "display_name": "Brauerei Beck",
@@ -111,7 +111,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 11,
     "fields": {
       "name": "Warsteiner Brauerei Haus Cramer",
       "display_name": "Warsteiner Brauerei",
@@ -122,7 +122,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 12,
     "fields": {
       "name": "Paulaner Brauerei",
       "display_name": "Paulaner Brauerei",
@@ -133,7 +133,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 13,
     "fields": {
       "name": "Franziskaner-Brauerei",
       "display_name": "Franziskaner-Brauerei",
@@ -144,7 +144,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 14,
     "fields": {
       "name": "C.& A. Veltins GmbH & Co. KG",
       "display_name": "Veltins",
@@ -155,7 +155,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 15,
     "fields": {
       "name": "China Resources Breweries Ltd.",
       "display_name": "China Resources Breweries",
@@ -166,7 +166,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 16,
     "fields": {
       "name": "Molson Coors Brewing Company",
       "display_name": "Molson Coors",
@@ -177,7 +177,7 @@
   },
   {
     "model": "Rating.Brewery",
-    "pk": null,
+    "pk": 17,
     "fields": {
       "name": "Efes Group",
       "display_name": "Efes",
