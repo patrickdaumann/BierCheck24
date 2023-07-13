@@ -5,12 +5,12 @@
 {% block content %}
 <div class="container mt-5">
   <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6">    <!--Spaltenbreite = 6-->
           <h1>{{ brewery.display_name }}</h1>
           <h2>founded {{ brewery.founded_year }} in {{ brewery.location }}</h2>
-          <p>{{ brewery.description }}</p>
+          <p class="mb-3">{{ brewery.description }}</p>
       </div>
-      <div class="col-md-6 d-flex justify-content-center align-items-center">
+      <div class="col-md-4 d-flex justify-content-center align-items-center"> <!--Spaltenbreite = 4-->
         <div class="brewery-image-container">
           {% if brewery.thumbnail %}
               <img src="{{ brewery.thumbnail.url }}" alt="Logo der Brauerei" class="brewery-image">
@@ -23,20 +23,21 @@
 </div>
 
 <style>
-    /* Zusätzlicher Container der um das Bild herum eingefügt wird um das Bild horizontla und vertikal zentriert auszurichten. */
-    .brewery-image-container {
-        max-width: 300px;
-        max-height: 300px;
-        width: auto;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    /* CSS-Eigenschaften für das Bild, damit es im Container maximal mit 100% angezeigt wird, nur zur SIcherheit :D */
-    .brewery-image {
-        max-width: 100%;
-        max-height: 100%;
-    }
+  /* Zusätzlicher Container der um das Bild herum eingefügt wird um das Bild horizontla und vertikal zentriert auszurichten. */
+  .brewery-image-container {
+      max-width: 300px;
+      max-height: 300px;
+      width: auto;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  /* CSS-Eigenschaften für das Bild, damit es im Container maximal mit 100% angezeigt wird, nur zur SIcherheit :D */
+  .brewery-image {
+      max-width: 100%;
+      max-height: 100%;
+  }
 </style>
 {% endblock %}
+
