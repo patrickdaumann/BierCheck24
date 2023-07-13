@@ -5,6 +5,8 @@ from .models import Beer, Brewery, Beertype, Rating, Recommendation, User, BlogE
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.list import ListView
@@ -81,6 +83,7 @@ def beer_list_ext(request):
     return render(request, 'beer_list_ext.html', context)
 
 # News Seite mit Upvote Funktion der EInträge
+@login_required
 @csrf_exempt
 def post_entry(request):
     if request.method == 'POST' and request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
@@ -91,6 +94,7 @@ def post_entry(request):
         return JsonResponse({'entry_id': entry.pk, 'title': entry.title, 'content': entry.content})
     return JsonResponse({'error': 'Invalid request'})
 
+@login_required
 @csrf_exempt
 def upvote_entry(request):
     if request.method == 'POST' and request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
@@ -298,7 +302,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('home') # Weiterleitung auf die Seite nach der Anmeldung
         else:
             messages.error(request, 'Invalid username or password.')
     else:
@@ -312,7 +316,7 @@ def login_user(request):
 # Nutzerlogout
 def logout_user(request):
     logout(request)
-    return redirect('home')
+    return redirect('home') # Weiterleitung auf die Seite nach der Anmeldung
 
 # Seite zum hinzufügen von Bieren
 
