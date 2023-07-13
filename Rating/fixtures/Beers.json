@@ -55,5 +55,214 @@
       "is_gluten_free": false,
       "description": "Erdinger Weissbier ist ein erfrischendes Weißbier mit einer natürlichen Trübung und einer feinen Hefenote. Es wird nach dem bayerischen Reinheitsgebot von 1516 gebraut und enthält nur Wasser, Malz, Hopfen und Hefe."
     }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 4,
+    "fields": {
+      "brewery": 1,
+      "approvalstatus": true,
+      "display_name": "Beck's",
+      "name": "Beck's",
+      "style": 1,
+      "alcohol_content": "4.9",
+      "original_gravity": "11.6",
+      "recommended_serving_temperature": 7,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Untergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Beck's ist ein bekanntes Bier, das von der Brauerei Beck in Bremen, Deutschland, hergestellt wird. Es handelt sich um ein untergäriges Bier mit einem angenehm hopfigen Geschmack. Beck's wird nach traditionellen Braumethoden und mit sorgfältig ausgewählten Zutaten gebraut. Das Bier hat eine klare Farbe und einen erfrischenden Charakter. Es ist international beliebt und hat zahlreiche Auszeichnungen für seine Qualität erhalten."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 5,
+    "fields": {
+      "brewery": 16,
+      "approvalstatus": true,
+      "display_name": "Mythos",
+      "name": "Mythos",
+      "style": 1,
+      "alcohol_content": "4.7",
+      "original_gravity": "11.4",
+      "recommended_serving_temperature": 6,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Untergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Mythos ist ein beliebtes griechisches Bier, das von der Mythos Breweries in Thessaloniki, Griechenland, hergestellt wird. Es handelt sich um ein untergäriges Lagerbier mit einem erfrischenden Geschmack und einer goldenen Farbe. Mythos wird aus ausgewählten Zutaten und nach traditionellen Braumethoden gebraut. Das Bier hat einen angenehmen Malzgeschmack und eine leichte Bitterkeit. Es ist ein beliebtes Bier in Griechenland und wird auch international geschätzt."
+    }
+  },  
+  {
+    "model": "Rating.Beer",
+    "pk": 6,
+    "fields": {
+      "brewery": 9,
+      "approvalstatus": true,
+      "display_name": "Erdinger Dunkel",
+      "name": "Erdinger Dunkel",
+      "style": 3,
+      "alcohol_content": "5.6",
+      "original_gravity": "13.2",
+      "recommended_serving_temperature": 9,
+      "is_organic": false,
+      "clarity": "Trüb",
+      "yeast": "Erdinger Hefe",
+      "is_gluten_free": false,
+      "description": "Erdinger Dunkel ist ein dunkles Weißbier, das von der Erdinger Weißbräu Brauerei in Erding, Deutschland, gebraut wird. Das Bier zeichnet sich durch seine natürliche Trübung und den vollen, malzigen Geschmack aus. Erdinger Dunkel wird nach traditionellen Braumethoden und mit hochwertigen Zutaten hergestellt. Es ist ein beliebtes Bier für Liebhaber von dunklen Bieren und hat zahlreiche Fans in Deutschland und international."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 7,
+    "fields": {
+      "brewery": 10,
+      "approvalstatus": true,
+      "display_name": "Krombacher Pils",
+      "name": "Krombacher Pils",
+      "style": 1,
+      "alcohol_content": "4.8",
+      "original_gravity": "12.5",
+      "recommended_serving_temperature": 7,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Untergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Krombacher Pils ist ein bekanntes Pilsener Bier, das von der Krombacher Brauerei in Kreuztal, Deutschland, gebraut wird. Es zeichnet sich durch seine klare goldene Farbe und seinen erfrischenden Geschmack aus. Krombacher Pils wird nach traditionellen Braumethoden und mit hochwertigen Zutaten hergestellt. Das Bier hat eine angenehme Bitterkeit und ist bei Bierliebhabern sowohl in Deutschland als auch international beliebt."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 8,
+    "fields": {
+      "brewery": 11,
+      "approvalstatus": true,
+      "display_name": "Warsteiner Premium Pilsener",
+      "name": "Warsteiner Premium Pilsener",
+      "style": 1,
+      "alcohol_content": "4.8",
+      "original_gravity": "12.5",
+      "recommended_serving_temperature": 7,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Untergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Warsteiner Premium Pilsener ist ein beliebtes Pilsener Bier, das von der Warsteiner Brauerei Haus Cramer in Warstein, Deutschland, gebraut wird. Das Bier hat eine klare goldene Farbe und einen angenehm hopfigen Geschmack. Warsteiner Premium Pilsener wird nach traditionellen Braumethoden und mit sorgfältig ausgewählten Zutaten hergestellt. Es ist ein Qualitätsbier, das für seinen erfrischenden Charakter und seine hohe Bierkultur geschätzt wird."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 9,
+    "fields": {
+      "brewery": 12,
+      "approvalstatus": true,
+      "display_name": "Paulaner Hefeweizen",
+      "name": "Paulaner Hefeweizen",
+      "style": 2,
+      "alcohol_content": "5.5",
+      "original_gravity": "13.0",
+      "recommended_serving_temperature": 6,
+      "is_organic": false,
+      "clarity": "Trüb",
+      "yeast": "Obergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Paulaner Hefeweizen ist ein bekanntes Weißbier, das von der Paulaner Brauerei in München, Deutschland, gebraut wird. Das Bier zeichnet sich durch seine natürliche Trübung und seinen fruchtigen Geschmack aus. Paulaner Hefeweizen wird nach traditionellen Braumethoden und mit hochwertigen Zutaten hergestellt. Es ist ein beliebtes Bier in Bayern und hat auch international viele Anhänger unter den Liebhabern von Weißbier."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 10,
+    "fields": {
+      "brewery": 13,
+      "approvalstatus": true,
+      "display_name": "Franziskaner Hefeweizen",
+      "name": "Franziskaner Hefeweizen",
+      "style": 2,
+      "alcohol_content": "5.0",
+      "original_gravity": "12.8",
+      "recommended_serving_temperature": 6,
+      "is_organic": false,
+      "clarity": "Trüb",
+      "yeast": "Obergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Franziskaner Hefeweizen ist ein traditionelles Weißbier, das von der Franziskaner-Brauerei in München, Deutschland, gebraut wird. Das Bier zeichnet sich durch seine natürliche Trübung und seinen frischen, fruchtigen Geschmack aus. Franziskaner Hefeweizen wird nach traditionellen Braumethoden und mit hochwertigen Zutaten hergestellt. Es ist ein angesehenes Bier in Bayern und hat weltweit viele Liebhaber von Weißbier."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 11,
+    "fields": {
+      "brewery": 14,
+      "approvalstatus": true,
+      "display_name": "Veltins Pilsener",
+      "name": "Veltins Pilsener",
+      "style": 1,
+      "alcohol_content": "4.8",
+      "original_gravity": "11.9",
+      "recommended_serving_temperature": 7,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Untergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Veltins Pilsener ist ein bekanntes Pilsener Bier, das von der C.& A. Veltins GmbH & Co. KG in Meschede-Grevenstein, Deutschland, gebraut wird. Das Bier hat eine klare goldene Farbe und einen erfrischenden Geschmack. Veltins Pilsener wird nach traditionellen Braumethoden und mit sorgfältig ausgewählten Zutaten hergestellt. Es ist ein beliebtes Bier in Deutschland und hat auch international viele Fans gewonnen."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 12,
+    "fields": {
+      "brewery": 15,
+      "approvalstatus": true,
+      "display_name": "Tsingtao",
+      "name": "Tsingtao",
+      "style": 1,
+      "alcohol_content": "4.7",
+      "original_gravity": "11.8",
+      "recommended_serving_temperature": 8,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Untergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Tsingtao ist ein beliebtes chinesisches Bier, das von der Tsingtao-Brauerei in Qingdao, China, gebraut wird. Das Bier hat eine klare goldene Farbe und einen milden, leicht süßlichen Geschmack. Tsingtao wird nach modernen Braumethoden und mit hochwertigen Zutaten hergestellt. Es ist das bekannteste chinesische Bier und wird in vielen Ländern weltweit genossen."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 13,
+    "fields": {
+      "brewery": 16,
+      "approvalstatus": true,
+      "display_name": "Coors Light",
+      "name": "Coors Light",
+      "style": 1,
+      "alcohol_content": "4.2",
+      "original_gravity": "11.0",
+      "recommended_serving_temperature": 5,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Untergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Coors Light ist ein beliebtes amerikanisches Bier, das von der Molson Coors Brewing Company in Denver, Colorado, USA, gebraut wird. Das Bier hat eine klare goldene Farbe und einen erfrischenden Geschmack. Coors Light wird nach modernen Braumethoden und mit hochwertigen Zutaten hergestellt. Es ist ein leichtes Bier mit geringerem Alkoholgehalt und wird gerne als erfrischendes Getränk an warmen Tagen konsumiert."
+    }
+  },
+  {
+    "model": "Rating.Beer",
+    "pk": 14,
+    "fields": {
+      "brewery": 17,
+      "approvalstatus": true,
+      "display_name": "Efes Pilsen",
+      "name": "Efes Pilsen",
+      "style": 1,
+      "alcohol_content": "5.0",
+      "original_gravity": "11.9",
+      "recommended_serving_temperature": 7,
+      "is_organic": false,
+      "clarity": "Klar",
+      "yeast": "Untergärige Hefe",
+      "is_gluten_free": false,
+      "description": "Efes Pilsen ist ein bekanntes türkisches Pilsener Bier, das von der Efes Group in Istanbul, Türkei, gebraut wird. Das Bier hat eine klare goldene Farbe und einen angenehm hopfigen Geschmack. Efes Pilsen wird nach modernen Braumethoden und mit hochwertigen Zutaten hergestellt. Es ist eines der beliebtesten Biere in der Türkei und hat auch internationale Anerkennung erlangt."
+    }
   }
 ]
