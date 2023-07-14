@@ -4,6 +4,21 @@
     <h1>Compare Beers</h1>
     <h2>{{ beer1.display_name }} vs {{ beer2.display_name }}</h2>
 
+
+    <div class="col-md-12 text-center mt-4">
+        <form method="POST" action="{% url 'compare_beers' beer1.id %}">
+            {% csrf_token %}
+            <label for="second_beer" class="form-label">Choose second beer:</label>
+            <select name="second_beer" id="second_beer" class="form-select">
+                {% for other_beer in all_beers %}
+                    <option value="{{ other_beer.id }}">{{ other_beer.display_name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">Compare</button>
+        </form>
+    </div>
+
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -67,6 +82,18 @@
             </tbody>
         </table>
     </div>
+    
+
+    <div class="col-rd-10 d-flex justify-content-center align-items-center"> <!--Spaltenbreite = 4-->
+        <div class="beer-image-container">
+          {% if beer1.thumbnail %}
+              <img src="{{ beer1.thumbnail.url }}" alt="Logo des Bieres" class="beer-image">
+              <img src="{{ beer2.thumbnail.url }}" alt="Logo des Bieres" class="beer-image">
+          {% else %}
+              <img src="/media/beerPictures/default.jpg" alt="Logo des Bieres" class="beer-image">
+          {% endif %}
+        </div>
+      </div>
 
     <h2>Bewertungen</h2>
 
@@ -142,4 +169,6 @@
             </tbody>
         </table>
     </div>
+
+    
 {% endblock %}

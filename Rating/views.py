@@ -162,6 +162,7 @@ def compare_beers(request, beer_id):
         # Retrieve the selected beer IDs
         beer1_id = beer_id
         beer2_id = request.POST.get('second_beer')
+        all_beers = Beer.objects.exclude(id=beer_id)
 
         # Get the beer objects
         beer1 = Beer.objects.get(id=beer1_id)
@@ -198,12 +199,15 @@ def compare_beers(request, beer_id):
         context = {
             'beer1': beer1,
             'beer2': beer2,
+            'all_beers': all_beers,
             'beer1_average_ratings': beer1_average_ratings,
             'beer2_average_ratings': beer2_average_ratings,
             'beer1_overall_rating': beer1_overall_rating,
             'beer2_overall_rating': beer2_overall_rating
         }
         return render(request, 'compare_beers.html', context)
+
+
 
     return redirect('beer_detail', beer_id=beer_id)
 
@@ -239,9 +243,21 @@ def beer_list(request):
 
     beers = beers.order_by('display_name')  # Order beers by display name in ascending order
     #context = {'beers': beers}
+
+    # Check if the user has already rated any beers
+    user = request.user
+    rated_beers = Rating.objects.filter(user=user).values_list('beer_id', flat=True)
     
     
-    return render(request, 'beer_list.html', {'beers': beers, 'styles': styles, 'breweries': breweries,'alcohol_content': alcohol_content})
+    context = {
+        'beers': beers,
+        'styles': styles,
+        'breweries': breweries,
+        'alcohol_content': alcohol_content,
+        'rated_beers': rated_beers
+    }
+    
+    return render(request, 'beer_list.html', context)
 
 
 # Listenansicht für alle Brauereien

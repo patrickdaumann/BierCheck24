@@ -2,6 +2,10 @@
 {% load static %}
 {% block content %}
     <h1>{{ beer.display_name }}</h1>
+
+    
+
+
     <div class="table-responsive">
         <table class="table table-striped">
             <tbody>
@@ -48,6 +52,16 @@
             </tbody>
         </table>
     </div>
+    
+    <div class="col-rd-10 d-flex justify-content-center align-items-center"> <!--Spaltenbreite = 4-->
+        <div class="beer-image-container">
+          {% if beer.thumbnail %}
+              <img src="{{ beer.thumbnail.url }}" alt="Logo des Bieres" class="beer-image">
+          {% else %}
+              <img src="/media/beerPictures/default.jpg" alt="Logo des Bieres" class="beer-image">
+          {% endif %}
+        </div>
+      </div>
 
     <h2>Compare Beers</h2>
     <div class="col-md-12 text-center mt-4">
@@ -62,6 +76,10 @@
             <button type="submit" class="btn btn-primary">Compare</button>
         </form>
     </div>
+
+    
+    
+
 
     {% if average_ratings %}
         <h2>Durchschnittliche Bewertung</h2>
@@ -134,9 +152,11 @@
             <h2>Gesamtbewertung</h2>
             <p><strong>Gesamtbewertung:</strong> {{ overall_rating|floatformat:2 }}</p>
         {% endif %}
+    
 
     {% else %}
         <p>No ratings yet</p>
     {% endif %}
+
 
 {% endblock %}

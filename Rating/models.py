@@ -88,6 +88,12 @@ class Beer(models.Model):
     
     #Zähler für die Anzahl von 'recommendet' in Bewertungen
     recommended_count = models.IntegerField(default=0, blank=True, null=True)
+
+    thumbnail = models.ImageField(
+        upload_to="BeerPictures/",
+        blank=True,
+        null=True
+    )
     
   
     def __str__(self):
