@@ -22,13 +22,13 @@
     {% bootstrap_javascript %}    <!-- inserts the <script> element with the referral to the necessary javascript file-->
     <style>
       .btn-spacing {
-        margin-bottom: 20px; /* Passen Sie den gewünschten Abstand hier an */
+        margin-bottom: 20px; /* Abstand der Buttons*/
       }
     </style>
     
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-warning navbar-light">      <!-- navbar-expand-sm skaliert die navbar honizontal (statt vertikal), bg-warning ist die gelbe Color, und navbar-dark macht den Text dunkel-->
+    <nav class="navbar navbar-expand-sm bg-warning navbar-light">      <!-- navbar-expand-sm skaliert die navbar honizontal (statt vertikal), bg-warning ist die gelbe Farbe, und navbar-dark macht den Text dunkel-->
       <div class="container-fluid justify-content-center">            <!-- justify-concent-center zentriert den container-->
         <a class=""navbar-brand href="{% url 'home' %}">
           <img src="/static/img/Logo.png" alt="HOME" style ="width: 60px;" class="rounded-pill">
@@ -51,12 +51,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link link-dark" href="{% url 'about' %}">About</a>
-          </li>
-          
-      
-          
-          
-          
+          </li>                   
           <li class="nav-item">
             <a class="nav-link link-dark" href="/admin">Admin</a>
           </li>      
@@ -70,32 +65,18 @@
         {% if user.is_authenticated %}
           <li class="nav-item list-unstyled" style="margin-left: 10px;">
             <span class="navbar-text">Logged in as: <br>{{ user.username }}</span>
-          </li>
-                
-
-        
+          </li>        
           <li class="nav-item list-unstyled" style="margin-left: 10px">
           <a class="btn btn-outline-dark" href="{% url 'logout' %}">Logout</a>
           </li>
-        {% endif %}
-
-
-        {% if user.is_authenticated %}
-          
-          
         {% else %}
           <li class="nav-item nav-item list-unstyled">
             <a class="nav-link link-dark" href="{% url 'login' %}">Login</a>
           </li>
           <li class="nav-item nav-item list-unstyled">
             <a class="nav-link link-dark" href="{% url 'register' %}">Register</a>
-          </li>
-          
-
-
+          </li>        
         {% endif %}
-
-
 
       </div>
     </nav>
