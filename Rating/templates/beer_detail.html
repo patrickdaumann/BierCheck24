@@ -88,35 +88,35 @@
                 <tbody>
                     <tr>
                         <th scope="row">Farbe (1-10)</th>
-                        <td>{{ average_ratings.Color__avg }}</td>
+                        <td>{{ average_ratings.Color__avg|floatformat:2 }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Einstieg (1-10)</th>
-                        <td>{{ average_ratings.Entry__avg }}</td>
+                        <td>{{ average_ratings.Entry__avg|floatformat:2 }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Körper (1-10)</th>
-                        <td>{{ average_ratings.body__avg }}</td>
+                        <td>{{ average_ratings.body__avg|floatformat:2 }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Abgang (1-10)</th>
-                        <td>{{ average_ratings.finish__avg }}</td>
+                        <td>{{ average_ratings.finish__avg|floatformat:2 }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Kohlensäure (1-10)</th>
-                        <td>{{ average_ratings.carbonation__avg }}</td>
+                        <td>{{ average_ratings.carbonation__avg|floatformat:2 }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Säure (1-10)</th>
-                        <td>{{ average_ratings.acidity__avg }}</td>
+                        <td>{{ average_ratings.acidity__avg|floatformat:2 }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Bitterkeit (1-10)</th>
-                        <td>{{ average_ratings.bitterness__avg }}</td>
+                        <td>{{ average_ratings.bitterness__avg|floatformat:2 }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Süffigkeit (1-10)</th>
-                        <td>{{ average_ratings.drinkability__avg }}</td>
+                        <td>{{ average_ratings.drinkability__avg|floatformat:2 }}</td>
                     </tr>
                 </tbody>
             </table>

@@ -40,47 +40,7 @@ def home(request):
 def about(request):
     return render(request, template_name='about.html')
 
-# beer_list_ext Seite
-def beer_list_ext(request):
-    beers = Beer.objects.annotate(
-        Color__avg=Avg('rating__Color'),
-        Entry__avg=Avg('rating__Entry'),
-        body__avg=Avg('rating__body'),
-        finish__avg=Avg('rating__finish'),
-        carbonation__avg=Avg('rating__carbonation'),
-        acidity__avg=Avg('rating__acidity'),
-        bitterness__avg=Avg('rating__bitterness'),
-        drinkability__avg=Avg('rating__drinkability'),
-        price__avg=Avg('rating__price')
-    )
-    
-    styles = Beertype.objects.all()
-    breweries = Brewery.objects.all()
 
-    # Get filter parameters from request GET parameters
-    style_filter = request.GET.get('style')
-    alcohol_content = request.GET.get('alcohol_content')
-    brewery_filter = request.GET.get('brewery')
-
-    
-
-    if style_filter:
-        beers = beers.filter(style=style_filter)
-
-    if alcohol_content:
-        if alcohol_content == 'lt4':
-            beers = beers.filter(alcohol_content__lt=4.0)
-        elif alcohol_content == '4-5':
-            beers = beers.filter(alcohol_content__range=(4.0, 5.0))
-        elif alcohol_content == 'gt5':
-            beers = beers.filter(alcohol_content__gt=5.0)
-
-    if brewery_filter:
-        beers = beers.filter(brewery=brewery_filter)
-    
-    
-    context = {'beers': beers, 'styles': styles, 'breweries': breweries,'alcohol_content': alcohol_content}
-    return render(request, 'beer_list_ext.html', context)
 
 # News Seite mit Upvote Funktion der EInträge
 @login_required
@@ -262,6 +222,55 @@ def beer_list(request):
     }
     
     return render(request, 'beer_list.html', context)
+
+
+# beer_list_ext Seite
+def beer_list_ext(request):
+    beers = Beer.objects.annotate(
+        Color__avg=Avg('rating__Color'),
+        Entry__avg=Avg('rating__Entry'),
+        body__avg=Avg('rating__body'),
+        finish__avg=Avg('rating__finish'),
+        carbonation__avg=Avg('rating__carbonation'),
+        acidity__avg=Avg('rating__acidity'),
+        bitterness__avg=Avg('rating__bitterness'),
+        drinkability__avg=Avg('rating__drinkability'),
+        price__avg=Avg('rating__price')
+    )
+    
+    styles = Beertype.objects.all()
+    breweries = Brewery.objects.all()
+
+    # Get filter parameters from request GET parameters
+    style_filter = request.GET.get('style')
+    alcohol_content = request.GET.get('alcohol_content')
+    brewery_filter = request.GET.get('brewery')
+
+    
+
+    if style_filter:
+        beers = beers.filter(style=style_filter)
+
+    if alcohol_content:
+        if alcohol_content == 'lt4':
+            beers = beers.filter(alcohol_content__lt=4.0)
+        elif alcohol_content == '4-5':
+            beers = beers.filter(alcohol_content__range=(4.0, 5.0))
+        elif alcohol_content == 'gt5':
+            beers = beers.filter(alcohol_content__gt=5.0)
+
+    if brewery_filter:
+        beers = beers.filter(brewery=brewery_filter)
+
+    user = request.user
+    rated_beers = None
+    
+    if request.user.is_authenticated:
+        rated_beers = Rating.objects.filter(user=user).values_list('beer_id', flat=True)
+    
+    
+    context = {'beers': beers, 'styles': styles, 'breweries': breweries,'alcohol_content': alcohol_content, 'rated_beers': rated_beers}
+    return render(request, 'beer_list_ext.html', context)
 
 
 # Listenansicht für alle Brauereien
