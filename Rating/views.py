@@ -244,9 +244,13 @@ def beer_list(request):
     beers = beers.order_by('display_name')  # Order beers by display name in ascending order
     #context = {'beers': beers}
 
-    # Check if the user has already rated any beers
+    # Check if the loged in user has already rated any beers
+    
     user = request.user
-    rated_beers = Rating.objects.filter(user=user).values_list('beer_id', flat=True)
+    rated_beers = None
+    
+    if request.user.is_authenticated:
+        rated_beers = Rating.objects.filter(user=user).values_list('beer_id', flat=True)
     
     
     context = {
