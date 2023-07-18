@@ -5,28 +5,39 @@
   <h1 class="my-4">Neuigkeiten</h1>
 
   <!-- News-Formular -->
-  <form id="postEntryForm">
-      {% csrf_token %}
-      <div class="mb-3">
-          <label for="title" class="form-label">Titel</label>
-          <input type="text" class="form-control" id="title" placeholder="Geben Sie einen Titel ein" required>
-      </div>
-      <div class="mb-3">
-          <label for="content" class="form-label">Inhalt</label>
-          <textarea class="form-control" id="content" rows="4" placeholder="Geben Sie den Inhalt ein" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-secondary">Posten</button>
-  </form>
+    {% if user.is_authenticated %} 
+        <form id="postEntryForm">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Titel</label>
+                <input type="text" class="form-control" id="title" placeholder="Geben Sie einen Titel ein" required>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Inhalt</label>
+                <textarea class="form-control" id="content" rows="4" placeholder="Geben Sie den Inhalt ein" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary">Posten</button>
+        </form>
+    {% endif %}
 
   <!-- News-Einträge -->
   <div id="newsContainer" class="my-4">
       <h2>Aktuelle Einträge</h2>
+      {% if user.is_authenticated %}                                      
+      {% else %}
+        <p>Um Einträge upzuvoten, musst du <a href="{% url 'login' %}">angemeldet</a> sein.</p>
+      {% endif %}
       {% for entry in entries %}
       <div class="card mb-3">
           <div class="card-body">
               <h5 class="card-title">{{ entry.title }}</h5>
               <p class="card-text">{{ entry.content }}</p>
-              <button id="upvoteButton_{{ entry.id }}" class="btn btn-outline-success" onclick="upvoteEntry({{ entry.id }})"><i class="bi bi-hand-thumbs-up"></i> <span id="upvoteCount_{{ entry.id }}">{{ entry.upvotes }}</span></button>
+              <div>
+                <button id="upvoteButton_{{ entry.id }}" class="btn btn-outline-success" onclick="upvoteEntry({{ entry.id }})">
+                    <i class="bi bi-hand-thumbs-up"></i> <span id="upvoteCount_{{ entry.id }}">{{ entry.upvotes }}</span>
+                </button>
+                
+            </div>
           </div>
       </div>
       {% endfor %}
