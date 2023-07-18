@@ -54,21 +54,19 @@
         </form>
 
         
-        {% if user.is_authenticated %}
-          <li class="nav-item list-unstyled" style="margin-left: 10px;">
-            <span class="navbar-text">Logged in as: <br>{{ user.username }}</span>
-          </li>        
-          <li class="nav-item list-unstyled" style="margin-left: 10px">
-          <a class="btn btn-outline-dark" href="{% url 'logout' %}">Logout</a>
-          </li>
-        {% else %}
-          <li class="nav-item nav-item list-unstyled">
-            <a class="nav-link link-dark" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item nav-item list-unstyled">
-            <a class="nav-link link-dark" href="{% url 'register' %}">Register</a>
-          </li>        
-        {% endif %}
+        <div class="d-flex align-items-center"> <!-- Neue Div um den Login-Button zu gruppieren -->
+          {% if user.is_authenticated %}
+            <li class="nav-item list-unstyled" style="margin-left: 10px;">
+              <span class="navbar-text">Logged in as: <br>{{ user.username }}</span>
+            </li>        
+            <li class="nav-item list-unstyled" style="margin-left: 10px">
+              <a class="btn btn-outline-dark" href="{% url 'logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <!-- Hier wird der Login-Button mit einer schwarzen Linienumrandung erstellt -->
+            <a class="btn btn-outline-dark mx-2" href="{% url 'login' %}">Login</a>
+          {% endif %}
+        </div>
 
       </div>
     </nav>
