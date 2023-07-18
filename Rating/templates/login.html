@@ -21,7 +21,8 @@
                 {% endif %}
                 <div class="invalid-feedback">Bitte geben Sie Ihren Anmeldenamen ein.</div>
               </div>
-              <div class="mb-3">
+              <!-- Temporär auskommentiert weil die static icons Option nicht funktioniert hat!-->
+              <!-- <div class="mb-3">
                 <label for="id_password" class="form-label">Passwort:</label>
                 <div class="input-group">
                   <input type="password" name="password" required id="id_password" class="form-control">
@@ -41,7 +42,26 @@
                   </div>
                 {% endif %}
                 <div class="invalid-feedback">Bitte geben Sie Ihr Passwort ein.</div>
-              </div>
+              </div> -->
+              <div class="mb-3">
+                <label for="id_password" class="form-label">Passwort:</label>
+                <div class="input-group">
+                  <input type="password" name="password" required id="id_password" class="form-control">
+                  <div class="input-group-append">
+                    <button type="button" id="toggle_password" class="btn btn-outline-secondary">
+                      <i class="fas fa-eye-slash"></i> <!-- Font Awesome Eye-Slash Icon -->
+                    </button>
+                  </div>
+                </div>
+                {% if form.password.errors %}
+                  <div class="alert alert-danger">
+                    {% for error in form.password.errors %}
+                      {{ error }}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <div class="invalid-feedback">Bitte geben Sie Ihr Passwort ein.</div>
+              </div>              
               <button type="submit" class="btn btn-primary">Login</button>
             </form>
             {% if messages %}
@@ -60,8 +80,8 @@
       </div>
     </div>
   </div>
-
-  <script>
+  <!-- Temporär auskommentiert weil die static icons Option nicht funktioniert hat!-->
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
       const togglePasswordButton = document.getElementById('toggle_password');
       const passwordInput = document.getElementById('id_password');
@@ -84,5 +104,25 @@
         }
       });
     });
-  </script>
+  </script> -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const togglePasswordButton = document.getElementById('toggle_password');
+      const passwordInput = document.getElementById('id_password');
+  
+      togglePasswordButton.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          this.innerHTML = `
+            <i class="fas fa-eye"></i>
+          `;
+        } else {
+          passwordInput.type = 'password';
+          this.innerHTML = `
+            <i class="fas fa-eye-slash"></i>
+          `;
+        }
+      });
+    });
+  </script>  
 {% endblock %}
