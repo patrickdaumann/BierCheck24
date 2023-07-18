@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>{% block title %}Biercheck24.de{% endblock %}</title>
     {% load bootstrap5 %}         <!--Bootstrap5 wird geladen-->
-    {% bootstrap_css %}           <!-- insertes link element to bootstrap stylesheet-->
-    {% bootstrap_javascript %}    <!-- inserts the <script> element with the referral to the necessary javascript file-->
+    <!-- {% bootstrap_css %} -->            <!-- Dieser Eintrag fügt ein CDN Link zum Bootstrap Stylesheet inklusive Integrity ein-->
+    <!-- {% bootstrap_javascript %} -->    <!-- Dieser Eintrag für ein CDN Link zum Bootstrap JavaScript File inklusive Integrity ein-->
     <style>
       .btn-spacing {
         margin-bottom: 20px; /* Abstand der Buttons*/
