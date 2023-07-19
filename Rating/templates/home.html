@@ -16,7 +16,7 @@
         <div class="col-md-4">
             <div class="card mb-4 animate__animated animate__fadeInUp">
                 <a href="{% url 'beer_detail' beer_id=1 %}">
-                    <img src="/media/BeerPictures/1.jpg" class="card-img-top" alt="Beer 1">
+                    <img src={{beer_of_month.thumbnail.url}} class="card-img-top" alt="Beer 1">
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Bier des Monats</h5>
@@ -28,7 +28,7 @@
         <div class="col-md-4">
             <div class="card mb-4 animate__animated animate__fadeInUp">
                 <a href="{% url 'beer_detail' beer_id=14 %}">
-                    <img src="/media/BeerPictures/14.jpg" class="card-img-top" alt="Beer 2">
+                    <img src={{new_arrival.thumbnail.url}} class="card-img-top" alt="Beer 2">
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Neu gezapft</h5>
@@ -40,7 +40,7 @@
         <div class="col-md-4">
             <div class="card mb-4 animate__animated animate__fadeInUp">
                 <a href="{% url 'beer_detail' beer_id=14 %}">
-                    <img src="/media/BeerPictures/14.jpg" class="card-img-top" alt="Beer 3">
+                    <img src={{best_rated_ever.thumbnail.url}} class="card-img-top" alt="Beer 3">
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Best bewertetes</h5>
