@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card mb-4 animate__animated animate__fadeInUp">
-                <a href="{% url 'beer_detail' beer_id=1 %}">
+                <a href="{% url 'beer_detail' beer_id=beer_of_month.id %}">
                    
                     {% if beer_of_month.thumbnail %}
                         <img src="{{ beer_of_month.thumbnail.url }}" class="card-img-top" alt="Beer 1">
@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-4">
             <div class="card mb-4 animate__animated animate__fadeInUp">
-                <a href="{% url 'beer_detail' beer_id=14 %}">
+                <a href="{% url 'beer_detail' beer_id=new_arrival.id %}">
                     {% if new_arrival.thumbnail %}
                         <img src="{{ new_arrival.thumbnail.url }}" class="card-img-top" alt="Beer 1">
                     {% else %}
@@ -48,7 +48,7 @@
         </div>
         <div class="col-md-4">
             <div class="card mb-4 animate__animated animate__fadeInUp">
-                <a href="{% url 'beer_detail' beer_id=14 %}">
+                <a href="{% url 'beer_detail' beer_id=best_rated_ever.id %}">
                     {% if best_rated_ever.thumbnail %}
                         <img src="{{ best_rated_ever.thumbnail.url }}" class="card-img-top" alt="Beer 1">
                     {% else %}
