@@ -16,7 +16,12 @@
         <div class="col-md-4">
             <div class="card mb-4 animate__animated animate__fadeInUp">
                 <a href="{% url 'beer_detail' beer_id=1 %}">
-                    <img src={{beer_of_month.thumbnail.url}} class="card-img-top" alt="Beer 1">
+                   
+                    {% if beer_of_month.thumbnail %}
+                        <img src="{{ beer_of_month.thumbnail.url }}" class="card-img-top" alt="Beer 1">
+                    {% else %}
+                        <img src="/media/BeerPictures/default.jpg" class="card-img-top" alt="Beer 1">>
+                    {% endif %}
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Bier des Monats</h5>
@@ -28,7 +33,11 @@
         <div class="col-md-4">
             <div class="card mb-4 animate__animated animate__fadeInUp">
                 <a href="{% url 'beer_detail' beer_id=14 %}">
-                    <img src={{new_arrival.thumbnail.url}} class="card-img-top" alt="Beer 2">
+                    {% if new_arrival.thumbnail %}
+                        <img src="{{ new_arrival.thumbnail.url }}" class="card-img-top" alt="Beer 1">
+                    {% else %}
+                        <img src="/media/BeerPictures/default.jpg" class="card-img-top" alt="Beer 1">>
+                    {% endif %}
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Neu gezapft</h5>
@@ -40,7 +49,11 @@
         <div class="col-md-4">
             <div class="card mb-4 animate__animated animate__fadeInUp">
                 <a href="{% url 'beer_detail' beer_id=14 %}">
-                    <img src={{best_rated_ever.thumbnail.url}} class="card-img-top" alt="Beer 3">
+                    {% if best_rated_ever.thumbnail %}
+                        <img src="{{ best_rated_ever.thumbnail.url }}" class="card-img-top" alt="Beer 1">
+                    {% else %}
+                        <img src="/media/BeerPictures/default.jpg" class="card-img-top" alt="Beer 1">>
+                    {% endif %}
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Best bewertetes</h5>
