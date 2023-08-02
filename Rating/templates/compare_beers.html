@@ -18,7 +18,8 @@
         </form>
     </div>
 
-
+    <h2>Details</h2>
+    
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -109,43 +110,43 @@
             <tbody>
                 <tr>
                     <td>Color (1-10)</td>
-                    <td>{{ beer1_average_ratings.Color__avg }}</td>
-                    <td>{{ beer2_average_ratings.Color__avg }}</td>
+                    <td>{{ beer1_average_ratings.Color__avg|floatformat:2}}</td>
+                    <td>{{ beer2_average_ratings.Color__avg|floatformat:2 }}</td>
                 </tr>
                 <tr>
                     <td>Entry (1-10)</td>
-                    <td>{{ beer1_average_ratings.Entry__avg }}</td>
-                    <td>{{ beer2_average_ratings.Entry__avg }}</td>
+                    <td>{{ beer1_average_ratings.Entry__avg|floatformat:2 }}</td>
+                    <td>{{ beer2_average_ratings.Entry__avg|floatformat:2 }}</td>
                 </tr>
                 <tr>
                     <td>Body (1-10)</td>
-                    <td>{{ beer1_average_ratings.body__avg }}</td>
-                    <td>{{ beer2_average_ratings.body__avg }}</td>
+                    <td>{{ beer1_average_ratings.body__avg|floatformat:2 }}</td>
+                    <td>{{ beer2_average_ratings.body__avg|floatformat:2 }}</td>
                 </tr>
                 <tr>
                     <td>Finish (1-10)</td>
-                    <td>{{ beer1_average_ratings.finish__avg }}</td>
-                    <td>{{ beer2_average_ratings.finish__avg }}</td>
+                    <td>{{ beer1_average_ratings.finish__avg|floatformat:2 }}</td>
+                    <td>{{ beer2_average_ratings.finish__avg|floatformat:2 }}</td>
                 </tr>
                 <tr>
                     <td>Carbonation (1-10)</td>
-                    <td>{{ beer1_average_ratings.carbonation__avg }}</td>
-                    <td>{{ beer2_average_ratings.carbonation__avg }}</td>
+                    <td>{{ beer1_average_ratings.carbonation__avg|floatformat:2 }}</td>
+                    <td>{{ beer2_average_ratings.carbonation__avg|floatformat:2 }}</td>
                 </tr>
                 <tr>
                     <td>Acidity (1-10)</td>
-                    <td>{{ beer1_average_ratings.acidity__avg }}</td>
-                    <td>{{ beer2_average_ratings.acidity__avg }}</td>
+                    <td>{{ beer1_average_ratings.acidity__avg|floatformat:2 }}</td>
+                    <td>{{ beer2_average_ratings.acidity__avg|floatformat:2 }}</td>
                 </tr>
                 <tr>
                     <td>Bitterness (1-10)</td>
-                    <td>{{ beer1_average_ratings.bitterness__avg }}</td>
-                    <td>{{ beer2_average_ratings.bitterness__avg }}</td>
+                    <td>{{ beer1_average_ratings.bitterness__avg|floatformat:2 }}</td>
+                    <td>{{ beer2_average_ratings.bitterness__avg|floatformat:2 }}</td>
                 </tr>
                 <tr>
                     <td>Drinkability (1-10)</td>
-                    <td>{{ beer1_average_ratings.drinkability__avg }}</td>
-                    <td>{{ beer2_average_ratings.drinkability__avg }}</td>
+                    <td>{{ beer1_average_ratings.drinkability__avg|floatformat:2 }}</td>
+                    <td>{{ beer2_average_ratings.drinkability__avg|floatformat:2 }}</td>
                 </tr>
                 {% if beer1_average_ratings.price__avg == 1 %}
                     <tr>
@@ -165,10 +166,70 @@
                         <td>€€€</td>
                         <td>€€€</td>
                     </tr>
+
+                    
+
+                    
+                    
                 {% endif %}
+
+                
             </tbody>
         </table>
     </div>
 
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Weitere Daten</th>
+                    <th>{{ beer1.display_name }}</th>
+                    <th>{{ beer2.display_name }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Gesamtbewertung</strong></td>
+                    <td><strong>{{ beer1_overall_rating|floatformat:2}}</strong></td>
+                    <td><strong>{{ beer2_overall_rating|floatformat:2 }}</strong></td>
+                </tr>
+                <tr>
+                    <td>Anzahl von Bewertungen</td>
+                    <td>{{ beer1_ratings_count }}</td>
+                    <td>{{ beer2_ratings_count}}</td>
+                </tr>
+                <tr>
+                    <td>Anzahl von Empfehlungen</td>
+                    <td>{{ beer1_recommended_count }} </td>
+                    <td>{{ beer2_recommended_count }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Score:</strong></td>
+                    <td> <strong>{{ beer1_recommended_percentage|floatformat:2 }} /100</strong> </td>
+                    <td><strong>{{ beer2_recommended_percentage|floatformat:2 }} /100</strong></td>
+                </tr>
+                <tr>
+                    <td>Preis:</td>
+                    {% if beer1_average_ratings.price__avg <= 1 %}
+                    <td> €</td>
+                    {% elif beer1_average_ratings.price__avg <= 2 %}
+                    <td> €€</td>
+                    {% elif beer1_average_ratings.price__avg <= 3 %}
+                    <td> €€€</td>
+                    {% endif %}  
+                    
+                    {% if beer2_average_ratings.price__avg <= 1 %}
+                    <td> €</td>
+                    {% elif beer2_average_ratings.price__avg <= 2 %}
+                    <td> €€</td>
+                    {% elif beer2_average_ratings.price__avg <= 3 %}
+                    <td> €€€</td>
+                    {% endif %}
+                
+                </tr>  
+
+            </tbody>
+        </table>
+    </div>
     
 {% endblock %}

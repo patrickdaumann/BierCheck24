@@ -118,15 +118,16 @@
                         <th scope="row">Süffigkeit (1-10)</th>
                         <td>{{ average_ratings.drinkability__avg|floatformat:2 }}</td>
                     </tr>
+                    
                 </tbody>
             </table>
         </div>
 
-        {% if average_ratings.price__avg == 1 %}
+        {% if average_ratings.price__avg <= 1 %}
             <p><strong>Price:</strong> €</p>
-        {% elif average_ratings.price__avg == 2 %}
+        {% elif average_ratings.price__avg <= 2 %}
             <p><strong>Price:</strong> €€</p>
-        {% elif average_ratings.price__avg == 3 %}
+        {% elif average_ratings.price__avg <= 3 %}
             <p><strong>Price:</strong> €€€</p>
         {% endif %}
 

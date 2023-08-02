@@ -144,22 +144,51 @@ def compare_beers(request, beer_id):
             Avg('bitterness'), Avg('drinkability'), Avg('price')
         )
 
+        beer1.recommended_count = Rating.objects.filter(beer=beer1, recommended=True).count()
+        beer1.ratings_count = Rating.objects.filter(beer=beer1).count()
+
+        if beer1.ratings_count > 0:
+             beer1.recommended_percentage = (beer1.recommended_count / beer1.ratings_count) * 100
+        else:
+            beer1.recommended_percentage = 0
+
+        beer2.recommended_count = Rating.objects.filter(beer=beer2, recommended=True).count()
+        beer2.ratings_count = Rating.objects.filter(beer=beer2).count()
+
+        if beer2.ratings_count > 0:
+             beer2.recommended_percentage = (beer2.recommended_count / beer2.ratings_count) * 100
+        else:
+            beer2.recommended_percentage = 0
+
         beer1_overall_rating = (
-        (beer1_average_ratings['Color__avg'] or 0) + (beer1_average_ratings['Entry__avg'] or 0) + (beer1_average_ratings['body__avg'] or 0)
-         + (beer1_average_ratings['finish__avg'] or 0) + (beer1_average_ratings['carbonation__avg'] or 0) + (beer1_average_ratings['acidity__avg'] or 0)
-         + (beer1_average_ratings['bitterness__avg'] or 0) + (beer1_average_ratings['drinkability__avg'] or 0) / 8
-        )
+        (beer1_average_ratings['Color__avg'] or 0) + (beer1_average_ratings['Entry__avg'] or 0) +
+        (beer1_average_ratings['body__avg'] or 0) + (beer1_average_ratings['finish__avg'] or 0) +
+        (beer1_average_ratings['carbonation__avg'] or 0) + (beer1_average_ratings['acidity__avg'] or 0) +
+        (beer1_average_ratings['bitterness__avg'] or 0) + (beer1_average_ratings['drinkability__avg'] or 0)
+        ) / 8
 
         beer2_overall_rating = (
-        (beer2_average_ratings['Color__avg'] or 0) + (beer2_average_ratings['Entry__avg'] or 0) + (beer2_average_ratings['body__avg'] or 0)
-         + (beer2_average_ratings['finish__avg'] or 0) + (beer2_average_ratings['carbonation__avg'] or 0) + (beer2_average_ratings['acidity__avg'] or 0)
-         + (beer2_average_ratings['bitterness__avg'] or 0) + (beer2_average_ratings['drinkability__avg'] or 0) / 8
-        )
+        (beer2_average_ratings['Color__avg'] or 0) + (beer2_average_ratings['Entry__avg'] or 0) +
+        (beer2_average_ratings['body__avg'] or 0) + (beer2_average_ratings['finish__avg'] or 0) +
+        (beer2_average_ratings['carbonation__avg'] or 0) + (beer2_average_ratings['acidity__avg'] or 0) +
+        (beer2_average_ratings['bitterness__avg'] or 0) + (beer2_average_ratings['drinkability__avg'] or 0)
+        ) / 8
 
+
+        
+                
+        
+    
         context = {
             'beer1': beer1,
             'beer2': beer2,
             'all_beers': all_beers,
+            'beer1_recommended_count': beer1.recommended_count,
+            'beer1_ratings_count': beer1.ratings_count,
+            'beer1_recommended_percentage': beer1.recommended_percentage,
+            'beer2_recommended_count': beer2.recommended_count,
+            'beer2_ratings_count': beer2.ratings_count,
+            'beer2_recommended_percentage': beer2.recommended_percentage,
             'beer1_average_ratings': beer1_average_ratings,
             'beer2_average_ratings': beer2_average_ratings,
             'beer1_overall_rating': beer1_overall_rating,
